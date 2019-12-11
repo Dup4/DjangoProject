@@ -1,5 +1,9 @@
 from django.shortcuts import render
 
 
-def hello(request):
-    return render(request, 'hello.html')
+def login(request):
+    return render(request, 'background/login.html')
+
+
+def index(request):
+    return render(request, 'background/index.html')
