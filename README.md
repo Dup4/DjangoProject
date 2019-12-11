@@ -1,7 +1,7 @@
 # DjangoProject
 
 ```shell script
-G27组
+G26组
 
 pip freeze > plist.txt # 导出本地pip包
 pip install -r plist.txt # 导入pip包
