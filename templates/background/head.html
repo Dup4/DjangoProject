@@ -1,3 +1,4 @@
+{% load static %}
 <meta charset="UTF-8">
 <title>杭师大管理系统</title>
 <meta name="renderer" content="webkit|ie-comp|ie-stand">
@@ -6,7 +7,9 @@
       content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
 <meta content="no-siteapp" http-equiv="Cache-Control"/>
 {#    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />#}
-<link rel="stylesheet" href="/static/css/font.css">
-{#<link rel="stylesheet" href="{% static "" %}"#}
-<link rel="stylesheet" href="/static/css/weadmin.css">
-<script src="/static/lib/layui/layui.js" charset="utf-8"></script>
+{#<link rel="stylesheet" href="/static/css/font.css">#}
+<link rel="stylesheet" href="{% static 'css/font.css' %}" >
+{#<link rel="stylesheet" href="/static/css/weadmin.css">#}
+<link rel="stylesheet" href="{% static 'css/weadmin.css' %}">
+{#<script src="/static/lib/layui/layui.js" charset="utf-8"></script>#}
+<script src="{% static 'lib/layui/layui.js' %}" charset="utf-8"></script>
