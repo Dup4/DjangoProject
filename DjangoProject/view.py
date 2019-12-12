@@ -7,3 +7,5 @@ def login(request):
 
 def index(request):
     return render(request, 'background/index.html')
+
+
