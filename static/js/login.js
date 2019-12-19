@@ -11,7 +11,7 @@ layui.use(['form', 'admin'], function () {
     form.on('submit(login)', function (data) {
         // alert(888)
         layer.msg(JSON.stringify(data.field), function () {
-            location.href = './index.html'
+            location.href = '/index'
         });
         return false;
     });

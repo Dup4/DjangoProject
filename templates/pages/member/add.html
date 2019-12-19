@@ -88,7 +88,6 @@
         </div>
     </form>
 </div>
-{#<script src="../../lib/layui/layui.js" charset="utf-8"></script>#}
 <script src="{% static 'lib/layui/layui.js' %}" charset="utf-8"></script>
 <script>
     layui.extend({
@@ -160,8 +159,8 @@
                     '<td class="td-status"><span class="layui-btn layui-btn-normal layui-btn-xs">已启用</span></td>' +
                     '<td class="td-manage">' +
                     '<a onclick="member_stop(this,\'10001\')" href="javascript:;" title="启用"><i class="layui-icon">&#xe601;</i></a>' +
-                    '<a title="编辑" onclick="WeAdminShow(\'编辑\',\'./edit.html\',600,400)" href="javascript:;"><i class="layui-icon">&#xe642;</i></a>' +
-                    '<a onclick="WeAdminShow(\'修改密码\',\'./password.html\',600,400)" title="修改密码" href="javascript:;"><i class="layui-icon">&#xe631;</i></a>' +
+                    '<a title="编辑" onclick="WeAdminShow(\'编辑\',\'/member/edit\',600,400)" href="javascript:;"><i class="layui-icon">&#xe642;</i></a>' +
+                    '<a onclick="WeAdminShow(\'修改密码\',\'/member/password\',600,400)" title="修改密码" href="javascript:;"><i class="layui-icon">&#xe631;</i></a>' +
                     '<a title="删除" onclick="member_del(this,\'要删除的id\')" href="javascript:;"><i class="layui-icon">&#xe640;</i></a>' +
                     '</td>' +
                     '</tr>'

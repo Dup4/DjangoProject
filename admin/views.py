@@ -22,3 +22,8 @@ def cate(request):
 @xframe_options_sameorigin
 def rule(request):
     return render(request, 'pages/admin/rule.html')
+
+
+@xframe_options_sameorigin
+def add(request):
+    return render(request, 'pages/admin/add.html')

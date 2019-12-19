@@ -17,3 +17,18 @@ def del_member(request):
 @xframe_options_sameorigin
 def add_input(request):
     return render(request, 'pages/member/addInput.html')
+
+
+@xframe_options_sameorigin
+def add(request):
+    return render(request, 'pages/member/add.html')
+
+
+@xframe_options_sameorigin
+def edit(request):
+    return render(request, 'pages/member/edit.html')
+
+
+@xframe_options_sameorigin
+def password(request):
+    return render(request, 'pages/member/password.html')
