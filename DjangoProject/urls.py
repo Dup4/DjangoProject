@@ -17,7 +17,7 @@ urlpatterns = [
     path('article/', include('article.urls')),
 
     # admin url
-    # path('admin/', include('admin.urls')),
+    path('admin/', include('admin.urls')),
 
     # /echarts url
     path('echarts/', include('echarts.urls')),
