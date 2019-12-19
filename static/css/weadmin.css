@@ -1,5 +1,5 @@
 @charset "utf-8";
-@import "/static/background/lib/layui/css/layui.css";
+@import "../../lib/layui/css/layui.css";
 * {
   margin: 0px;
   padding: 0px;
@@ -375,7 +375,7 @@ body {
 .x-slide_left {
   width: 17px;
   height: 61px;
-  background: url(../background/images/icon.png) 0 0 no-repeat;
+  background: url(../images/icon.png) 0 0 no-repeat;
   position: absolute;
   top: 200px;
   left: 221px;
@@ -620,3 +620,4 @@ table td {
 .weadmin-notice .layui-carousel-ind ul li.layui-this {
   background-color: #999;
 }
+/*# sourceMappingURL=weadmin.css.map */
