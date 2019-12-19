@@ -12,10 +12,13 @@ urlpatterns = [
     path('welcome/', view.welcome),
     # member url
     path('member/', include('member.urls')),
+
     # article url
-    # path('article/', include('article.urls')),
+    path('article/', include('article.urls')),
+
     # admin url
     # path('admin/', include('admin.urls')),
+
     # /echarts url
     path('echarts/', include('echarts.urls')),
 
