@@ -8,6 +8,10 @@ pip install -r plist.txt # 导入pip包
 
 # 运行Django
 python manage.py runserver 0.0.0.0:80
+# 创建表结构
+python manage.py migrate
+python manage.py makemigrations
+
 
 # template 配置修改
 # settings.py 文件中将 

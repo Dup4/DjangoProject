@@ -16,17 +16,6 @@
 				"name": "人员删除",
 				"icon": "",
 				"url": "/member/del"
-			}, {
-				"id": 4,
-				"name": "人员管理",
-				"icon": "&#xe70b;",
-				"url": "",
-				"children": [{
-					"id": 5,
-					"name": "输入框操作",
-					"icon": "",
-					"url": "/member/addInput"
-				}]
 			}]
 		},
 		{
