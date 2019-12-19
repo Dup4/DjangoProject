@@ -8,6 +8,7 @@ from . import view
 urlpatterns = [
     url('login', view.login),
     url('index', view.index),
+    url('welcome', view.welcome),
     url(r'^static/(?P<path>.*)$', static.serve,
         {'document_root': settings.STATIC_ROOT}, name='static'),
 ]
