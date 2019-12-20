@@ -23,8 +23,6 @@ layui.use(['table', 'jquery','form', 'admin'], function() {
 			}, {
 				field: 'category',title: '分类',sort: true
 			}, {
-				field: 'sort',title: '排序',sort: true
-			}, {
 				field: 'recommend',title: '推荐',templet: '#recommendTpl',unresize: true
 			}, {
 				field: 'top',title: '置顶',templet: '#topTpl',unresize: true
@@ -39,7 +37,6 @@ layui.use(['table', 'jquery','form', 'admin'], function() {
 			"title": "WeAdmin的第一个版本在不断地抽空完善学习中",
 			"date": "2018-02-03",
 			"category": "官方动态",
-			"sort": "1",
 			"recommend": "checked",
 			"top": "checked"
 		}, {
@@ -47,7 +44,6 @@ layui.use(['table', 'jquery','form', 'admin'], function() {
 			"title": "WeAdmin的测试数据一二三四五六七",
 			"date": "2018-02-03",
 			"category": "新闻资讯",
-			"sort": "1",
 			"recommend": "",
 			"top": "checked"
 		}],
