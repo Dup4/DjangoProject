@@ -19,9 +19,9 @@ class Article(models.Model):
     # 是否发布
     is_publish = models.BooleanField()
     # 创建时间
-    create_time = models.DateField()
+    create_time = models.DateField(auto_now_add=True)
     # 更新时间
-    update_time = models.DateField()
+    update_time = models.DateField(auto_now=True)
     # 是否删除 软删除
     status = models.BooleanField()
 
@@ -34,8 +34,8 @@ class Classify(models.Model):
     # 介绍 varchar(255)
     describe = models.CharField(max_length=255)
     # 创建时间
-    create_time = models.DateField()
+    create_time = models.DateField(auto_now_add=True)
     # 更新时间
-    update_time = models.DateField()
+    update_time = models.DateField(auto_now=True)
     # 是否删除 软删除
     status = models.BooleanField()

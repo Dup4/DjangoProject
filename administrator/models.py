@@ -29,10 +29,10 @@ class User(models.Model):
     superior = models.IntegerField()
     # 是否启用
     is_use = models.BooleanField()
-    # 管理员创建时间
-    create_time = models.DateField()
-    # 管理员更新时间
-    update_time = models.DateField()
+    # 创建时间
+    create_time = models.DateField(auto_now_add=True)
+    # 更新时间
+    update_time = models.DateField(auto_now=True)
     # 是否删除 软删除
     status = models.BooleanField()
 
@@ -43,8 +43,8 @@ class Role(models.Model):
     # 权限介绍 varchar(255)
     describe = models.CharField(max_length=255)
     # 创建时间
-    create_time = models.DateField()
+    create_time = models.DateField(auto_now_add=True)
     # 更新时间
-    # update_time = models.DateField()
+    update_time = models.DateField(auto_now=True)
     # 是否删除 软删除
     status = models.BooleanField()

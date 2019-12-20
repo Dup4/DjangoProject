@@ -23,8 +23,8 @@ class User(models.Model):
     # 是否启用
     is_use = models.BooleanField()
     # 用户创建时间
-    create_time = models.DateField()
+    create_time = models.DateField(auto_now_add=True)
     # 用户更新时间
-    update_time = models.DateField()
+    update_time = models.DateField(auto_now=True)
     # 是否删除 软删除
     status = models.BooleanField()

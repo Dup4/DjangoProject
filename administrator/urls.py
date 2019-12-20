@@ -12,4 +12,6 @@ urlpatterns = [
     path('rule/', views.rule),
     # admin的添加管理员
     path('add/', views.add),
+    # 用户登录
+    path('login/', views.user_login)
 ]
