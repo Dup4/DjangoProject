@@ -11,6 +11,8 @@ python manage.py runserver 0.0.0.0:80
 # 创建表结构
 python manage.py migrate
 python manage.py makemigrations
+# 重新生成表
+python manage.py sqlmigrate administrator 0001
 
 
 # template 配置修改

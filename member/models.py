@@ -20,11 +20,9 @@ class User(models.Model):
     email = models.CharField(max_length=255)
     # 用户地址 varchar(255)
     address = models.CharField(max_length=255)
-    # 是否启用
-    is_use = models.BooleanField()
     # 用户创建时间
     create_time = models.DateField(auto_now_add=True)
     # 用户更新时间
     update_time = models.DateField(auto_now=True)
     # 是否删除 软删除
-    status = models.BooleanField()
+    status = models.BooleanField(default=1)

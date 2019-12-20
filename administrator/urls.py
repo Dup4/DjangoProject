@@ -13,5 +13,10 @@ urlpatterns = [
     # admin的添加管理员
     path('add/', views.add),
     # 用户登录
-    path('login/', views.user_login)
+    path('login/', views.user_login),
+    # admin修改界面
+    path('edit/', views.edit),
+
+    # 新增adminAPI
+    path('addUser/', views.add_user),
 ]

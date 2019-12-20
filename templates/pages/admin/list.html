@@ -47,7 +47,8 @@
     </div>
     <div class="weadmin-block">
         <button class="layui-btn layui-btn-danger" onclick="delAll()"><i class="layui-icon"></i>批量删除</button>
-        <button class="layui-btn" onclick="WeAdminShow('添加用户','/admin/add')"><i class="layui-icon"></i>添加</button>
+        <button class="layui-btn" onclick="WeAdminShow('添加用户','/admin/add',600,400)"><i class="layui-icon"></i>添加
+        </button>
         <span class="fr" style="line-height:40px">共有数据：88 条</span>
     </div>
     <table class="layui-table">
@@ -66,49 +67,39 @@
             <th>操作</th>
         </thead>
         <tbody>
-        <tr>
-            <td>
-                <div class="layui-unselect layui-form-checkbox" lay-skin="primary" data-id='2'><i class="layui-icon">&#xe605;</i>
-                </div>
-            </td>
-            <td>1</td>
-            <td>admin</td>
-            <td>18925139194</td>
-            <td>113664000@qq.com</td>
-            <td>超级管理员</td>
-            <td>2017-01-01 11:11:42</td>
-            <td class="td-manage">
-                <a title="编辑" onclick="WeAdminShow('编辑','/admin/edit')" href="javascript:;">
-                    <i class="layui-icon">&#xe642;</i>
-                </a>
-                <a title="删除" onclick="member_del(this,'要删除的id')" href="javascript:;">
-                    <i class="layui-icon">&#xe640;</i>
-                </a>
-            </td>
-{#            <td>#}
-{#                <div class="layui-unselect layui-form-checkbox" lay-skin="primary" data-id='2'><i class="layui-icon">&#xe605;</i>#}
-{#                </div>#}
-{#            </td>#}
-{#            <td>{{ user.id }}</td>#}
-{#            <td>{{ user.username }}</td>#}
-{#            <td>{{ user.tel }}</td>#}
-{#            <td>{{ user.tel }}</td>#}
-{#            <td>超级管理员</td>#}
-{#            <td>{{ user.create_time }}</td>#}
-{#            <td class="td-status">#}
-{#                <span class="layui-btn layui-btn-normal layui-btn-xs">已启用</span></td>#}
-{#            <td class="td-manage">#}
-{#                <a onclick="member_stop(this,'10001')" href="javascript:;" title="启用">#}
-{#                    <i class="layui-icon">&#xe601;</i>#}
-{#                </a>#}
-{#                <a title="编辑" onclick="WeAdminShow('编辑','/admin/edit')" href="javascript:;">#}
-{#                    <i class="layui-icon">&#xe642;</i>#}
-{#                </a>#}
-{#                <a title="删除" onclick="member_del(this,'要删除的id')" href="javascript:;">#}
-{#                    <i class="layui-icon">&#xe640;</i>#}
-{#                </a>#}
-{#            </td>#}
-        </tr>
+        {% for user in data %}
+            <tr data-id="{{ user.id }}">
+                <td>
+                    <div class="layui-unselect layui-form-checkbox" lay-skin="primary" data-id="{{ user.id }}">
+                        <i class="layui-icon">&#xe605;</i>
+                    </div>
+                </td>
+                <td>{{ user.id }}</td>
+                <td>{{ user.name }}</td>
+                <td>{{ user.tel }}</td>
+                <td>{{ user.email }}</td>
+                {% ifequal user.role 0 %}
+                    <td>超级管理员</td>
+                {% else %}
+                    {% ifequal user.role 1 %}
+                        <td>编辑人员</td>
+                    {% else %}
+                        <td>审核人员</td>
+                    {% endifequal %}
+                {% endifequal %}
+                <td>{{ user.create_time| date:"Y-m-d" }}</td>
+                <td class="td-manage">
+                    <a title="编辑" onclick="WeAdminEdit('编辑','/admin/edit', {{ user.id }}, 600, 400)">
+                        <i class="layui-icon layui-icon-edit"></i>
+                    </a>
+                    <a title="删除" onclick="member_del(this,'{{ user.id }}')">
+                        <i class="layui-icon layui-icon-delete"></i>
+                    </a>
+                </td>
+                <input type="hidden" name="username" value="{{ user.username }}"/>
+
+            </tr>
+        {% endfor %}
         </tbody>
     </table>
     <div class="page">

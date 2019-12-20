@@ -6,19 +6,19 @@ layui.use(['form', 'jquery'], function () {
         $ = layui.jquery;
 
     //自定义验证规则
-    form.verify({
-        nikename: function (value) {
-            if (value.length < 5) {
-                return '昵称至少得5个字符';
-            }
-        },
-        pass: [/(.+){6,12}$/, '密码必须6到12位'],
-        repass: function (value) {
-            if ($('#L_pass').val() != $('#L_repass').val()) {
-                return '两次密码不一致';
-            }
-        }
-    });
+    // form.verify({
+    //     nikename: function (value) {
+    //         if (value.length < 5) {
+    //             return '昵称至少得5个字符';
+    //         }
+    //     },
+    //     pass: [/(.+){6,12}$/, '密码必须6到12位'],
+    //     repass: function (value) {
+    //         if ($('#L_pass').val() != $('#L_repass').val()) {
+    //             return '两次密码不一致';
+    //         }
+    //     }
+    // });
     //失去焦点时判断值为空不验证，一旦填写必须验证
     $('input[name="email"]').blur(function () {
         //这里是失去焦点时的事件

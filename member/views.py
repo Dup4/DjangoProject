@@ -157,31 +157,33 @@ def add_user(request):
     if request.method == 'POST':
         data = {}
         try:
-            user = User.objects.get(username=request.POST.get("username"))
-            if user is not None:
+            try:
+                user = User.objects.get(username=request.POST.get("username"))
+
                 data['status'] = 404
                 data['message'] = "用户名重复"
-                response = JsonResponse(data, json_dumps_params={'ensure_ascii': False})
-                return response
 
-            user = User()
-            user.username = request.POST.get("username")
-            user.password = make_password(request.POST.get("password"))
-            user.name = request.POST.get("name")
-            user.sex = request.POST.get("sex")
-            user.tel = request.POST.get("tel")
-            user.email = request.POST.get("email")
-            user.address = request.POST.get('address')
-            user.is_use = True
-            user.status = True
-            user.save()
+            except Exception:
 
-            data['status'] = 200
-            data['message'] = "插入成功"
+                user = User()
+                user.username = request.POST.get("username")
+                user.password = make_password(request.POST.get("password"))
+                user.name = request.POST.get("name")
+                user.sex = request.POST.get("sex")
+                user.tel = request.POST.get("tel")
+                user.email = request.POST.get("email")
+                user.address = request.POST.get('address')
+                user.is_use = True
+                user.status = True
+                user.save()
+
+                data['status'] = 200
+                data['message'] = "新增用户成功"
 
         except Exception:
             data['status'] = 404
-            data['message'] = "插入失败"
+            data['message'] = "服务器连接失败"
+
         response = JsonResponse(data, json_dumps_params={'ensure_ascii': False})
 
         return response

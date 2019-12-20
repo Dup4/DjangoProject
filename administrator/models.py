@@ -21,30 +21,13 @@ class User(models.Model):
     tel = models.CharField(max_length=20)
     # 管理员邮箱 varchar(255)
     email = models.CharField(max_length=255)
-    # 管理员地址 varchar(255)
-    address = models.CharField(max_length=255)
-    # 管理员权限
+    # 管理员角色 0 超级管理员 1 编辑人员 2 审核人员
     role = models.IntegerField()
     # 上级id
     superior = models.IntegerField()
-    # 是否启用
-    is_use = models.BooleanField()
     # 创建时间
     create_time = models.DateField(auto_now_add=True)
     # 更新时间
     update_time = models.DateField(auto_now=True)
     # 是否删除 软删除
-    status = models.BooleanField()
-
-
-class Role(models.Model):
-    # 权限id
-    id = models.AutoField(primary_key=True)
-    # 权限介绍 varchar(255)
-    describe = models.CharField(max_length=255)
-    # 创建时间
-    create_time = models.DateField(auto_now_add=True)
-    # 更新时间
-    update_time = models.DateField(auto_now=True)
-    # 是否删除 软删除
-    status = models.BooleanField()
+    status = models.BooleanField(default=1)

@@ -13,4 +13,4 @@ class Visitors(models.Model):
     # 更新时间
     update_time = models.DateField(auto_now=True)
     # 是否删除 软删除
-    status = models.BooleanField()
+    status = models.BooleanField(default=1)
