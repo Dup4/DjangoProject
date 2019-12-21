@@ -19,4 +19,10 @@ urlpatterns = [
 
     # 新增adminAPI
     path('addUser/', views.add_user),
+    # 更新adminAPI
+    path('updateUser/', views.update_user),
+    # 删除adminAPI
+    path('delUser/', views.delete_user),
+    # 删除多个adminAPI
+    path('delAllUser/', views.delete_all_user),
 ]

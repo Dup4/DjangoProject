@@ -15,8 +15,6 @@ class User(models.Model):
     password = models.CharField(max_length=255)
     # 管理员名字 varchar(255)
     name = models.CharField(max_length=255)
-    # 管理员性别 false 男 true 女
-    sex = models.BooleanField()
     # 管理员电话 varchar(20)
     tel = models.CharField(max_length=20)
     # 管理员邮箱 varchar(255)

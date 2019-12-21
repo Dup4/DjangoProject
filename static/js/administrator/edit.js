@@ -1,7 +1,7 @@
 layui.extend({
     admin: '/static/js/admin'
 });
-layui.use(['form', 'jquery', 'admin', 'layer'], function () {
+layui.use(['form', 'layer', 'admin'], function () {
     let form = layui.form,
         $ = layui.jquery,
         layer = layui.layer;
@@ -17,23 +17,26 @@ layui.use(['form', 'jquery', 'admin', 'layer'], function () {
 
     function frameVal() {
         let dataId = $('input[name="dataId"]').val();
+        console.log(dataId);
         let index = parent.layer.getFrameIndex(window.name);
-        parent.layui.jquery("#memberList tr").each(function () {
+        parent.layui.jquery("#adminList tr").each(function () {
             if ($(this).attr('data-id') == dataId) {
-                console.log($(this).children('input').val());
                 let tdArr = $(this).children('td');
                 let username = $(this).children('input').val(); //用户名
                 let name = tdArr.eq(2).text();
-                let sex = tdArr.eq(3).text(); //性别
-                let phone = tdArr.eq(4).text(); //电话
-                let email = tdArr.eq(5).text(); //邮箱
-                let address = tdArr.eq(6).text(); //地址
+                let phone = tdArr.eq(3).text(); //电话
+                let email = tdArr.eq(4).text(); //邮箱
+                let role = tdArr.eq(5).text();
+                console.log("role", role);
                 $('input[name="username"]').val(username);
                 $('input[name="name"]').val(name);
-                $('input[name="sex"][value="' + sex + '"]').attr("checked", true);
                 $('input[name="phone"]').val(phone);
                 $('input[name="email"]').val(email);
-                $('input[name="address"]').val(address);
+                $('#role option:contains(' + role + ')').each(function () {
+                    if ($(this).text() == role) {
+                        $(this).attr('selected', true);
+                    }
+                });
                 form.render();
             }
         });
@@ -42,30 +45,21 @@ layui.use(['form', 'jquery', 'admin', 'layer'], function () {
     //监听提交
     form.on('submit(edit)', function (data) {
         let id = $('input[name="dataId"]').val();
-        let username = $('input[name="username"]').val();
         let name = $('input[name="name"]').val();
-        let sex = $("input[name=sex]:checked").val();
-        if (sex === "男") {
-            sex = 0;
-        } else {
-            sex = 1;
-        }
         let tel = $('input[name="phone"]').val();
         let email = $('input[name="email"]').val();
-        let address = $('input[name="address"]').val();
+        let role = $("#role").val();
         let token = $('input[name=csrfmiddlewaretoken]').val();
         $.ajax({
             type: "POST",
-            url: '/member/updateUser/',
+            url: '/admin/updateUser/',
             dataType: 'json',
             data: {
                 id: id,
-                username: username,
                 name: name,
-                sex: sex,
                 tel: tel,
                 email: email,
-                address: address,
+                role: role,
                 csrfmiddlewaretoken: token
             },
             success: function (data) {

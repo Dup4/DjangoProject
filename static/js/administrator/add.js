@@ -29,6 +29,7 @@ layui.use(['form', 'layer', 'admin'], function () {
         let tel = $("input[name='phone']").val();
         let email = $("input[name='email']").val();
         let password = $("input[name='pass']").val();
+        let role = $("#role").val();
         let token = $('input[name=csrfmiddlewaretoken]').val();
         //发异步，把数据提交给php
         $.ajax({
@@ -41,6 +42,7 @@ layui.use(['form', 'layer', 'admin'], function () {
                 name: name,
                 tel: tel,
                 email: email,
+                role: role,
                 csrfmiddlewaretoken: token
             },
             success: function (data) {

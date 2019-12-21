@@ -163,7 +163,8 @@ def add_user(request):
                 data['status'] = 404
                 data['message'] = "用户名重复"
 
-            except Exception:
+            except Exception as e:
+                print(e.args)
 
                 user = User()
                 user.username = request.POST.get("username")
@@ -180,7 +181,8 @@ def add_user(request):
                 data['status'] = 200
                 data['message'] = "新增用户成功"
 
-        except Exception:
+        except Exception as e:
+            print(e.args)
             data['status'] = 404
             data['message'] = "服务器连接失败"
 
@@ -226,7 +228,8 @@ def update_user(request):
             data['status'] = 200
             data['message'] = "修改成功"
 
-        except Exception:
+        except Exception as e:
+            print(e.args)
             data['status'] = 404
             data['message'] = "修改失败"
 
@@ -270,7 +273,8 @@ def change_password(request):
                 data['status'] = 404
                 data['message'] = "原密码不正确"
 
-        except Exception:
+        except Exception as e:
+            print(e.args)
             data['status'] = 404
             data['message'] = "修改失败"
 
@@ -303,7 +307,8 @@ def delete_user(request):
             user.save()
             data['status'] = 200
             data['message'] = "删除成功"
-        except Exception:
+        except Exception as e:
+            print(e.args)
             data['status'] = 404
             data['message'] = "删除失败"
 
@@ -339,7 +344,8 @@ def delete_all_user(request):
                 user.save()
             data['status'] = 200
             data['message'] = "删除成功"
-        except Exception:
+        except Exception as e:
+            print(e.args)
             data['status'] = 404
             data['message'] = "删除失败"
 
