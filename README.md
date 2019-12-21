@@ -13,7 +13,8 @@ python manage.py migrate
 python manage.py makemigrations
 # 重新生成表
 python manage.py sqlmigrate administrator 0001
-
+# 导入数据库
+source  /home/DjangoProject/db/website.sql
 
 # template 配置修改
 # settings.py 文件中将 
