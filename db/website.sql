@@ -11,7 +11,7 @@
  Target Server Version : 50709
  File Encoding         : 65001
 
- Date: 21/12/2019 20:03:06
+ Date: 21/12/2019 21:11:40
 */
 
 SET NAMES utf8mb4;
@@ -370,7 +370,19 @@ CREATE TABLE `echarts_visitors`  (
   `update_time` date NOT NULL,
   `status` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of echarts_visitors
+-- ----------------------------
+INSERT INTO `echarts_visitors` VALUES (1, 123, '2019-12-14', '2019-12-14', 1);
+INSERT INTO `echarts_visitors` VALUES (2, 150, '2019-12-15', '2019-12-15', 1);
+INSERT INTO `echarts_visitors` VALUES (3, 230, '2019-12-16', '2019-12-16', 1);
+INSERT INTO `echarts_visitors` VALUES (4, 54, '2019-12-17', '2019-12-17', 1);
+INSERT INTO `echarts_visitors` VALUES (5, 79, '2019-12-18', '2019-12-18', 1);
+INSERT INTO `echarts_visitors` VALUES (6, 456, '2019-12-19', '2019-12-19', 1);
+INSERT INTO `echarts_visitors` VALUES (7, 321, '2019-12-20', '2019-12-20', 1);
+INSERT INTO `echarts_visitors` VALUES (8, 650, '2019-12-21', '2019-12-21', 1);
 
 -- ----------------------------
 -- Table structure for member_user
