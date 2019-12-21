@@ -46,7 +46,7 @@ layui.use(['form', 'layer', 'admin'], function () {
                 csrfmiddlewaretoken: token
             },
             success: function (data) {
-                if (data.status === 200) {
+                if (data.code === 0) {
                     layer.alert("添加管理员成功", {
                         icon: 6
                     }, function () {

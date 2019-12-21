@@ -37,6 +37,38 @@ layui.use(['form', 'jquery', 'admin', 'layer'], function () {
                 form.render();
             }
         });
+        $.ajax({
+            type: "GET",
+            url: '/member/getOneMember/',
+            dataType: 'json',
+            data: {
+                id: dataId
+            },
+            success: function (data) {
+                if (data.code === 0) {
+                    let username = data.data.username; //用户名
+                    let name = data.data.name;
+                    let sex = data.data.sex; //性别
+                    let phone = data.data.tel; //电话
+                    let email = data.data.email; //邮箱
+                    let address = data.data.address; //地址
+                    $('input[name="username"]').val(username);
+                    $('input[name="name"]').val(name);
+                    $('input[name="sex"][value="' + sex + '"]').attr("checked", true);
+                    $('input[name="phone"]').val(phone);
+                    $('input[name="email"]').val(email);
+                    $('input[name="address"]').val(address);
+                    form.render();
+                } else {
+                    layer.msg(data.message)
+                }
+            },
+            err: function () {
+                layui.use('layer', function () {
+                    layer.msg("服务器请求失败")
+                });
+            }
+        });
     }
 
     //监听提交
@@ -69,7 +101,7 @@ layui.use(['form', 'jquery', 'admin', 'layer'], function () {
                 csrfmiddlewaretoken: token
             },
             success: function (data) {
-                if (data.status === 200) {
+                if (data.code === 0) {
                     layer.alert("修改成功", {
                         icon: 6
                     }, function () {

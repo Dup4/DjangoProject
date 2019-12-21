@@ -3,7 +3,27 @@ from django.views.decorators.clickjacking import xframe_options_sameorigin
 from django.contrib.auth.hashers import make_password, check_password
 from administrator.models import User
 from django.http import JsonResponse
+from django.core.paginator import Paginator
 from faker import Faker
+
+'''
+generate administrator
+
+for i in range(20):
+    user = User()
+    fake = Faker(locale='zh_CN')
+    user.username = fake.user_name()
+    if i == 0:
+        user.username = 'admin'
+    user.password = make_password('123456')
+    user.name = fake.name()
+    user.sex = 0
+    user.tel = fake.phone_number()
+    user.email = fake.email()
+    user.role = 1
+    user.superior = 1
+    user.save()
+'''
 
 '''
 页面URL部分
@@ -21,7 +41,7 @@ Parameters:
 
  
 Returns:
-    status: 200 success 404 failed
+    code: 0 success 404 failed
     message
     user
     渲染模板类 pages/admin/list.html
@@ -32,24 +52,8 @@ Raises:
 
 
 @xframe_options_sameorigin
-def list_admin(request):
-    # for i in range(10):
-    #     user = User()
-    #     fake = Faker(locale='zh_CN')
-    #     user.username = fake.user_name()
-    #     if i == 0:
-    #         user.username = 'admin'
-    #     user.password = make_password('123456')
-    #     user.name = fake.name()
-    #     user.sex = 0
-    #     user.tel = fake.phone_number()
-    #     user.email = fake.email()
-    #     user.role = 1
-    #     user.superior = 1
-    #     user.save()
-    users = User.objects.all()
-    data = {'status': 200, 'message': "获取成功", 'data': users}
-    return render(request, 'pages/admin/list.html', data)
+def list_page(request):
+    return render(request, 'pages/admin/list.html')
 
 
 @xframe_options_sameorigin
@@ -78,7 +82,7 @@ Parameters:
 
  
 Returns:
-    status: 200 success 404 failed
+    code: 0 success 404 failed
     message
     user
     渲染模板类 pages/member/add.html
@@ -105,7 +109,7 @@ Parameters:
 
  
 Returns:
-    status: 200 success 404 failed
+    code: 0 success 404 failed
     message
     user
     渲染模板类 pages/member/add.html
@@ -132,7 +136,7 @@ Parameters:
     password 密码
  
 Returns:
-    status: 200 success 404 failed
+    code: 0 success 404 failed
     message
  
 Raises:
@@ -150,19 +154,19 @@ def user_login(request):
         user = User.objects.get(username=user_name)
 
         if user is None:
-            data['status'] = 404
+            data['code'] = 404
             data['message'] = "用户名或密码错误"
         else:
             if check_password(password, user.password):
-                data['status'] = 200
+                data['code'] = 0
                 data['message'] = "登录成功"
             else:
-                data['status'] = 404
+                data['code'] = 0
                 data['message'] = "用户名或密码错误"
 
     except Exception as e:
         print(e.args)
-        data['status'] = 404
+        data['code'] = 0
         data['message'] = "服务器请求失败"
 
     response = JsonResponse(data, json_dumps_params={'ensure_ascii': False})
@@ -185,7 +189,7 @@ Parameters:
     role     角色
  
 Returns:
-    status: 200 success 404 failed
+    code: 0 success 404 failed
     message
  
 Raises:
@@ -198,7 +202,7 @@ def add_user(request):
     try:
         try:
             user = User.objects.get(username=request.POST.get('username'))
-            data['status'] = 404
+            data['code'] = 404
             data['message'] = "用户名已存在"
         except Exception as e:
             print(e.args)
@@ -214,12 +218,12 @@ def add_user(request):
 
             user.save()
 
-            data['status'] = 200
+            data['code'] = 0
             data['message'] = "新增管理员成功"
 
     except Exception as e:
         print(e.args)
-        data['status'] = 404
+        data['code'] = 404
         data['message'] = "新增失败"
 
     response = JsonResponse(data, json_dumps_params={'ensure_ascii': False})
@@ -241,7 +245,7 @@ Parameters:
     role     角色
  
 Returns:
-    status: 200 success 404 failed
+    code: 0 success 404 failed
     message
  
 Raises:
@@ -260,12 +264,12 @@ def update_user(request):
 
         user.save()
 
-        data['status'] = 200
+        data['code'] = 0
         data['message'] = "修改管理员成功"
 
     except Exception as e:
         print(e.args)
-        data['status'] = 404
+        data['code'] = 404
         data['message'] = e.args
     response = JsonResponse(data, json_dumps_params={'ensure_ascii': False})
     return response
@@ -282,7 +286,7 @@ Parameters:
     id       用户id
  
 Returns:
-    status: 200 success 404 failed
+    code: 0 success 404 failed
     message
  
 Raises:
@@ -299,12 +303,12 @@ def delete_user(request):
 
         use.save()
 
-        data['status'] = 200
+        data['code'] = 0
         data['message'] = "删除成功"
 
     except Exception as e:
         print(e.args)
-        data['status'] = 404
+        data['code'] = 404
         data['message'] = e.args
     response = JsonResponse(data, json_dumps_params={'ensure_ascii': False})
     return response
@@ -321,7 +325,7 @@ Parameters:
     id       用户id数组
  
 Returns:
-    status: 200 success 404 failed
+    code: 0 success 404 failed
     message
  
 Raises:
@@ -339,11 +343,53 @@ def delete_all_user(request):
 
             user.save()
 
-        data['status'] = 200
+        data['code'] = 0
         data['message'] = "删除成功"
     except Exception as e:
         print(e.args)
-        data['status'] = 404
+        data['code'] = 404
+        data['message'] = e.args
+    response = JsonResponse(data, json_dumps_params={'ensure_ascii': False})
+    return response
+
+
+def list_admin(request):
+    data = {}
+    try:
+        page = request.GET.get('page')
+        limit = request.GET.get('limit')
+        ptr = Paginator(User.objects.all(), limit)
+        user_list = []
+        for user in ptr.page(page):
+            res = {'id': user.id, 'name': user.name, 'tel': user.tel, 'date': user.create_time,
+                   "email": user.email, 'role': user.role}
+
+            user_list.append(res)
+        data['code'] = 0
+        data['message'] = "获取成功"
+        data['count'] = ptr.count
+        data['data'] = user_list
+    except Exception as e:
+        print(e.args)
+        data['code'] = 404
+        data['message'] = e.args
+    response = JsonResponse(data, json_dumps_params={'ensure_ascii': False})
+    return response
+
+
+def get_one_admin(request):
+    data = {}
+    try:
+        query = User.objects.get(id=request.GET.get('id'))
+        user = {'id': query.id, 'username': query.username, 'name': query.name, 'address': query.address,
+                "tel": query.tel,
+                "email": query.email}
+        data['code'] = 0
+        data['message'] = "获取成功"
+        data['data'] = user
+    except Exception as e:
+        print(e.args)
+        data['code'] = 404
         data['message'] = e.args
     response = JsonResponse(data, json_dumps_params={'ensure_ascii': False})
     return response

@@ -1,28 +1,48 @@
-/*
- * @Author: https://github.com/WangEn
- * @Author: https://gitee.com/lovetime/
- * @Date:   2018-03-27
- * @lastModify 2018-3-28
- * +----------------------------------------------------------------------
- * | WeAdmin 表格table中多个删除等操作公用js
- * | 有改用时直接复制到对应页面也不影响使用
- * +----------------------------------------------------------------------
- */
 layui.extend({
     admin: '/static/js/admin'
 });
-layui.use(['laydate', 'jquery', 'admin'], function () {
-    var laydate = layui.laydate,
+
+layui.use(['table', 'jquery', 'form', 'admin'], function () {
+    let table = layui.table,
         $ = layui.jquery,
+        form = layui.form,
         admin = layui.admin;
-    //执行一个laydate实例
-    laydate.render({
-        elem: '#start' //指定元素
+
+    table.render({
+        id: 'table',
+        elem: '#adminList',
+        cellMinWidth: 80,
+        url: '/admin/listAdmin',
+        cols: [
+            [{
+                type: 'checkbox'
+            }, {
+                field: 'id', title: 'ID', sort: true
+            }, {
+                field: 'name', title: '姓名', sort: true
+            }, {
+                field: 'tel', title: '性别', sort: true
+            }, {
+                field: 'email', title: '邮箱'
+            }, {
+                field: 'role', title: '角色', sort: true
+            }, {
+                field: 'date', title: '加入时间', templet: '#topTpl', unresize: true
+            }, {
+                field: 'operate', title: '操作', toolbar: '#operateTpl', unresize: true
+            }]
+        ],
+        event: true,
+        page: true
     });
-    //执行一个laydate实例
-    laydate.render({
-        elem: '#end' //指定元素
+    /*
+     *数据表格中form表单元素是动态插入,所以需要更新渲染下
+     * http://www.layui.com/doc/modules/form.html#render
+     * */
+    $(function () {
+        form.render();
     });
+
 
     /*用户-删除*/
     window.member_del = function (obj, id) {
@@ -56,25 +76,32 @@ layui.use(['laydate', 'jquery', 'admin'], function () {
                     });
                 }
             });
+            $(obj).parents("tr").remove();
+            layer.msg('已删除!', {
+                icon: 1,
+                time: 1000
+            });
         });
     };
 
     window.delAll = function (argument) {
-        let data = tableCheck.getData();
+        let data = table.checkStatus('table').data;
         let id_arr = Array();
-        $.each(data, function (i, item) {
-            id_arr.push(parseInt(item))
-        });
-        layer.confirm('确认要删除吗？' + data, function (index) {
+        for (let index = 0; index < data.length; ++index) {
+            console.log(parseInt(data[index].id));
+            id_arr.push(data[index].id)
+        }
+        console.log(id_arr);
+        layer.confirm('确认要删除吗？' + id_arr, function (index) {
             //捉到所有被选中的，发异步进行删除
             let token = $('input[name=csrfmiddlewaretoken]').val();
             $.ajax({
                 type: "POST",
                 url: '/member/delAllUser/',
-                traditional:true,
+                traditional: true,
                 dataType: 'json',
                 data: {
-                    id: data,
+                    id: id_arr,
                     csrfmiddlewaretoken: token
                 },
                 success: function (data) {
@@ -96,6 +123,10 @@ layui.use(['laydate', 'jquery', 'admin'], function () {
                 }
             });
         });
-    }
+    };
 
+    layui.laytpl.config({
+        open: '<%',
+        close: '%>'
+    });
 });

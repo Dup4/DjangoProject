@@ -1,7 +1,5 @@
 from django.shortcuts import render
 from django.views.decorators.clickjacking import xframe_options_sameorigin
-from administrator.models import User
-from django.contrib.auth.hashers import make_password, check_password
 
 
 def login(request):

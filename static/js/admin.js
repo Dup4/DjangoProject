@@ -51,6 +51,7 @@ layui.define(['jquery', 'form', 'layer', 'element'], function(exports) {
 				var obj = $(".layui-form-checked").not('.header');
 				var arr = [];
 				obj.each(function(index, el) {
+					console.log(obj)
 					arr.push(obj.eq(index).attr('data-id'));
 				});
 				return arr;

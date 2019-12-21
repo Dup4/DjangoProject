@@ -4,7 +4,7 @@ from . import views
 urlpatterns = [
     # URL
     # 罗列人员
-    path('list/', views.list_member),
+    path('list/', views.list_page),
     # 删除页面
     path('del/', views.delete),
     # 新增人员页面
@@ -15,6 +15,8 @@ urlpatterns = [
     path('password/', views.password),
 
     # API
+    path('getOneMember/', views.get_one_member),
+    path('listMember/', views.list_member),
     # 新增人员API
     path('addUser/', views.add_user),
     # 修改人员API

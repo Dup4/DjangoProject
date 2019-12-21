@@ -38,7 +38,7 @@ layui.use(['laydate', 'jquery', 'admin'], function () {
                     csrfmiddlewaretoken: token
                 },
                 success: function (data) {
-                    if (data.status === 200) {
+                    if (data.code === 0) {
                         $(obj).parents("tr").remove();
                         layer.msg('已删除!', {
                             icon: 1,
@@ -78,7 +78,7 @@ layui.use(['laydate', 'jquery', 'admin'], function () {
                     csrfmiddlewaretoken: token
                 },
                 success: function (data) {
-                    if (data.status === 200) {
+                    if (data.code === 0) {
                         layer.msg('删除成功', {
                             icon: 1
                         });

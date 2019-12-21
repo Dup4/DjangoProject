@@ -9,28 +9,28 @@ class Article(models.Model):
     # 标题 varchar(255)
     title = models.CharField(max_length=255)
     # 内容 text(5000)
-    context = models.TextField(max_length=5000)
+    content = models.TextField(max_length=5000)
     # 分类 int
     classify = models.IntegerField()
     # 是否推荐
-    is_recommend = models.BooleanField()
+    is_recommend = models.BooleanField(default=0)
     # 是否置顶
-    id_top = models.BooleanField()
+    is_top = models.BooleanField(default=0)
     # 是否发布
-    is_publish = models.BooleanField()
+    is_publish = models.BooleanField(default=0)
     # 创建时间
     create_time = models.DateField(auto_now_add=True)
     # 更新时间
     update_time = models.DateField(auto_now=True)
     # 是否删除 软删除
-    status = models.BooleanField()
+    status = models.BooleanField(default=1)
 
 
 class Classify(models.Model):
     # id 主键
     id = models.AutoField(primary_key=True)
-    # 父节点id
-    superior = models.IntegerField()
+    # 分类名字
+    title = models.IntegerField()
     # 介绍 varchar(255)
     describe = models.CharField(max_length=255)
     # 创建时间

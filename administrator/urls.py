@@ -3,7 +3,7 @@ from . import views
 
 urlpatterns = [
     # admin的管理员列表
-    path('list/', views.list_admin),
+    path('list/', views.list_page),
     # admin的角色管理
     path('role/', views.role),
     # admin的权限分类
@@ -17,6 +17,9 @@ urlpatterns = [
     # admin修改界面
     path('edit/', views.edit),
 
+    path('listAdmin/', views.list_admin),
+
+    path('getOneAdmin/', views.get_one_admin),
     # 新增adminAPI
     path('addUser/', views.add_user),
     # 更新adminAPI

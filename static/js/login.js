@@ -18,7 +18,7 @@ layui.use(['form'], function () {
                 csrfmiddlewaretoken: token
             },
             success: function (data) {
-                if (data.status === 200) {
+                if (data.code === 0) {
 
                     location.href = '/index'
                 } else {
