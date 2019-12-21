@@ -34,6 +34,7 @@ layui.use(['form', 'layer', 'layedit', 'jquery', 'layer'], function () {
             success: function (data) {
                 if (data.code === 0) {
                     $("input[name='title']").val(data.data.title);
+                    $("input[name='classify']").val(data.data.classify);
                     layedit.setContent(index, data.data.content);
                 } else {
                     layer.msg(data.message)

@@ -29,6 +29,11 @@ def list_page(request):
     return render(request, 'pages/article/list.html')
 
 
+@xframe_options_sameorigin
+def show_article(request):
+    return render(request, 'pages/article/show.html')
+
+
 def list_article(request):
     data = {}
     try:
@@ -56,7 +61,8 @@ def get_one_article(request):
     data = {}
     try:
         query = Article.objects.get(id=request.GET.get('id'))
-        article = {'id': query.id, 'title': query.title, 'query': query.classify, 'content': query.content}
+        article = {'id': query.id, 'title': query.title, 'query': query.classify, 'classify': query.classify,
+                   'content': query.content}
         data['code'] = 0
         data['message'] = "获取成功"
         data['data'] = article

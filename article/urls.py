@@ -14,6 +14,7 @@ urlpatterns = [
 
     # API
     path('listArticle/', views.list_article),
+    path('show/', views.show_article),
     path('getOneArticle/', views.get_one_article),
     path('updateArticle/', views.update_article),
     path('delArticle/', views.delete_article),
