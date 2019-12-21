@@ -31,3 +31,18 @@ class User(models.Model):
     update_time = models.DateField(auto_now=True)
     # 是否删除 软删除
     status = models.BooleanField(default=1)
+
+
+class Role(models.Model):
+    # 角色id
+    id = models.AutoField(primary_key=True)
+    # 角色名字 varchar(255)
+    name = models.CharField(max_length=255)
+    # 介绍 varchar(255)
+    describe = models.CharField(max_length=255)
+    # 创建时间
+    create_time = models.DateField(auto_now_add=True)
+    # 更新时间
+    update_time = models.DateField(auto_now=True)
+    # 是否删除 软删除
+    status = models.BooleanField(default=1)
