@@ -47,17 +47,6 @@ Raises:
 
 @xframe_options_sameorigin
 def list_page(request):
-    for number in range(20):
-        user = User()
-        fake = Faker(locale='zh-CN')
-        user.username = fake.user_name()
-        user.password = make_password("123456")
-        user.name = fake.name()
-        user.sex = 0
-        user.tel = fake.phone_number()
-        user.email = fake.email()
-        user.address = fake.address()
-        user.save()
     return render(request, 'pages/member/list.html')
 
 

@@ -26,13 +26,6 @@ for number in range(10):
 # Create your views here.
 @xframe_options_sameorigin
 def list_page(request):
-    for number in range(10):
-        article = Article()
-        fake = Faker(locale='zh_CN')
-        article.title = fake.word()
-        article.classify = 1
-        article.content = fake.paragraph()
-        article.save()
     return render(request, 'pages/article/list.html')
 
 
