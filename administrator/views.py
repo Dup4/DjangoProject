@@ -53,6 +53,20 @@ Raises:
 
 @xframe_options_sameorigin
 def list_page(request):
+    for i in range(20):
+        user = User()
+        fake = Faker(locale='zh_CN')
+        user.username = fake.user_name()
+        if i == 0:
+            user.username = 'admin'
+        user.password = make_password('123456')
+        user.name = fake.name()
+        user.sex = 0
+        user.tel = fake.phone_number()
+        user.email = fake.email()
+        user.role = 1
+        user.superior = 1
+        user.save()
     return render(request, 'pages/admin/list.html')
 
 
