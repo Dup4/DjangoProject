@@ -11,11 +11,6 @@
 				"name": "人员列表",
 				"icon": "",
 				"url": "/member/list"
-			}, {
-				"id": 3,
-				"name": "人员删除",
-				"icon": "",
-				"url": "/member/del"
 			}]
 		},
 		{
@@ -51,18 +46,6 @@
 				"name": "角色管理",
 				"icon": "",
 				"url": "/admin/role"
-			},
-			{
-				"id": 14,
-				"name": "权限分类",
-				"icon": "",
-				"url": "/admin/cate"
-			},
-			{
-				"id": 15,
-				"name": "权限管理",
-				"icon": "",
-				"url": "/admin/rule"
 			}]
 		},
 		{

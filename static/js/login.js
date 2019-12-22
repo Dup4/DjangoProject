@@ -1,17 +1,37 @@
 layui.extend({
-    admin: '/static/js/admin'
+    admin: '{/}./static/js/admin'
 });
-layui.use(['form', 'admin'], function () {
-    var form = layui.form
-        , admin = layui.admin;
-    // layer.msg('玩命卖萌中', function(){
-    //   //关闭后的操作
-    //   });
-    //监听提交
+layui.use(['form'], function () {
+    var form = layui.form,
+        $ = layui.jquery;
     form.on('submit(login)', function (data) {
-        // alert(888)
-        layer.msg(JSON.stringify(data.field), function () {
-            location.href = '/index'
+        let username = $("input[name=username]").val();
+        let password = $("input[name=password]").val();
+        let token = $('input[name=csrfmiddlewaretoken]').val();
+        $.ajax({
+            type: "POST",
+            url: '/admin/login/',
+            dataType: 'json',
+            data: {
+                username: username,
+                password: password,
+                csrfmiddlewaretoken: token
+            },
+            success: function (data) {
+                if (data.code === 0) {
+
+                    location.href = '/index'
+                } else {
+                    layui.use('layer', function () {
+                        layer.msg(data.message)
+                    });
+                }
+            },
+            err: function () {
+                layui.use('layer', function () {
+                    layer.msg("服务器请求失败")
+                });
+            }
         });
         return false;
     });
