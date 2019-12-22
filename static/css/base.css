@@ -850,3 +850,18 @@ footer .copyright span a:hover
 	width: 85%;
 
 }
+
+.new {
+	height:35px;
+	width:35px;
+	text-align:center;
+	font-size:16px;
+	color: #FBFBFB;
+	display:block;
+}
+
+
+
+.xaihuaxian {
+	border-bottom-color: #B5B5AB;
+}
