@@ -17,16 +17,20 @@ def welcome(request):
 def home(request):
     return render(request, 'home.html')
 
-
 def dengLu(request):
     return render(request, 'dengLu.html')
 
 def picture(request):
     return render(request, 'picture.html')
 
-
 def renWu(request):
     return render(request, 'renWu.html')
+
+def xiaoYuan(request):
+    return render(request, 'xiaoYuan.html')
+
+def xinWen(request):
+    return render(request, 'xinWen.html')
 
 
 
