@@ -4,23 +4,9 @@ from django.contrib.auth.hashers import make_password, check_password
 from member.models import User
 from django.http import JsonResponse
 from django.core.paginator import Paginator
-from faker import Faker
 
 '''
-generate member
-
-
-for number in range(20):
-    user = User()
-    fake = Faker(locale='zh-CN')
-    user.username = fake.user_name()
-    user.password = make_password("123456")
-    user.name = fake.name()
-    user.sex = 0
-    user.tel = fake.phone_number()
-    user.email = fake.email()
-    user.address = fake.address()
-    user.save()
+    URL
 '''
 
 '''
@@ -35,9 +21,6 @@ Parameters:
 
  
 Returns:
-    code: 0 success 404 failed
-    message
-    user
     渲染模板类 pages/member/list.html
  
 Raises:
@@ -50,7 +33,111 @@ def list_page(request):
     return render(request, 'pages/member/list.html')
 
 
+"""
+Describe
+    删除用户URL
+
+Parameters:
+
+ 
+Returns:
+    渲染模板类 pages/member/del.html
+ 
+Raises:
+
+"""
+
+
 @xframe_options_sameorigin
+def delete(request):
+    return render(request, 'pages/member/del.html')
+
+
+"""
+Describe
+    新增用户URL
+
+Parameters:
+
+ 
+Returns:
+    渲染模板类 pages/member/add.html
+ 
+Raises:
+
+"""
+
+
+@xframe_options_sameorigin
+def add(request):
+    return render(request, 'pages/member/add.html')
+
+
+"""
+Describe
+    修改用户URL
+    
+Parameters:
+
+ 
+Returns:
+    渲染模板类 pages/member/edit.html
+ 
+Raises:
+
+"""
+
+
+@xframe_options_sameorigin
+def edit(request):
+    return render(request, 'pages/member/edit.html')
+
+
+"""
+Describe
+    修改密码URL
+
+Parameters:
+
+ 
+Returns:
+    渲染模板类 pages/member/password.html
+ 
+Raises:
+
+"""
+
+
+@xframe_options_sameorigin
+def password(request):
+    return render(request, 'pages/member/password.html')
+
+
+'''
+接口API部分
+'''
+
+"""
+Describe
+    罗列member
+
+method
+    GET
+
+Parameters:
+    page    页数
+    limit   每页个数
+ 
+Returns:
+    code    0 success 404 failed
+    message
+    count   数据条数
+    data    数据
+Raises:
+
+"""
+
+
 def list_member(request):
     data = {}
     try:
@@ -79,6 +166,25 @@ def list_member(request):
     return response
 
 
+"""
+Describe
+    获取单个member
+
+method
+    GET
+
+Parameters:
+    id  用户id
+ 
+Returns:
+    code    0 success 404 failed
+    message 信息
+    data    数据
+Raises:
+
+"""
+
+
 def get_one_member(request):
     data = {}
     try:
@@ -99,102 +205,6 @@ def get_one_member(request):
 
 """
 Describe
-    删除用户URL
-
-Parameters:
-
- 
-Returns:
-    code: 0 success 404 failed
-    message
-    user
-    渲染模板类 pages/member/del.html
- 
-Raises:
-
-"""
-
-
-@xframe_options_sameorigin
-def delete(request):
-    return render(request, 'pages/member/del.html')
-
-
-"""
-Describe
-    新增用户URL
-
-Parameters:
-
- 
-Returns:
-    code: 0 success 404 failed
-    message
-    user
-    渲染模板类 pages/member/add.html
- 
-Raises:
-
-"""
-
-
-@xframe_options_sameorigin
-def add(request):
-    return render(request, 'pages/member/add.html')
-
-
-"""
-Describe
-    修改用户URL
-    
-Parameters:
-
- 
-Returns:
-    code: 0 success 404 failed
-    message
-    user
-    渲染模板类 pages/member/edit.html
- 
-Raises:
-
-"""
-
-
-@xframe_options_sameorigin
-def edit(request):
-    return render(request, 'pages/member/edit.html')
-
-
-"""
-Describe
-    修改密码URL
-
-Parameters:
-
- 
-Returns:
-    code: 0 success 404 failed
-    message
-    user
-    渲染模板类 pages/member/password.html
- 
-Raises:
-
-"""
-
-
-@xframe_options_sameorigin
-def password(request):
-    return render(request, 'pages/member/password.html')
-
-
-'''
-接口API部分
-'''
-
-"""
-Describe
     新增用户API
 
 Parameters:
@@ -207,8 +217,8 @@ Parameters:
     address  地址
  
 Returns:
-    code: 0 success 404 failed
-    message
+    code    0 success 404 failed
+    message 信息
  
 Raises:
 
@@ -265,8 +275,8 @@ Parameters:
     address  地址
  
 Returns:
-    code: 0 success 404 failed
-    message
+    code    0 success 404 failed
+    message 信息
  
 Raises:
 
@@ -307,8 +317,8 @@ Parameters:
     new_password 新密码 
 
 Returns:
-    code: 0 success 404 failed
-    message
+    code    0 success 404 failed
+    message 信息
  
 Raises:
 
@@ -346,11 +356,11 @@ Describe
     删除用户API
 
 Parameters:
-    id           用户id
+    id  用户id
 
 Returns:
-    code: 0 success 404 failed
-    message
+    code    0 success 404 failed
+    message 消息
  
 Raises:
 
@@ -379,11 +389,11 @@ Describe
     删除多个用户API
 
 Parameters:
-    id           用户id数组
+    id  用户id数组
 
 Returns:
-    code: 0 success 404 failed
-    message
+    code    0 success 404 failed
+    message 消息
  
 Raises:
 

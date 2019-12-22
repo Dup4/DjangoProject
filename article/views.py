@@ -1,37 +1,147 @@
-import json
-
 from django.shortcuts import render
 from django.views.decorators.clickjacking import xframe_options_sameorigin
-from django.http import HttpResponse, JsonResponse
+from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from .models import Article
-from django.core import serializers
-from faker import Faker
 from util import util
 from django.core.paginator import Paginator
 
 '''
-generate article
-
-for number in range(10):
-    article = Article()
-    fake = Faker(locale='zh_CN')
-    article.title = fake.word()
-    article.classify = 1
-    article.content = fake.paragraph()
-    article.save()
+页面URL部分
 '''
 
+"""
+Describe
+    文章页面URL
 
-# Create your views here.
+method
+    GET
+
+
+Parameters:
+
+ 
+Returns:
+    code: 0 success 404 failed
+    message
+    渲染模板类 pages/article/list.html
+ 
+Raises:
+
+"""
+
+
+# 允许 iframe方式打开
 @xframe_options_sameorigin
 def list_page(request):
     return render(request, 'pages/article/list.html')
 
 
+"""
+Describe
+    显示单个文章URL
+
+method
+    GET
+
+
+Parameters:
+
+ 
+Returns:
+    code: 0 success 404 failed
+    message
+    渲染模板类 pages/article/show.html
+ 
+Raises:
+
+"""
+
+
+# 允许 iframe方式打开
 @xframe_options_sameorigin
 def show_article(request):
     return render(request, 'pages/article/show.html')
+
+
+"""
+Describe
+    显示新增文章URL
+
+method
+    GET
+
+
+Parameters:
+
+ 
+Returns:
+    code: 0 success 404 failed
+    message
+    渲染模板类 pages/article/add.html
+ 
+Raises:
+
+"""
+
+
+# 允许 iframe方式打开
+@xframe_options_sameorigin
+def add(request):
+    return render(request, 'pages/article/add.html')
+
+
+"""
+Describe
+    显示新修改文章URL
+
+method
+    GET
+
+
+Parameters:
+
+ 
+Returns:
+    code: 0 success 404 failed
+    message
+    渲染模板类 pages/article/edit.html
+ 
+Raises:
+
+"""
+
+
+# 允许 iframe方式打开
+@xframe_options_sameorigin
+def edit(request):
+    return render(request, 'pages/article/edit.html')
+
+
+'''
+    API
+'''
+
+"""
+Describe
+    获取文章API
+
+method
+    GET
+
+Parameters:
+    page    页码
+    limit   每页条数
+ 
+Returns:
+    code    0 success 404 failed
+    message 信息
+    count   数据条数
+    data    数据
+ 
+Raises:
+
+"""
 
 
 def list_article(request):
@@ -57,6 +167,26 @@ def list_article(request):
     return response
 
 
+"""
+Describe
+    获取单个文章API
+
+method
+    GET
+
+Parameters:
+    id  文章id
+ 
+Returns:
+    code    0 success 404 failed
+    message 信息
+    data    数据
+ 
+Raises:
+
+"""
+
+
 def get_one_article(request):
     data = {}
     try:
@@ -74,24 +204,26 @@ def get_one_article(request):
     return response
 
 
-@xframe_options_sameorigin
-def category(request):
-    return render(request, 'pages/article/category.html')
+"""
+Describe
+    更新文章API
 
+method
+    POST
 
-@xframe_options_sameorigin
-def add(request):
-    return render(request, 'pages/article/add.html')
+Parameters:
+    id          文章id
+    title       题目
+    content     正文
+    classify    分类
+ 
+Returns:
+    code    0 success 404 failed
+    message 信息
+ 
+Raises:
 
-
-@xframe_options_sameorigin
-def edit(request):
-    return render(request, 'pages/article/edit.html')
-
-
-@xframe_options_sameorigin
-def category_add(request):
-    return render(request, 'pages/article/category-add.html')
+"""
 
 
 def update_article(request):
@@ -117,6 +249,30 @@ def update_article(request):
     return response
 
 
+"""
+Describe
+    上传图片API
+
+method
+    POST
+
+Parameters:
+    file    文件
+ 
+Returns:
+    code    0 success 404 failed
+    message 信息
+    data    {
+        src     文件路径
+        title   文件名
+    }
+ 
+Raises:
+
+"""
+
+
+# 取消csrf验证
 @csrf_exempt
 def upload_image(request):
     data = {}
@@ -146,6 +302,27 @@ def upload_image(request):
     return response
 
 
+"""
+Describe
+    新增文章API
+
+method
+    POST
+
+Parameters:
+    title       题目
+    content     正文
+    classify    分类
+ 
+Returns:
+    code    0 success 404 failed
+    message 信息
+ 
+Raises:
+
+"""
+
+
 def add_article(request):
     data = {}
     try:
@@ -169,6 +346,25 @@ def add_article(request):
     return response
 
 
+"""
+Describe
+    删除文章API
+
+method
+    POST
+
+Parameters:
+    id          文章id
+ 
+Returns:
+    code    0 success 404 failed
+    message 信息
+ 
+Raises:
+
+"""
+
+
 def delete_article(request):
     data = {}
     try:
@@ -188,6 +384,25 @@ def delete_article(request):
 
     response = JsonResponse(data, json_dumps_params={'ensure_ascii': False})
     return response
+
+
+"""
+Describe
+    删除多个文章API
+
+method
+    POST
+
+Parameters:
+    id          文章id数组
+ 
+Returns:
+    code    0 success 404 failed
+    message 信息
+ 
+Raises:
+
+"""
 
 
 def delete_all_article(request):
@@ -210,6 +425,25 @@ def delete_all_article(request):
     return response
 
 
+"""
+Describe
+    修改推荐文章推荐信息API
+
+method
+    POST
+
+Parameters:
+    id          文章id
+ 
+Returns:
+    code    0 success 404 failed
+    message 信息
+ 
+Raises:
+
+"""
+
+
 def recommend(request):
     data = {}
     try:
@@ -224,6 +458,25 @@ def recommend(request):
         data['message'] = "修改失败"
     response = JsonResponse(data, json_dumps_params={'ensure_ascii': False})
     return response
+
+
+"""
+Describe
+    修改文章置顶API
+
+method
+    POST
+
+Parameters:
+    id          文章id
+ 
+Returns:
+    code    0 success 404 failed
+    message 信息
+ 
+Raises:
+
+"""
 
 
 def top(request):

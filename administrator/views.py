@@ -4,26 +4,6 @@ from django.contrib.auth.hashers import make_password, check_password
 from administrator.models import User
 from django.http import JsonResponse
 from django.core.paginator import Paginator
-from faker import Faker
-
-'''
-generate administrator
-
-for i in range(20):
-    user = User()
-    fake = Faker(locale='zh_CN')
-    user.username = fake.user_name()
-    if i == 0:
-        user.username = 'admin'
-    user.password = make_password('123456')
-    user.name = fake.name()
-    user.sex = 0
-    user.tel = fake.phone_number()
-    user.email = fake.email()
-    user.role = 1
-    user.superior = 1
-    user.save()
-'''
 
 '''
 页面URL部分
@@ -41,9 +21,6 @@ Parameters:
 
  
 Returns:
-    code: 0 success 404 failed
-    message
-    user
     渲染模板类 pages/admin/list.html
  
 Raises:
@@ -56,19 +33,31 @@ def list_page(request):
     return render(request, 'pages/admin/list.html')
 
 
+"""
+Describe
+    显示管理员角色URL
+
+method
+    GET
+
+
+Parameters:
+
+ 
+Returns:
+    code: 0 success 404 failed
+    message
+    渲染模板类 pages/admin/role.html
+ 
+Raises:
+
+"""
+
+
+# 允许 iframe方式打开
 @xframe_options_sameorigin
 def role(request):
     return render(request, 'pages/admin/role.html')
-
-
-@xframe_options_sameorigin
-def cate(request):
-    return render(request, 'pages/admin/cate.html')
-
-
-@xframe_options_sameorigin
-def rule(request):
-    return render(request, 'pages/admin/rule.html')
 
 
 """
@@ -84,7 +73,6 @@ Parameters:
 Returns:
     code: 0 success 404 failed
     message
-    user
     渲染模板类 pages/member/add.html
  
 Raises:
@@ -92,6 +80,7 @@ Raises:
 """
 
 
+# 允许 iframe方式打开
 @xframe_options_sameorigin
 def add(request):
     return render(request, 'pages/admin/add.html')
@@ -111,14 +100,14 @@ Parameters:
 Returns:
     code: 0 success 404 failed
     message
-    user
-    渲染模板类 pages/member/add.html
+    渲染模板类 pages/admin/edit.html
  
 Raises:
 
 """
 
 
+# 允许 iframe方式打开
 @xframe_options_sameorigin
 def edit(request):
     return render(request, 'pages/admin/edit.html')
@@ -151,6 +140,7 @@ def user_login(request):
         user_name = request.POST.get('username')
         password = request.POST.get('password')
 
+        # 查询用户是否存在
         user = User.objects.get(username=user_name)
 
         if user is None:
@@ -158,6 +148,8 @@ def user_login(request):
             data['message'] = "用户名或密码错误"
         else:
             if check_password(password, user.password):
+                request.session['admin_username'] = user_name
+                request.session['admin_id'] = user.id
                 data['code'] = 0
                 data['message'] = "登录成功"
             else:
@@ -167,8 +159,8 @@ def user_login(request):
     except Exception as e:
         print(e.args)
         data['code'] = 0
-        data['message'] = "服务器请求失败"
-
+        data['message'] = "用户不存在"
+    # 转化为Json
     response = JsonResponse(data, json_dumps_params={'ensure_ascii': False})
     return response
 
@@ -201,6 +193,7 @@ def add_user(request):
     data = {}
     try:
         try:
+            # 查询用户名是否存在
             user = User.objects.get(username=request.POST.get('username'))
             data['code'] = 404
             data['message'] = "用户名已存在"
@@ -225,7 +218,7 @@ def add_user(request):
         print(e.args)
         data['code'] = 404
         data['message'] = "新增失败"
-
+    # 转化为Json
     response = JsonResponse(data, json_dumps_params={'ensure_ascii': False})
     return response
 
@@ -257,6 +250,7 @@ def update_user(request):
     data = {}
     try:
         user = User.objects.get(id=request.POST.get('id'))
+
         user.name = request.POST.get('name')
         user.tel = request.POST.get('tel')
         user.email = request.POST.get('email')
@@ -271,6 +265,7 @@ def update_user(request):
         print(e.args)
         data['code'] = 404
         data['message'] = e.args
+    # 转化为Json
     response = JsonResponse(data, json_dumps_params={'ensure_ascii': False})
     return response
 
@@ -309,7 +304,8 @@ def delete_user(request):
     except Exception as e:
         print(e.args)
         data['code'] = 404
-        data['message'] = e.args
+        data['message'] = "删除失败"
+    # 转化为Json
     response = JsonResponse(data, json_dumps_params={'ensure_ascii': False})
     return response
 
@@ -345,12 +341,35 @@ def delete_all_user(request):
 
         data['code'] = 0
         data['message'] = "删除成功"
+
     except Exception as e:
         print(e.args)
         data['code'] = 404
-        data['message'] = e.args
+        data['message'] = "删除失败"
+    # 转化为Json
     response = JsonResponse(data, json_dumps_params={'ensure_ascii': False})
     return response
+
+
+"""
+Describe
+    罗列admin
+
+method
+    GET
+
+Parameters:
+    page    页数
+    limit   每页个数
+ 
+Returns:
+    code    0 success 404 failed
+    message
+    count   数据条数
+    data    数据
+Raises:
+
+"""
 
 
 def list_admin(request):
@@ -358,23 +377,48 @@ def list_admin(request):
     try:
         page = request.GET.get('page')
         limit = request.GET.get('limit')
+
+        # 利用Paginator分页
         ptr = Paginator(User.objects.all(), limit)
+
         user_list = []
         for user in ptr.page(page):
             res = {'id': user.id, 'name': user.name, 'tel': user.tel, 'date': user.create_time,
                    "email": user.email, 'role': user.role}
 
             user_list.append(res)
+
         data['code'] = 0
         data['message'] = "获取成功"
         data['count'] = ptr.count
         data['data'] = user_list
+
     except Exception as e:
         print(e.args)
         data['code'] = 404
-        data['message'] = e.args
+        data['message'] = "获取失败"
+    # 转化为Json
     response = JsonResponse(data, json_dumps_params={'ensure_ascii': False})
     return response
+
+
+"""
+Describe
+    获取指定id的admin
+
+method
+    GET
+
+Parameters:
+    id  admin的id
+ 
+Returns:
+    code    0 success 404 failed
+    message
+    data    数据
+Raises:
+
+"""
 
 
 def get_one_admin(request):
@@ -391,5 +435,6 @@ def get_one_admin(request):
         print(e.args)
         data['code'] = 404
         data['message'] = e.args
+    # 转化为Json
     response = JsonResponse(data, json_dumps_params={'ensure_ascii': False})
     return response
