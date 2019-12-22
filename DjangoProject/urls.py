@@ -10,6 +10,9 @@ urlpatterns = [
     path('login/', view.login),
     path('index/', view.index),
     path('welcome/', view.welcome),
+    path('home/', view.home),
+    path('dengLu/', view.dengLu),
+
 
     # member url
     path('member/', include('member.urls')),

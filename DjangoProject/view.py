@@ -14,6 +14,13 @@ def index(request):
 def welcome(request):
     return render(request, 'welcome.html')
 
+def home(request):
+    return render(request, 'home.html')
+
+
+def dengLu(request):
+    return render(request, 'dengLu.html')
+
 
 # member urls
 @xframe_options_sameorigin
