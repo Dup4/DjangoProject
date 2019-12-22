@@ -3,24 +3,24 @@ from django.views.decorators.clickjacking import xframe_options_sameorigin
 
 
 def login(request):
-    return render(request, 'login.html')
+    return render(request, 'background/login.html')
 
 
 def index(request):
-    return render(request, 'index.html')
+    return render(request, 'background/index.html')
 
 
 @xframe_options_sameorigin
 def welcome(request):
-    return render(request, 'welcome.html')
+    return render(request, 'background/welcome.html')
 
 
 # member urls
 @xframe_options_sameorigin
 def list_member(request):
-    return render(request, 'pages/member/list.html')
+    return render(request, 'background/pages/member/list.html')
 
 
 @xframe_options_sameorigin
 def echarts(request):
-    return render(request, 'pages/echarts/echarts1.html')
+    return render(request, 'background/pages/echarts/echarts1.html')

@@ -30,7 +30,7 @@ Raises:
 
 @xframe_options_sameorigin
 def list_page(request):
-    return render(request, 'pages/admin/list.html')
+    return render(request, 'background/pages/admin/list.html')
 
 
 """
@@ -57,7 +57,7 @@ Raises:
 # 允许 iframe方式打开
 @xframe_options_sameorigin
 def role(request):
-    return render(request, 'pages/admin/role.html')
+    return render(request, 'background/pages/admin/role.html')
 
 
 """
@@ -83,7 +83,7 @@ Raises:
 # 允许 iframe方式打开
 @xframe_options_sameorigin
 def add(request):
-    return render(request, 'pages/admin/add.html')
+    return render(request, 'background/pages/admin/add.html')
 
 
 """
@@ -110,7 +110,7 @@ Raises:
 # 允许 iframe方式打开
 @xframe_options_sameorigin
 def edit(request):
-    return render(request, 'pages/admin/edit.html')
+    return render(request, 'background/pages/admin/edit.html')
 
 
 """
