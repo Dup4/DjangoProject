@@ -30,7 +30,7 @@ Raises:
 # 允许 iframe方式打开
 @xframe_options_sameorigin
 def echarts(request):
-    return render(request, 'pages/echarts/echarts1.html')
+    return render(request, 'background/pages/echarts/echarts1.html')
 
 
 '''

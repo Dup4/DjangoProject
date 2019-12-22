@@ -34,7 +34,7 @@ Raises:
 # 允许 iframe方式打开
 @xframe_options_sameorigin
 def list_page(request):
-    return render(request, 'pages/article/list.html')
+    return render(request, 'background/pages/article/list.html')
 
 
 """
@@ -61,7 +61,7 @@ Raises:
 # 允许 iframe方式打开
 @xframe_options_sameorigin
 def show_article(request):
-    return render(request, 'pages/article/show.html')
+    return render(request, 'background/pages/article/show.html')
 
 
 """
@@ -88,7 +88,7 @@ Raises:
 # 允许 iframe方式打开
 @xframe_options_sameorigin
 def add(request):
-    return render(request, 'pages/article/add.html')
+    return render(request, 'background/pages/article/add.html')
 
 
 """
@@ -115,7 +115,7 @@ Raises:
 # 允许 iframe方式打开
 @xframe_options_sameorigin
 def edit(request):
-    return render(request, 'pages/article/edit.html')
+    return render(request, 'background/pages/article/edit.html')
 
 
 '''

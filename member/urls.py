@@ -15,7 +15,9 @@ urlpatterns = [
     path('password/', views.password),
 
     # API
+    # 获取单个member
     path('getOneMember/', views.get_one_member),
+    # 获取member列表
     path('listMember/', views.list_member),
     # 新增人员API
     path('addUser/', views.add_user),

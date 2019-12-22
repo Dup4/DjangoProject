@@ -30,7 +30,7 @@ Raises:
 
 @xframe_options_sameorigin
 def list_page(request):
-    return render(request, 'pages/member/list.html')
+    return render(request, 'background/pages/member/list.html')
 
 
 """
@@ -50,7 +50,7 @@ Raises:
 
 @xframe_options_sameorigin
 def delete(request):
-    return render(request, 'pages/member/del.html')
+    return render(request, 'background/pages/member/del.html')
 
 
 """
@@ -70,7 +70,7 @@ Raises:
 
 @xframe_options_sameorigin
 def add(request):
-    return render(request, 'pages/member/add.html')
+    return render(request, 'background/pages/member/add.html')
 
 
 """
@@ -90,7 +90,7 @@ Raises:
 
 @xframe_options_sameorigin
 def edit(request):
-    return render(request, 'pages/member/edit.html')
+    return render(request, 'background/pages/member/edit.html')
 
 
 """
@@ -110,7 +110,7 @@ Raises:
 
 @xframe_options_sameorigin
 def password(request):
-    return render(request, 'pages/member/password.html')
+    return render(request, 'background/pages/member/password.html')
 
 
 '''

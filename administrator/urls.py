@@ -6,10 +6,6 @@ urlpatterns = [
     path('list/', views.list_page),
     # admin的角色管理
     path('role/', views.role),
-    # admin的权限分类
-    path('cate/', views.cate),
-    # admin的权限管理
-    path('rule/', views.rule),
     # admin的添加管理员
     path('add/', views.add),
     # 用户登录
@@ -17,8 +13,9 @@ urlpatterns = [
     # admin修改界面
     path('edit/', views.edit),
 
+    # 获取admin列表
     path('listAdmin/', views.list_admin),
-
+    # 获取单个admin
     path('getOneAdmin/', views.get_one_admin),
     # 新增adminAPI
     path('addUser/', views.add_user),
