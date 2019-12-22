@@ -1,21 +1,18 @@
+{% load static %}
 <!doctype html>
 <html>
 <head>
 <meta charset="utf-8">
 <title>杭州师范大学新闻网 </title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="../css/base.css" rel="stylesheet" type="text/css">
-<link href="../font/font.css" rel="stylesheet" type="text/css">
-<link href="../css/inner.css" rel="stylesheet" type="text/css">
-<script src="../js/jquery-1.8.3.min.js" type="text/javascript"></script>
-<link rel="stylesheet" href="../css/slick.css">
-<script src="../js/slick.min.js" type="text/javascript"></script>
-<link rel="stylesheet" href="../css/owl.carousel.css">
-<!--[if lt IE 9]>
-<![endif]-->
-<!--[if lt IE 8]>
+    <link href="{% static '/css/base.css'%}" rel="stylesheet" type="text/css">
 
-<!--<![endif]-->
+    <link href="{% static '/css/inner.css'%}" rel="stylesheet" type="text/css">
+    <script src="{% static '/js/jquery-1.8.3.min.js'%}" type="text/javascript"></script>
+    <link rel="stylesheet" href="{% static '/css/slick.css'%}">
+    <script src="{% static '/js/slick.min.js'%}" type="text/javascript"></script>
+
+    <link rel="stylesheet" href="{% static '/css/owl.carousel.css'%}">
 
 
 
@@ -26,17 +23,17 @@
      <div class="topwraper relative clearfix">
           <div class="ulink">
                 <ul class="clearfix">
-                  <li class="socialnet"><a href="https://weibo.com/u/1743321831?is_hot=1" class="circle"  title="微博" target="_blamk"><img src="../images/微博.png" class="circle"></a>
-                    <li class="socialnet"><a href="javascript:;" class="circle"  title="微信"><img src="../images/微信.png" class="circle"></a>
-                     <div class="socialwraper"><i><em></em></i><img src="../images/weixinpg.png" width="150px"></div>
+                  <li class="socialnet"><a href="https://weibo.com/u/1743321831?is_hot=1" class="circle"  title="微博" target="_blamk"><img src="/static/images/weibo.png" class="circle"></a>
+                    <li class="socialnet"><a href="javascript:;" class="circle"  title="微信"><img src="/static/images/weixin.png" class="circle"></a>
+                     <div class="socialwraper"><i><em></em></i><img src="/static/images/weixinpg.png" width="150px"></div>
                     </li>
                   </li>
-                    <li class="socialnet"><a href="https://lib.hznu.edu.cn/" class="circle" title="图书馆"><img src="../images/书.png" class="circle"></a></li>
+                    <li class="socialnet"><a href="https://lib.hznu.edu.cn/" class="circle" title="图书馆"><img src="/static/images/book.png" class="circle"></a></li>
                     <li class="mr"><a href="https://english.hznu.edu.cn/" class="en" target="_blank">ENGLISH</a></li>
                     <li class="mr"><a href="#" class="en" target="_blank">杭师主页</a></li>
                 </ul>
             </div>
-            <a href="#" class="logo"><img src="../images/logo.png" alt="logo"></a>
+            <a href="#" class="logo"><img src="/static/images/logo.png" alt="logo"></a>
 
 
 			<nav class="navwrap yahei">
@@ -76,7 +73,7 @@
                 <li class="clearfix">
                     <figure>
                         <a class="picwraper" href="https://www.hznu.edu.cn/c/2019-12-17/2287032.shtml" target="_blank">
-                            <img src="../images/zhanghangjun.jpg">
+                            <img src="/static/images/zhanghangjun.jpg">
                         </a>
                         <div class="contentwraper">
 
@@ -90,7 +87,7 @@
                 <li class="clearfix">
                     <figure>
                         <a class="picwraper" href="http://xiaoyou.hznu.edu.cn/other/viewnews?id=7134l" target="_blank">
-                            <img src="../images/zhangrenshang.jpg">
+                            <img src="/static/images/zhangrenshang.jpg">
                         </a>
                         <div class="contentwraper">
 
@@ -105,7 +102,7 @@
                 <li class="clearfix">
                     <figure>
                         <a class="picwraper" href="http://xiaoyou.hznu.edu.cn/other/viewnews?id=7148" target="_blank">
-                            <img src="../images/lifuqiang.jpg">
+                            <img src="/static/images/lifuqiang.jpg">
                         </a>
                         <div class="contentwraper">
 
@@ -127,10 +124,10 @@
 
                 <div class="slidegallery">
                     <ul id="thunews_tsqh">
-                        <li class="active"><a><img src="../images/tu1.jpg"></a></li>
-                        <li><a><img src="../images/tu1.jpg"></a></li>
-                        <li><a><img src="../images/tu1.jpg"></a></li>
-                        <li><a><img src="../images/tu1.jpg"></a></li>
+                        <li class="active"><a><img src="/static/images/tu1.jpg"></a></li>
+                        <li><a><img src="/static/images/tu1.jpg"></a></li>
+                        <li><a><img src="/static/images/tu1.jpg"></a></li>
+                        <li><a><img src="/static/images/tu1.jpg"></a></li>
                     </ul>
                 </div>
                 <script type="text/javascript">
@@ -201,13 +198,13 @@
 <footer>
  <div class="mainWrap clearfix">
      <section>
-         <div class="thulogo"><img  src="../images/thulogo.png"></div>
+         <div class="thulogo"><img  src="/static/images/thulogo.png"></div>
             <div class="copyright"><span><a href="https://www.hznu.edu.cn/xnxsg/">网上校史馆</a>　│　<a href="http://paper.hznu.edu.cn/">校报</a>　│　<a href="http://xiaoyou.hznu.edu.cn/">师大校友</a>　│　<a href="https://it.hznu.edu.cn/hznu/" target="_blank">智慧校园APP</a></span>
             地址：浙江省杭州市余杭区仓前街道余杭塘路2318号　邮编：311121 联系电话：0571-28865012<br>
             本科招生热线: 0571-28865193 研究生招生热线：0571-28865143<br>
 			公安备案号 33011002011919  浙ICP备11056902号 版权所有 杭州师范大学 Copyright © 2008 All rights reserved.
             </div>
-		 <div class="weiye"><img src="../images/xiaoxun.png" ></div>
+		 <div class="weiye"><img src="/static/images/xiaoxun.png" ></div>
         </section>
     </div>
     </footer>
