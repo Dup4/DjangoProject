@@ -21,6 +21,14 @@ def home(request):
 def dengLu(request):
     return render(request, 'dengLu.html')
 
+def picture(request):
+    return render(request, 'picture.html')
+
+
+def renWu(request):
+    return render(request, 'renWu.html')
+
+
 
 # member urls
 @xframe_options_sameorigin

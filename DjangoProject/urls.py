@@ -15,7 +15,8 @@ urlpatterns = [
     path('welcome/', view.welcome),
     path('home/', view.home),
     path('dengLu/', view.dengLu),
-
+    path('picture/', view.picture),
+    path('renWu/', view.renWu),
 
     # member url
     path('member/', include('member.urls')),
