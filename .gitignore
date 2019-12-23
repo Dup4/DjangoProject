@@ -134,3 +134,6 @@ dmypy.json
 /article/migrations/
 /echarts/migrations/
 /member/migrations/
+/DjangoProject/settings.py
+.idea/
+templates/front/
