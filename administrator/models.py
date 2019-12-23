@@ -19,7 +19,7 @@ class User(models.Model):
     tel = models.CharField(max_length=20)
     # 管理员邮箱 varchar(255)
     email = models.CharField(max_length=255)
-    # 管理员角色 0 超级管理员 1 编辑人员 2 审核人员
+    # 管理员角色 1 超级管理员
     role = models.IntegerField()
     # 上级id
     superior = models.IntegerField()
@@ -36,6 +36,12 @@ class Role(models.Model):
     id = models.AutoField(primary_key=True)
     # 角色名字 varchar(255)
     name = models.CharField(max_length=255)
+    # 是否拥有管理员操作权限
+    admin_operation = models.BooleanField(default=0)
+    # 是否拥有user操作权限
+    user_operation = models.BooleanField()
+    # 是否拥有article操作权限
+    article_operation = models.BooleanField()
     # 介绍 varchar(255)
     describe = models.CharField(max_length=255)
     # 创建时间

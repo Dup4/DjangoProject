@@ -1,3 +1,5 @@
+from django.contrib.auth.decorators import login_required
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.views.decorators.clickjacking import xframe_options_sameorigin
 
@@ -7,6 +9,9 @@ def login(request):
 
 
 def index(request):
+    request.session.clear()
+    if request.session.get('admin_username') is None:
+        return HttpResponseRedirect('/login/')
     return render(request, 'background/index.html')
 
 
@@ -14,27 +19,32 @@ def index(request):
 def welcome(request):
     return render(request, 'background/welcome.html')
 
+
 def home(request):
     return render(request, 'home.html')
+
 
 def dengLu(request):
     return render(request, 'dengLu.html')
 
+
 def picture(request):
     return render(request, 'picture.html')
+
 
 def renWu(request):
     return render(request, 'renWu.html')
 
+
 def xiaoYuan(request):
     return render(request, 'xiaoYuan.html')
+
 
 def xinWen(request):
     return render(request, 'xinWen.html')
 
 def article(request):
     return render(request, 'article.html')
-
 
 
 # member urls

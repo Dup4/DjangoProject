@@ -134,4 +134,4 @@ dmypy.json
 /member/migrations/
 /DjangoProject/settings.py
 .idea/
-templates/front/
+DjangoProject/__pycache__/

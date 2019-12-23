@@ -10,24 +10,22 @@ layui.use(['table', 'jquery', 'form', 'admin'], function () {
 
     table.render({
         id: 'table',
-        elem: '#adminList',
+        elem: '#roleList',
         cellMinWidth: 80,
-        url: '/admin/listAdmin',
+        url: '/admin/listRole',
         cols: [
             [{
                 type: 'checkbox'
             }, {
                 field: 'id', title: 'ID', sort: true
             }, {
-                field: 'name', title: '姓名', sort: true
+                field: 'name', title: '角色名', sort: true
             }, {
-                field: 'tel', title: '性别', sort: true
+                field: 'rule', title: '拥有权限规则', sort: true, unresize: true
             }, {
-                field: 'email', title: '邮箱'
+                field: 'desc', title: '描述', unresize: true
             }, {
-                field: 'role', title: '角色', sort: true
-            }, {
-                field: 'date', title: '加入时间',
+                field: 'date', title: '生成时间',
             }, {
                 field: 'operate', title: '操作', toolbar: '#operateTpl', unresize: true
             }]
@@ -51,7 +49,7 @@ layui.use(['table', 'jquery', 'form', 'admin'], function () {
             let token = $('input[name=csrfmiddlewaretoken]').val();
             $.ajax({
                 type: "POST",
-                url: '/admin/delUser/',
+                url: '/member/delUser/',
                 dataType: 'json',
                 data: {
                     id: id,
@@ -97,7 +95,7 @@ layui.use(['table', 'jquery', 'form', 'admin'], function () {
             let token = $('input[name=csrfmiddlewaretoken]').val();
             $.ajax({
                 type: "POST",
-                url: '/admin/delAllUser/',
+                url: '/member/delAllUser/',
                 traditional: true,
                 dataType: 'json',
                 data: {
