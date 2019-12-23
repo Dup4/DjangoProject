@@ -134,12 +134,6 @@ dmypy.json
 /member/migrations/
 /DjangoProject/settings.py
 .idea/
-/DjangoProject/__pycache__/
-/administrator/__pycache__/
-/article/__pycache__/
-/echarts/__pycache__/
-/member/__pycache__/
 DjangoProject/settings.py
 *.pyc
-administrator/__pycache__/__init__.cpython-37.pyc
-administrator/__pycache__/__init__.cpython-37.pyc
+/static/upload/
