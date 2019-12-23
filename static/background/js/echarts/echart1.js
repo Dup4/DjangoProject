@@ -55,7 +55,7 @@
 // console.log(document.getElementById('main'));
 // console.log($("#main").get(0));’
 layui.extend({
-    admin: '/static/js/admin'
+    admin: '/static/background/js/admin'
 });
 
 layui.use(['form', 'jquery', 'admin', 'layer'], function () {
