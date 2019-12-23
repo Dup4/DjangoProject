@@ -32,6 +32,9 @@ def xiaoYuan(request):
 def xinWen(request):
     return render(request, 'xinWen.html')
 
+def article(request):
+    return render(request, 'article.html')
+
 
 
 # member urls
