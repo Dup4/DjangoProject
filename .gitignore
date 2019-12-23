@@ -134,6 +134,5 @@ dmypy.json
 /member/migrations/
 /DjangoProject/settings.py
 .idea/
-DjangoProject/settings.py
 *.pyc
 /static/upload/
