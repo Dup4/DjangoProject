@@ -139,3 +139,7 @@ dmypy.json
 /article/__pycache__/
 /echarts/__pycache__/
 /member/__pycache__/
+DjangoProject/settings.py
+*.pyc
+administrator/__pycache__/__init__.cpython-37.pyc
+administrator/__pycache__/__init__.cpython-37.pyc

@@ -28,6 +28,7 @@ STATICFILES_DIRS = [
 ]
 
 netstat -tunlp
+sudo apt-get install zlib1g-dev libbz2-dev libssl-dev libncurses5-dev libsqlite3-dev libreadline-dev tk-dev libgdbm-dev libdb-dev libpcap-dev xz-utils libexpat1-dev liblzma-dev libffi-dev libc6-dev
 
 #杀死指定进程根据pid(进程id)： 
 kill 8911  #pid
