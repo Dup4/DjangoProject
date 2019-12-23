@@ -1,4 +1,3 @@
-//废弃代码，仅供参考
 $(function() {
 	//加载弹出层
 	layui.use(['form', 'element'],
