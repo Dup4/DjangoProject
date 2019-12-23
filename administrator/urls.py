@@ -21,6 +21,8 @@ urlpatterns = [
     path('listAdmin/', views.list_admin),
     # 获取角色列表
     path('listRole/', views.list_role),
+    # 获取所有角色
+    path('getAllRole/', views.get_all_role),
     # 获取单个admin
     path('getOneAdmin/', views.get_one_admin),
     # 新增adminAPI

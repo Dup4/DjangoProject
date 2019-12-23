@@ -399,9 +399,8 @@ def get_one_admin(request):
     data = {}
     try:
         query = User.objects.get(id=request.GET.get('id'))
-        user = {'id': query.id, 'username': query.username, 'name': query.name, 'address': query.address,
-                "tel": query.tel,
-                "email": query.email}
+        user = {'id': query.id, 'username': query.username, 'name': query.name, "tel": query.tel,
+                "email": query.email, "role": query.role}
         data['code'] = 0
         data['message'] = "获取成功"
         data['data'] = user
@@ -612,5 +611,26 @@ def add_role(request):
         data['code'] = 404
         data['message'] = "新增失败"
     # 转化为Json
+    response = JsonResponse(data, json_dumps_params={'ensure_ascii': False})
+    return response
+
+
+def get_all_role(request):
+    data = {}
+    try:
+        role_list = []
+
+        for role in Role.objects.all():
+            res = {'id': role.id, 'name': role.name}
+            role_list.append(res)
+
+        data['code'] = 0
+        data['message'] = "获取成功"
+        data['data'] = role_list
+    except Exception as e:
+        print(e.args)
+        data['code'] = 404
+        data['message'] = '获取失败'
+
     response = JsonResponse(data, json_dumps_params={'ensure_ascii': False})
     return response

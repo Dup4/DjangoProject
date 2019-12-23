@@ -134,7 +134,7 @@ dmypy.json
 /member/migrations/
 /DjangoProject/settings.py
 .idea/
-DjangoProject/__pycache__/
+/DjangoProject/__pycache__/
 /administrator/__pycache__/
 /article/__pycache__/
 /echarts/__pycache__/

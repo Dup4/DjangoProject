@@ -9,7 +9,6 @@ def login(request):
 
 
 def index(request):
-    request.session.clear()
     if request.session.get('admin_username') is None:
         return HttpResponseRedirect('/login/')
     return render(request, 'background/index.html')

@@ -17,27 +17,61 @@ layui.use(['form', 'layer', 'admin'], function () {
 
     function frameVal() {
         let dataId = $('input[name="dataId"]').val();
-        console.log(dataId);
-        let index = parent.layer.getFrameIndex(window.name);
-        parent.layui.jquery("#adminList tr").each(function () {
-            if ($(this).attr('data-id') == dataId) {
-                let tdArr = $(this).children('td');
-                let username = $(this).children('input').val(); //用户名
-                let name = tdArr.eq(2).text();
-                let phone = tdArr.eq(3).text(); //电话
-                let email = tdArr.eq(4).text(); //邮箱
-                let role = tdArr.eq(5).text();
-                console.log("role", role);
-                $('input[name="username"]').val(username);
-                $('input[name="name"]').val(name);
-                $('input[name="phone"]').val(phone);
-                $('input[name="email"]').val(email);
-                $('#role option:contains(' + role + ')').each(function () {
-                    if ($(this).text() == role) {
-                        $(this).attr('selected', true);
-                    }
+        $.ajax({
+            type: "GET",
+            url: '/admin/getOneAdmin/',
+            dataType: 'json',
+            data: {
+                id: dataId
+            },
+            success: function (data) {
+                if (data.code === 0) {
+                    let username = data.data.username;
+                    let name = data.data.name;
+                    let phone = data.data.tel; //电话
+                    let email = data.data.email; //邮箱
+                    let role = data.data.role;
+                    $('input[name="username"]').val(username);
+                    $('input[name="name"]').val(name);
+                    $('input[name="phone"]').val(phone);
+                    $('input[name="email"]').val(email);
+                    $.ajax({
+                        type: "GET",
+                        url: '/admin/getAllRole/',
+                        dataType: 'json',
+                        data: {},
+                        success: function (data) {
+                            if (data.code === 0) {
+                                data = data.data;
+                                let select = $('#role');
+                                select.empty();
+                                select.append(new Option("请选择角色"));
+                                for (let index = 0; index < data.length; ++index) {
+                                    let opt = new Option(data[index].name, data[index].id);
+                                    select.append(opt);
+                                }
+                                select.find('option[value="1"]').attr("disabled","disabled");
+                                select.val(role);
+                                form.render();
+                            } else {
+                                layer.msg(data.message)
+                            }
+                        },
+                        err: function () {
+                            layui.use('layer', function () {
+                                layer.msg("服务器请求失败")
+                            });
+                        }
+                    });
+                    form.render();
+                } else {
+                    layer.msg(data.message)
+                }
+            },
+            err: function () {
+                layui.use('layer', function () {
+                    layer.msg("服务器请求失败")
                 });
-                form.render();
             }
         });
     }

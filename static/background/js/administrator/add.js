@@ -5,7 +5,46 @@ layui.use(['form', 'layer', 'admin'], function () {
     var form = layui.form,
         $ = layui.jquery,
         layer = layui.layer;
-    form.render();
+
+//页面初始化加载
+    $(function () {
+        setTimeout(function () {
+            frameVal();
+        }, 100);
+    });
+
+    function frameVal() {
+        $.ajax({
+            type: "GET",
+            url: '/admin/getAllRole/',
+            dataType: 'json',
+            data: {},
+            success: function (data) {
+                if (data.code === 0) {
+                    console.log(data);
+                    data = data.data;
+                    let select = $('#role');
+                    select.empty();
+                    select.append(new Option("请选择角色"));
+                    for (let index = 0; index < data.length; ++index) {
+                        let opt = new Option(data[index].name, data[index].id);
+                        select.append(opt);
+                    }
+                    select.find('option[value="1"]').attr("disabled","disabled");
+                    form.render();
+                } else {
+                    layer.msg(data.message)
+                }
+            },
+            err: function () {
+                layui.use('layer', function () {
+                    layer.msg("服务器请求失败")
+                });
+            }
+        });
+    }
+
+
     //自定义验证规则
     form.verify({
         nikename: function (value) {

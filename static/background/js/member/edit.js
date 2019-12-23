@@ -17,26 +17,6 @@ layui.use(['form', 'jquery', 'admin', 'layer'], function () {
 
     function frameVal() {
         let dataId = $('input[name="dataId"]').val();
-        let index = parent.layer.getFrameIndex(window.name);
-        parent.layui.jquery("#memberList tr").each(function () {
-            if ($(this).attr('data-id') == dataId) {
-                console.log($(this).children('input').val());
-                let tdArr = $(this).children('td');
-                let username = $(this).children('input').val(); //用户名
-                let name = tdArr.eq(2).text();
-                let sex = tdArr.eq(3).text(); //性别
-                let phone = tdArr.eq(4).text(); //电话
-                let email = tdArr.eq(5).text(); //邮箱
-                let address = tdArr.eq(6).text(); //地址
-                $('input[name="username"]').val(username);
-                $('input[name="name"]').val(name);
-                $('input[name="sex"][value="' + sex + '"]').attr("checked", true);
-                $('input[name="phone"]').val(phone);
-                $('input[name="email"]').val(email);
-                $('input[name="address"]').val(address);
-                form.render();
-            }
-        });
         $.ajax({
             type: "GET",
             url: '/member/getOneMember/',
