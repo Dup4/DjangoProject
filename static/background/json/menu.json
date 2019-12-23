@@ -23,11 +23,6 @@
 				"name": "文章列表",
 				"icon": "",
 				"url": "/article/list"
-			}, {
-				"id": 10,
-				"name": "分类管理",
-				"icon": "",
-				"url": "/article/category"
 			}]
 		},
 		{

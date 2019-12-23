@@ -35,4 +35,8 @@ urlpatterns = [
     path('delUser/', views.delete_user),
     # 删除多个adminAPI
     path('delAllUser/', views.delete_all_user),
+    # 获取自身信息
+    path('getMy/', views.get_my),
+    # 修改自身信息
+    path('updateMy/', views.update_my),
 ]

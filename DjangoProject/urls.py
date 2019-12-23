@@ -20,7 +20,7 @@ urlpatterns = [
     path('xiaoYuan/', view.xiaoYuan),
     path('xinWen/', view.xinWen),
     path('article/', view.article),
-
+    path('personalInformation/', view.personal_information),
     # member url
     path('member/', include('member.urls')),
 

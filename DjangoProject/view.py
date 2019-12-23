@@ -42,6 +42,7 @@ def xiaoYuan(request):
 def xinWen(request):
     return render(request, 'xinWen.html')
 
+
 def article(request):
     return render(request, 'article.html')
 
@@ -55,3 +56,8 @@ def list_member(request):
 @xframe_options_sameorigin
 def echarts(request):
     return render(request, 'background/pages/echarts/echarts1.html')
+
+
+@xframe_options_sameorigin
+def personal_information(request):
+    return render(request, 'background/personal_information.html')

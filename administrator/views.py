@@ -634,3 +634,46 @@ def get_all_role(request):
 
     response = JsonResponse(data, json_dumps_params={'ensure_ascii': False})
     return response
+
+
+def get_my(request):
+    data = {}
+    try:
+        query = User.objects.get(username=request.session.get('admin_username'))
+
+        user = {'id': query.id, 'username': query.username, 'name': query.name, "tel": query.tel,
+                "email": query.email, "role": query.role}
+        data['code'] = 0
+        data['message'] = "获取成功"
+        data['data'] = user
+
+    except Exception as e:
+        print(e.args)
+        data['code'] = 404
+        data['message'] = e.args
+    # 转化为Json
+    response = JsonResponse(data, json_dumps_params={'ensure_ascii': False})
+    return response
+
+
+def update_my(request):
+    data = {}
+    try:
+        user = User.objects.get(username=request.session.get('admin_username'))
+
+        user.name = request.POST.get('name')
+        user.tel = request.POST.get('tel')
+        user.email = request.POST.get('email')
+
+        user.save()
+
+        data['code'] = 0
+        data['message'] = "修改成功"
+
+    except Exception as e:
+        print(e.args)
+        data['code'] = 404
+        data['message'] = e.args
+    # 转化为Json
+    response = JsonResponse(data, json_dumps_params={'ensure_ascii': False})
+    return response
