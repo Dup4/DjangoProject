@@ -76,7 +76,7 @@
 <script type = "text/javascript" src = "{% static 'background/lib/layui/layui.js' %}" charset = "utf-8"></script>
 <script type = "text/javascript">
     layui.config({
-        base: '/static/js/'
+        base: '/static/background/js/'
         , version: '101100'
     }).extend({ //设定模块别名
         admin: 'admin'
@@ -87,7 +87,7 @@
             admin = layui.admin,
             menu = layui.menu;
         $(function () {
-            menu.getMenu('/static/json/menu.json');
+            menu.getMenu('/static/background/json/menu.json');
         });
 
         window.logout = function () {

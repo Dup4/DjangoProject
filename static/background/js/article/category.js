@@ -68,7 +68,7 @@ var layout = [{
 //			  ,version: '101100'
 //			}).use('admin');
 layui.extend({
-	admin: '/static/js/admin',
+	admin: '/static/background/js/admin',
 	treeGird: '/static/lib/layui/lay/treeGird' // {/}的意思即代表采用自有路径，即不跟随 base 路径
 });
 layui.use(['treeGird', 'jquery', 'admin', 'layer'], function() {
