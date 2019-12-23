@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views.decorators.clickjacking import xframe_options_sameorigin
 from django.contrib.auth.hashers import make_password, check_password
-from administrator.models import User
+from administrator.models import User, Role
 from django.http import JsonResponse
 from django.core.paginator import Paginator
 
@@ -31,33 +31,6 @@ Raises:
 @xframe_options_sameorigin
 def list_page(request):
     return render(request, 'background/pages/admin/list.html')
-
-
-"""
-Describe
-    显示管理员角色URL
-
-method
-    GET
-
-
-Parameters:
-
- 
-Returns:
-    code: 0 success 404 failed
-    message
-    渲染模板类 pages/admin/role.html
- 
-Raises:
-
-"""
-
-
-# 允许 iframe方式打开
-@xframe_options_sameorigin
-def role(request):
-    return render(request, 'background/pages/admin/role.html')
 
 
 """
@@ -139,6 +112,7 @@ def user_login(request):
 
         user_name = request.POST.get('username')
         password = request.POST.get('password')
+        print(user_name, password)
 
         # 查询用户是否存在
         user = User.objects.get(username=user_name)
@@ -150,6 +124,7 @@ def user_login(request):
             if check_password(password, user.password):
                 request.session['admin_username'] = user_name
                 request.session['admin_id'] = user.id
+                print("ok")
                 data['code'] = 0
                 data['message'] = "登录成功"
             else:
@@ -383,9 +358,8 @@ def list_admin(request):
 
         user_list = []
         for user in ptr.page(page):
-            res = {'id': user.id, 'name': user.name, 'tel': user.tel, 'date': user.create_time,
-                   "email": user.email, 'role': user.role}
-
+            res = {'id': user.id, 'name': user.name, 'tel': user.tel, 'date': user.create_time, "email": user.email,
+                   'role': Role.objects.get(id=user.role).name}
             user_list.append(res)
 
         data['code'] = 0
@@ -435,6 +409,208 @@ def get_one_admin(request):
         print(e.args)
         data['code'] = 404
         data['message'] = e.args
+    # 转化为Json
+    response = JsonResponse(data, json_dumps_params={'ensure_ascii': False})
+    return response
+
+
+'''
+    Role部分
+'''
+
+"""
+Describe
+    显示管理员角色URL
+
+method
+    GET
+
+
+Parameters:
+
+ 
+Returns:
+    渲染模板类 pages/admin/role.html
+ 
+Raises:
+
+"""
+
+
+# 允许 iframe方式打开
+@xframe_options_sameorigin
+def role(request):
+    return render(request, 'background/pages/admin/role.html')
+
+
+"""
+Describe
+    显示管理员角色增加URL
+
+method
+    GET
+
+
+Parameters:
+
+ 
+Returns:
+    渲染模板类 pages/admin/role-add.html
+ 
+Raises:
+
+"""
+
+
+@xframe_options_sameorigin
+def role_add(request):
+    return render(request, 'background/pages/admin/role-add.html')
+
+
+@xframe_options_sameorigin
+def role_edit(request):
+    return render(request, 'background/pages/admin/role-edit.html')
+
+
+def list_role(request):
+    data = {}
+    try:
+        page = request.GET.get('page')
+        limit = request.GET.get('limit')
+
+        # 利用Paginator分页
+        ptr = Paginator(Role.objects.all(), limit)
+
+        role_list = []
+        for role in ptr.page(page):
+            res = {'id': role.id, 'name': role.name, 'date': role.create_time,
+                   "desc": role.describe}
+            rule = ""
+            if role.admin_operation:
+                rule += "管理员列表，"
+            if role.user_operation:
+                rule += "用户列表,"
+            if role.article_operation:
+                rule += "文章列表，"
+            rule = rule[:-1]
+            print(rule)
+            res['rule'] = rule
+            role_list.append(res)
+
+        data['code'] = 0
+        data['message'] = "获取成功"
+        data['count'] = ptr.count
+        data['data'] = role_list
+
+    except Exception as e:
+        print(e.args)
+        data['code'] = 404
+        data['message'] = "获取失败"
+    # 转化为Json
+    response = JsonResponse(data, json_dumps_params={'ensure_ascii': False})
+    return response
+
+
+"""
+Describe
+    删除管理员角色API
+
+method
+    POST
+
+Parameters:
+    id       用户id
+ 
+Returns:
+    code: 0 success 404 failed
+    message
+ 
+Raises:
+
+"""
+
+
+def delete_role(request):
+    data = {}
+    try:
+        role = Role.objects.get(id=request.POST.get("id"))
+
+        role.status = 0
+
+        role.save()
+
+        data['code'] = 0
+        data['message'] = "删除成功"
+
+    except Exception as e:
+        print(e.args)
+        data['code'] = 404
+        data['message'] = "删除失败"
+    # 转化为Json
+    response = JsonResponse(data, json_dumps_params={'ensure_ascii': False})
+    return response
+
+
+"""
+Describe
+    删除多个管理员角色API
+
+method
+    POST
+
+Parameters:
+    id       用户id数组
+ 
+Returns:
+    code: 0 success 404 failed
+    message
+ 
+Raises:
+
+"""
+
+
+def delete_all_role(request):
+    data = {}
+    try:
+        ids = request.POST.getlist('id')
+        for role_id in ids:
+            role = Role.objects.get(id=role_id)
+            role.status = 0
+
+            role.save()
+
+        data['code'] = 0
+        data['message'] = "删除成功"
+
+    except Exception as e:
+        print(e.args)
+        data['code'] = 404
+        data['message'] = "删除失败"
+    # 转化为Json
+    response = JsonResponse(data, json_dumps_params={'ensure_ascii': False})
+    return response
+
+
+def add_role(request):
+    data = {}
+    try:
+        role = Role()
+
+        role.name = request.POST.get('name')
+        role.user_operation = request.POST.get('user_operation')
+        role.article_operation = request.POST.get('article_operation')
+        role.describe = request.POST.get('desc')
+
+        role.save()
+
+        data['code'] = 0
+        data['message'] = "新增管理员成功"
+
+    except Exception as e:
+        print(e.args)
+        data['code'] = 404
+        data['message'] = "新增失败"
     # 转化为Json
     response = JsonResponse(data, json_dumps_params={'ensure_ascii': False})
     return response
