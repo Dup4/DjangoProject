@@ -135,3 +135,6 @@ dmypy.json
 /DjangoProject/settings.py
 .idea/
 templates/front/
+DjangoProject/__pycache__/urls.cpython-37.pyc
+DjangoProject/__pycache__/urls.cpython-37.pyc
+DjangoProject/__pycache__/view.cpython-37.pyc
