@@ -135,4 +135,7 @@ dmypy.json
 /DjangoProject/settings.py
 .idea/
 DjangoProject/__pycache__/
-DjangoProject/__pycache__/urls.cpython-37.pyc
+/administrator/__pycache__/
+/article/__pycache__/
+/echarts/__pycache__/
+/member/__pycache__/
