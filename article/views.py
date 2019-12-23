@@ -284,7 +284,7 @@ def upload_image(request):
         print(file)
         import os
         from django.conf import settings
-        filepath = os.path.join('media', file.name)
+        filepath = os.path.join('static/upload', file.name)
         print(filepath)
         f = open(filepath, 'wb')
         for i in file.chunks():

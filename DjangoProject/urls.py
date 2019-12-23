@@ -6,7 +6,6 @@ from django.conf.urls import url
 from . import view
 from django.contrib import admin
 from django.views.static import serve
-from .settings import MEDIA_ROOT
 
 urlpatterns = [
     # normal url
@@ -37,5 +36,5 @@ urlpatterns = [
     url(r'^static/(?P<path>.*)$', static.serve,
         {'document_root': settings.STATIC_ROOT}, name='static'),
     # media url
-    url(r'^media/(?P<path>.*)$', serve, {"document_root": MEDIA_ROOT})
+    # url(r'^media/(?P<path>.*)$', serve, {"document_root": MEDIA_ROOT})
 ]
