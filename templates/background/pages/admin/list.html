@@ -27,13 +27,13 @@
 </div>
 <div class = "weadmin-body">
     <div class = "layui-row">
-        <form class = "layui-form layui-col-md12 we-search">
-            <div class = "layui-inline">
-                <input type = "text" name = "username" placeholder = "请输入用户名" autocomplete = "off" class = "layui-input">
-            </div>
-            <button class = "layui-btn" lay-submit = "" lay-filter = "sreach"><i class = "layui-icon">&#xe615;</i>
-            </button>
-        </form>
+        管理员搜索：
+        <div class = "layui-inline">
+            <input type = "text" name = "username" placeholder = "请输入用户名" autocomplete = "off" class = "layui-input" />
+        </div>
+        <button class = "layui-btn" data-type = "reload">
+            <i class = "layui-icon layui-icon-search"></i>
+        </button>
     </div>
     <div class = "weadmin-block">
         <button class = "layui-btn layui-btn-danger" onclick = "delAll()"><i class = "layui-icon"></i>批量删除</button>
@@ -52,7 +52,7 @@
     {% csrf_token %}
 </div>
 <script src = "{% static 'background/lib/layui/layui.js' %}" charset = "utf-8"></script>
-<script src = "{% static 'background/js/administrator/list.js' %}" type = "text/javascript" charset = "utf-8"></script>
+<script src = "{% static 'background/js/administrator/list.js' %}" charset = "utf-8"></script>
 </body>
 
 </html>

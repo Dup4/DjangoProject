@@ -9,10 +9,10 @@ layui.use(['table', 'jquery', 'form', 'admin'], function () {
         admin = layui.admin;
 
     let tableIns = table.render({
-        id: 'table',
+        id: 'testReload',
         elem: '#adminList',
         cellMinWidth: 80,
-        url: '/admin/listAdmin',
+        url: '/admin/listAdmin/',
         cols: [
             [{
                 type: 'checkbox'
@@ -29,13 +29,13 @@ layui.use(['table', 'jquery', 'form', 'admin'], function () {
             }, {
                 field: 'date', title: '加入时间',
             }, {
-                field: 'operate', title: '操作', toolbar: '#operateTpl', unresize: true
+                title: '操作', toolbar: '#operateTpl', unresize: true
             }]
         ],
         event: true,
         page: true,
         toolbar: true,
-        loading: true
+        loading: true,
     });
     /*
      *数据表格中form表单元素是动态插入,所以需要更新渲染下
@@ -45,25 +45,27 @@ layui.use(['table', 'jquery', 'form', 'admin'], function () {
         form.render();
     });
 
-
-    // tableIns.reload({
-    //     where: { //设定异步数据接口的额外参数，任意设
-    //         usernmae: $("input[name='username']").val()
+    // let active = {
+    //     reload: function () {
+    //         let username = $("input[name='username']");
+    //         // 执行重载
+    //         table.reload('testReload', {
+    //             page: {
+    //                 curr: 1 //重新从第 1 页开始
+    //             }
+    //             ,
+    //             where: {
+    //                 username: username.val()
+    //             },
+    //         }, 'data');
+    //
     //     }
-    //     , page: {
-    //         curr: 1 //重新从第 1 页开始
-    //     }
+    // };
+    // $('.layui-btn').on('click', function () {
+    //     let type = $(this).data('type');
+    //     active[type] ? active[type].call(this) : '';
     // });
-    form.on('submit(sreach)', function (data) {
-        tableIns.reload({
-            where: { //设定异步数据接口的额外参数，任意设
-                usernmae: $("input[name='username']").val()
-            }, page: {
-                curr: 1
-            }
-        });
-        return false;
-    });
+
     /*用户-删除*/
     window.member_del = function (obj, id) {
         layer.confirm('确认要删除吗？', function (index) {
