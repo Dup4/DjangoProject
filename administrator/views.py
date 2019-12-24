@@ -184,6 +184,7 @@ def add_user(request):
             user.email = request.POST.get('email')
             user.role = request.POST.get('role')
             user.password = make_password(request.POST.get('password'))
+            user.superior = 0
 
             user.save()
 
