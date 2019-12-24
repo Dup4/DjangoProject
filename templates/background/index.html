@@ -17,6 +17,7 @@
 <body>
 <!-- 顶部开始 -->
 <div class = "container">
+    {% csrf_token %}
     <div class = "logo">
         <a href = "/index">杭师大管理系统</a>
         <input type = "hidden" name = "admin_id" id = "admin_id" value = "{{ request.session.admin.id }}" />
@@ -34,7 +35,7 @@
                     <a onclick = "WeAdminShow('个人信息','/personalInformation')">个人信息</a>
                 </dd>
                 <dd>
-                    <a class = "loginout" onclick="logout()" href = "/login">退出</a>
+                    <a class = "loginout" onclick = "logout()">退出</a>
                 </dd>
             </dl>
         </li>
@@ -74,26 +75,6 @@
 </div>
 <!-- 底部结束 -->
 <script type = "text/javascript" src = "{% static 'background/lib/layui/layui.js' %}" charset = "utf-8"></script>
-<script type = "text/javascript">
-    layui.config({
-        base: '/static/background/js/'
-        , version: '101100'
-    }).extend({ //设定模块别名
-        admin: 'admin'
-        , menu: 'menu'
-    });
-    layui.use(['jquery', 'admin', 'menu'], function () {
-        let $ = layui.jquery,
-            admin = layui.admin,
-            menu = layui.menu;
-        $(function () {
-            menu.getMenu('/static/background/json/menu.json');
-        });
-
-        window.logout = function () {
-
-        }
-    });
-</script>
+<script type = "text/javascript" src = "{% static 'background/js/index.js' %}" charset = "utf-8"></script>
 </body>
 </html>

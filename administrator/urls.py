@@ -39,4 +39,6 @@ urlpatterns = [
     path('getMy/', views.get_my),
     # 修改自身信息
     path('updateMy/', views.update_my),
+    # 注销
+    path('logout/', views.logout),
 ]

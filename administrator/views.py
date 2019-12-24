@@ -677,3 +677,18 @@ def update_my(request):
     # 转化为Json
     response = JsonResponse(data, json_dumps_params={'ensure_ascii': False})
     return response
+
+
+def logout(request):
+    data = {}
+    try:
+        request.session.clear()
+        data['code'] = 0
+        data['message'] = "注销成功"
+    except Exception as e:
+        print(e.args)
+        data['code'] = 404
+        data['message'] = "注销失败"
+        # 转化为Json
+    response = JsonResponse(data, json_dumps_params={'ensure_ascii': False})
+    return response

@@ -10,30 +10,22 @@ pip install -r plist.txt # 导入pip包
 python manage.py runserver 0.0.0.0:80
 # 创建表结构
 
-python manage.py makemigrations
-python manage.py migrate
+python3.6 manage.py makemigrations
+python3.6 manage.py migrate
 # 重新生成表
 python manage.py sqlmigrate administrator 0001
-# 导入数据库
-source  /home/DjangoProject/db/website.sql
-
-# template 配置修改
-# settings.py 文件中将 
-'DIRS': [os.path.join(BASE_DIR, 'templates')]
-# 改为
-'DIRS': [BASE_DIR + '/templates', ]
-
-# static 配置修改
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static")
-]
-
-netstat -tunlp
-
-#杀死指定进程根据pid(进程id)： 
-kill 8911  #pid
 
 ```
+
+## 服务器环境
+```shell script
+系统 CentOS7.4
+软件版本 Django2.0.2
+环境软件 Python3.6.4,Mysql5.6,PyMySQL(0.8.0),uwsgi 2.0.15,nginx/1.12.2
+systemctl restart uwsgi # 重启uwsgi
+systemctl restart nginx # 重启nginx
+```
+
 ## generate data
 ```python
 from faker import Faker
@@ -84,19 +76,5 @@ for number in range(20):
 
 错误记录
 
-pip install mysqlclien 错误
-sudo apt-get install libmysqlclient-dev
-
-python3.7 安装
-uwsgi --http :8888 --chdir /home/DjangoProject  --module djangoblog.wsgi:application
-apt-get update
-
-sudo apt-get install zlib1g-dev libbz2-dev libssl-dev libncurses5-dev libsqlite3-dev libreadline-dev tk-dev libgdbm-dev libdb-dev libpcap-dev xz-utils libexpat1-dev liblzma-dev libffi-dev libc6-dev
-
-cd /usr
-wget https://www.python.org/ftp/python/3.7.1/Python-3.7.1.tgz
-
-uwsgi --http-socket :8000 --plugin python3 --module DjangoProject.wsgi:application
-
- uwsgi --http-socket :8000 --plugin python3 --chdir /home/DjangoProject --module DjangoProject.wsgi:application
- 
+<del>pip install mysqlclien 错误</del><br>
+<del>sudo apt-get install libmysqlclient-dev</del>
