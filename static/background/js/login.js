@@ -19,7 +19,6 @@ layui.use(['form'], function () {
             },
             success: function (data) {
                 if (data.code === 0) {
-
                     location.href = '/index'
                 } else {
                     layui.use('layer', function () {

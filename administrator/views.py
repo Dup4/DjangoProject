@@ -128,7 +128,7 @@ def user_login(request):
                 data['code'] = 0
                 data['message'] = "登录成功"
             else:
-                data['code'] = 0
+                data['code'] = 404
                 data['message'] = "用户名或密码错误"
 
     except Exception as e:
@@ -169,7 +169,7 @@ def add_user(request):
     try:
         try:
             # 查询用户名是否存在
-            user = User.objects.get(username=request.POST.get('username'))
+            user = User.objects.get(status=1, username=request.POST.get('username'))
             data['code'] = 404
             data['message'] = "用户名已存在"
         except Exception as e:
@@ -224,7 +224,7 @@ Raises:
 def update_user(request):
     data = {}
     try:
-        user = User.objects.get(id=request.POST.get('id'))
+        user = User.objects.get(status=1, id=request.POST.get('id'))
 
         user.name = request.POST.get('name')
         user.tel = request.POST.get('tel')
@@ -267,7 +267,7 @@ Raises:
 def delete_user(request):
     data = {}
     try:
-        use = User.objects.get(id=request.POST.get("id"))
+        use = User.objects.get(status=1, id=request.POST.get("id"))
 
         use.status = 0
 
@@ -309,7 +309,7 @@ def delete_all_user(request):
     try:
         ids = request.POST.getlist('id')
         for user_id in ids:
-            user = User.objects.get(id=user_id)
+            user = User.objects.get(status=1, id=user_id)
             user.status = 0
 
             user.save()
@@ -354,7 +354,7 @@ def list_admin(request):
         limit = request.GET.get('limit')
 
         # 利用Paginator分页
-        ptr = Paginator(User.objects.all(), limit)
+        ptr = Paginator(User.objects.filter(status=1), limit)
 
         user_list = []
         for user in ptr.page(page):
@@ -398,7 +398,7 @@ Raises:
 def get_one_admin(request):
     data = {}
     try:
-        query = User.objects.get(id=request.GET.get('id'))
+        query = User.objects.get(status=1, id=request.GET.get('id'))
         user = {'id': query.id, 'username': query.username, 'name': query.name, "tel": query.tel,
                 "email": query.email, "role": query.role}
         data['code'] = 0
@@ -478,7 +478,7 @@ def list_role(request):
         limit = request.GET.get('limit')
 
         # 利用Paginator分页
-        ptr = Paginator(Role.objects.all(), limit)
+        ptr = Paginator(Role.objects.filter(status=1), limit)
 
         role_list = []
         for role in ptr.page(page):
@@ -532,7 +532,7 @@ Raises:
 def delete_role(request):
     data = {}
     try:
-        role = Role.objects.get(id=request.POST.get("id"))
+        role = Role.objects.get(status=1, id=request.POST.get("id"))
 
         role.status = 0
 
@@ -620,7 +620,7 @@ def get_all_role(request):
     try:
         role_list = []
 
-        for role in Role.objects.all():
+        for role in Role.objects.filter(status=1):
             res = {'id': role.id, 'name': role.name}
             role_list.append(res)
 

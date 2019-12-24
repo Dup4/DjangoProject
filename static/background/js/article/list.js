@@ -151,10 +151,8 @@ layui.use(['table', 'jquery', 'form', 'admin'], function () {
         let data = table.checkStatus('table').data;
         let id_arr = Array();
         for (let index = 0; index < data.length; ++index) {
-            console.log(parseInt(data[index].id));
             id_arr.push(data[index].id)
         }
-        console.log(id_arr)
         layer.confirm('确认要删除吗？' + id_arr, function (index) {
             //捉到所有被选中的，发异步进行删除
             let token = $('input[name=csrfmiddlewaretoken]').val();
@@ -217,6 +215,50 @@ layui.use(['table', 'jquery', 'form', 'admin'], function () {
             }
         });
     };
+
+    window.RecommendAll = function (argument) {
+        let data = table.checkStatus('table').data;
+        let id_arr = Array();
+        for (let index = 0; index < data.length; ++index) {
+            id_arr.push(data[index].id)
+        }
+        $(".layui-form-checked").not('.header').parents('tr');
+        layer.confirm('确认要推荐吗？' + id_arr, function (index) {
+            //捉到所有被选中的，发异步进行删除
+            let token = $('input[name=csrfmiddlewaretoken]').val();
+            $.ajax({
+                type: "POST",
+                url: '/article/recommendAllArticle/',
+                traditional: true,
+                dataType: 'json',
+                data: {
+                    id: id_arr,
+                    csrfmiddlewaretoken: token
+                },
+                success: function (data) {
+                    if (data.code === 0) {
+                        layer.msg('推荐成功', {
+                            icon: 1
+                        });
+                        location.reload()
+                    } else {
+                        layui.use('layer', function () {
+                            layer.msg(data.message)
+                        });
+                    }
+                },
+                err: function () {
+                    layui.use('layer', function () {
+                        layer.msg("服务器请求失败")
+                    });
+                }
+            });
+        });
+    };
+
+    window.TopAll = function () {
+
+    }
 
     window.Top = function (obj, id) {
         let token = $('input[name=csrfmiddlewaretoken]').val();

@@ -143,7 +143,7 @@ def list_member(request):
     try:
         page = request.GET.get('page')
         limit = request.GET.get('limit')
-        ptr = Paginator(User.objects.all(), limit)
+        ptr = Paginator(User.objects.filter(status=1), limit)
         article_list = []
         for user in ptr.page(page):
             res = {'id': user.id, 'name': user.name, 'address': user.address, 'date': user.create_time,
@@ -188,7 +188,7 @@ Raises:
 def get_one_member(request):
     data = {}
     try:
-        query = User.objects.get(id=request.GET.get('id'))
+        query = User.objects.get(status=1, id=request.GET.get('id'))
         user = {'id': query.id, 'username': query.username, 'name': query.name, 'address': query.address,
                 'date': query.create_time, "tel": query.tel,
                 "email": query.email, "sex": query.sex}
@@ -229,7 +229,7 @@ def add_user(request):
     data = {}
     try:
         try:
-            user = User.objects.get(username=request.POST.get("username"))
+            user = User.objects.get(status=1, username=request.POST.get("username"))
 
             data['code'] = 404
             data['message'] = "用户名重复"
@@ -286,7 +286,7 @@ Raises:
 def update_user(request):
     data = {}
     try:
-        user = User.objects.get(id=request.POST.get("id"))
+        user = User.objects.get(status=1, id=request.POST.get("id"))
 
         user.name = request.POST.get("name")
         user.sex = request.POST.get("sex")
@@ -328,7 +328,7 @@ Raises:
 def change_password(request):
     data = {}
     try:
-        user = User.objects.get(id=request.POST.get("id"))
+        user = User.objects.get(status=1, id=request.POST.get("id"))
 
         old_password = request.POST.get("old_password")
         new_password = request.POST.get("new_password")
@@ -370,7 +370,7 @@ Raises:
 def delete_user(request):
     data = {}
     try:
-        user = User.objects.get(id=request.POST.get("id"))
+        user = User.objects.get(status=1, id=request.POST.get("id"))
         user.status = 0
         user.save()
         data['code'] = 0

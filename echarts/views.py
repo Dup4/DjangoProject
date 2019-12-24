@@ -59,7 +59,7 @@ Raises:
 def get_data(request):
     data = {}
     try:
-        query = Visitors.objects.all().order_by("-id")[:7]
+        query = Visitors.objects.filter(status=1).order_by("-id")[:7]
         vis_list = []
         for vis in query:
             res = {'date': vis.create_time, 'number': vis.visitors}

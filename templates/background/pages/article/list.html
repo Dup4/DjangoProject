@@ -68,9 +68,8 @@
         <button class = "layui-btn layui-btn-danger" onclick = "delAll()">
             <i class = "layui-icon layui-icon-delete"></i>批量删除
         </button>
-        <button class = "layui-btn" data-type = "Recommend"><i class = "layui-icon">&#xe6c6;</i>推荐</button>
-        <button class = "layui-btn" data-type = "Top"><i class = "layui-icon">&#xe619;</i>置顶</button>
-        <button class = "layui-btn" data-type = "Review"><i class = "layui-icon">&#xe6b2;</i>审核</button>
+        <button class = "layui-btn" onclick = "RecommendAll()"><i class = "layui-icon">&#xe6c6;</i>推荐</button>
+        <button class = "layui-btn" onclick = "TopAll()"><i class = "layui-icon">&#xe619;</i>置顶</button>
         <button class = "layui-btn" onclick = "WeAdminShow('添加用户','/article/add',1200,800)"><i
                 class = "layui-icon">&#xe61f;</i>添加
         </button>
@@ -87,10 +86,6 @@
         <a onclick = "Top(this,<% d.id %>)" href = "javascript:;">
             <input type = "checkbox" name = "show" lay-skin = "switch" lay-text = "已置顶|未置顶" <% d.top %>>
         </a>
-    </script>
-    <script type = "text/html" id = "reviewTpl">
-        <input type = "checkbox" name = "lock" value = "{{ d.id }}" title = "锁定" lay-filter = "lockDemo"
-        <% d.id == 1 ? 'checked' : '' %>>
     </script>
 
     <script type = "text/html" id = "operateTpl">

@@ -9,8 +9,9 @@ pip install -r plist.txt # 导入pip包
 # 运行Django
 python manage.py runserver 0.0.0.0:80
 # 创建表结构
-python manage.py migrate
+
 python manage.py makemigrations
+python manage.py migrate
 # 重新生成表
 python manage.py sqlmigrate administrator 0001
 # 导入数据库
@@ -28,7 +29,6 @@ STATICFILES_DIRS = [
 ]
 
 netstat -tunlp
-sudo apt-get install zlib1g-dev libbz2-dev libssl-dev libncurses5-dev libsqlite3-dev libreadline-dev tk-dev libgdbm-dev libdb-dev libpcap-dev xz-utils libexpat1-dev liblzma-dev libffi-dev libc6-dev
 
 #杀死指定进程根据pid(进程id)： 
 kill 8911  #pid
@@ -81,3 +81,22 @@ for number in range(20):
     user.address = fake.address()
     user.save()
 ```
+
+错误记录
+
+pip install mysqlclien 错误
+sudo apt-get install libmysqlclient-dev
+
+python3.7 安装
+uwsgi --http :8888 --chdir /home/DjangoProject  --module djangoblog.wsgi:application
+apt-get update
+
+sudo apt-get install zlib1g-dev libbz2-dev libssl-dev libncurses5-dev libsqlite3-dev libreadline-dev tk-dev libgdbm-dev libdb-dev libpcap-dev xz-utils libexpat1-dev liblzma-dev libffi-dev libc6-dev
+
+cd /usr
+wget https://www.python.org/ftp/python/3.7.1/Python-3.7.1.tgz
+
+uwsgi --http-socket :8000 --plugin python3 --module DjangoProject.wsgi:application
+
+ uwsgi --http-socket :8000 --plugin python3 --chdir /home/DjangoProject --module DjangoProject.wsgi:application
+ 

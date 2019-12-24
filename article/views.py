@@ -149,11 +149,15 @@ def list_article(request):
     try:
         page = request.GET.get('page')
         limit = request.GET.get('limit')
-        ptr = Paginator(Article.objects.all(), limit)
+        ptr = Paginator(Article.objects.filter(status=1), limit)
         article_list = []
         for article in ptr.page(page):
             res = {'id': article.id, 'title': article.title, 'date': article.create_time, 'category': article.classify,
                    'recommend': article.is_recommend, 'top': article.is_top}
+            if article.is_recommend:
+                res['recommend'] = "checked"
+            if article.is_top:
+                res['top'] = "checked"
             article_list.append(res)
         data['code'] = 0
         data['message'] = "获取成功"
@@ -190,7 +194,7 @@ Raises:
 def get_one_article(request):
     data = {}
     try:
-        query = Article.objects.get(id=request.GET.get('id'))
+        query = Article.objects.get(status=1, id=request.GET.get('id'))
         article = {'id': query.id, 'title': query.title, 'query': query.classify, 'classify': query.classify,
                    'content': query.content}
         data['code'] = 0
@@ -230,7 +234,7 @@ def update_article(request):
     data = {}
     try:
         print(request.POST.get('id'))
-        article = Article.objects.get(id=request.POST.get('id'))
+        article = Article.objects.get(status=1, id=request.POST.get('id'))
 
         article.title = request.POST.get('title')
         article.content = request.POST.get('content')
@@ -244,7 +248,7 @@ def update_article(request):
     except Exception as e:
         print(e.args)
         data['code'] = 404
-        data['message'] = e.args
+        data['message'] = "修改失败"
     response = JsonResponse(data, json_dumps_params={'ensure_ascii': False})
     return response
 
@@ -447,7 +451,7 @@ Raises:
 def recommend(request):
     data = {}
     try:
-        article = Article.objects.get(id=request.POST.get('id'))
+        article = Article.objects.get(status=1, id=request.POST.get('id'))
         article.is_recommend = not article.is_recommend
         article.save()
         data['code'] = 0
@@ -482,7 +486,7 @@ Raises:
 def top(request):
     data = {}
     try:
-        article = Article.objects.get(id=request.POST.get('id'))
+        article = Article.objects.get(status=1, id=request.POST.get('id'))
         article.is_top = not article.is_top
         article.save()
         data['code'] = 0
@@ -491,5 +495,47 @@ def top(request):
         print(e.args)
         data['code'] = 404
         data['message'] = "修改失败"
+    response = JsonResponse(data, json_dumps_params={'ensure_ascii': False})
+    return response
+
+
+def recommend_all_article(request):
+    data = {}
+    try:
+        id_arr = request.POST.getlist('id')
+        for article_id in id_arr:
+            print(article_id)
+            article = Article.objects.get(status=1, id=article_id)
+            print(article_id)
+            article.is_recommend = 1
+            print(article.is_recommend)
+            article.save()
+        data['code'] = 0
+        data['message'] = '删除成功'
+    except Exception as e:
+        print(e.args)
+        data['code'] = 404
+        data['message'] = "删除失败"
+
+    response = JsonResponse(data, json_dumps_params={'ensure_ascii': False})
+    return response
+
+
+def top_all_article(request):
+    data = {}
+    try:
+        id_arr = request.POST.getlist('id')
+        for article_id in id_arr:
+            print(article_id)
+            article = Article.objects.get(status=1, id=article_id)
+            article.is_top = 1
+            article.save()
+        data['code'] = 0
+        data['message'] = '删除成功'
+    except Exception as e:
+        print(e.args)
+        data['code'] = 404
+        data['message'] = "删除失败"
+
     response = JsonResponse(data, json_dumps_params={'ensure_ascii': False})
     return response
