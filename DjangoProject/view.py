@@ -68,3 +68,7 @@ def echarts(request):
 @xframe_options_sameorigin
 def personal_information(request):
     return render(request, 'background/personal_information.html')
+
+
+def page_not_found(request, exception):
+    return render(request, 'background/404.html')

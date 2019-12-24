@@ -38,3 +38,5 @@ urlpatterns = [
     # media url
     # url(r'^media/(?P<path>.*)$', serve, {"document_root": MEDIA_ROOT})
 ]
+
+handler404 = view.page_not_found
