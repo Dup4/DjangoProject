@@ -4,6 +4,7 @@ from django.contrib.auth.hashers import make_password, check_password
 from administrator.models import User, Role
 from django.http import JsonResponse
 from django.core.paginator import Paginator
+from faker import Faker
 
 '''
 页面URL部分

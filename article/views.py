@@ -2,9 +2,10 @@ from django.shortcuts import render
 from django.views.decorators.clickjacking import xframe_options_sameorigin
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
-from .models import Article
+from .models import Article, Classify
 from util import util
 from django.core.paginator import Paginator
+from faker import Faker
 
 '''
 页面URL部分
@@ -118,6 +119,11 @@ def edit(request):
     return render(request, 'background/pages/article/edit.html')
 
 
+@xframe_options_sameorigin
+def category(request):
+    return render(request, 'background/pages/article/category.html')
+
+
 '''
     API
 '''
@@ -152,7 +158,8 @@ def list_article(request):
         ptr = Paginator(Article.objects.filter(status=1), limit)
         article_list = []
         for article in ptr.page(page):
-            res = {'id': article.id, 'title': article.title, 'date': article.create_time, 'category': article.classify,
+            res = {'id': article.id, 'title': article.title, 'date': article.create_time,
+                   'category': Classify.objects.get(status=1, id=article.classify).title,
                    'recommend': article.is_recommend, 'top': article.is_top}
             if article.is_recommend:
                 res['recommend'] = "checked"
@@ -335,8 +342,8 @@ def add_article(request):
         article.title = request.POST.get('title')
         article.content = request.POST.get('content')
         article.classify = request.POST.get('classify')
-
-        # article.save()
+        article.cover = request.POST.get('article')
+        article.save()
 
         data['code'] = 0
         data['message'] = "插入成功"

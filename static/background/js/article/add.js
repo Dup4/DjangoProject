@@ -1,7 +1,7 @@
-layui.use(['form', 'layer', 'layedit', 'jquery'], function () {
+layui.use(['form', 'layer', 'layedit', 'jquery', 'upload'], function () {
     let form = layui.form,
         layer = layui.layer,
-        $ = layui.jquery;
+        $ = layui.jquery,
         layedit = layui.layedit;
     layedit.set({
         uploadImage: {
@@ -13,9 +13,8 @@ layui.use(['form', 'layer', 'layedit', 'jquery'], function () {
 
     //监听提交
     form.on('submit(add)', function (data) {
-        console.log(data);
         let title = $("input[name='title']").val();
-        let classify = $("input[name='classify']").val();
+        let classify = $("#classify").val();
         let content = layedit.getContent(index);
         let token = $('input[name=csrfmiddlewaretoken]').val();
         $.ajax({

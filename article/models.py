@@ -10,14 +10,14 @@ class Article(models.Model):
     title = models.CharField(max_length=255)
     # 内容 text(5000)
     content = models.TextField(max_length=5000)
+    # 学院
+    college = models.CharField(max_length=255)
     # 分类 int
     classify = models.IntegerField()
     # 是否推荐
     is_recommend = models.BooleanField(default=0)
     # 是否置顶
     is_top = models.BooleanField(default=0)
-    # 是否发布
-    is_publish = models.BooleanField(default=0)
     # 创建时间
     create_time = models.DateField(auto_now_add=True)
     # 更新时间
@@ -30,7 +30,7 @@ class Classify(models.Model):
     # id 主键
     id = models.AutoField(primary_key=True)
     # 分类名字
-    title = models.IntegerField()
+    title = models.CharField(max_length=255)
     # 介绍 varchar(255)
     describe = models.CharField(max_length=255)
     # 创建时间

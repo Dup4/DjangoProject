@@ -33,4 +33,5 @@ urlpatterns = [
     path('addArticle/', views.add_article),
     path('recommendAllArticle/', views.recommend_all_article),
     path('topAllArticle/', views.top_all_article),
+    path('category/', views.category),
 ]

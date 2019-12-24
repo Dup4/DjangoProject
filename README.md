@@ -9,9 +9,8 @@ pip install -r plist.txt # 导入pip包
 # 运行Django
 python manage.py runserver 0.0.0.0:80
 # 创建表结构
-
-python3.6 manage.py makemigrations
-python3.6 manage.py migrate
+python manage.py makemigrations
+python manage.py migrate
 # 重新生成表
 python manage.py sqlmigrate administrator 0001
 
@@ -54,7 +53,7 @@ for number in range(10):
     fake = Faker(locale='zh_CN')
     article.title = fake.word()
     article.classify = 1
-    article.content = fake.paragraph()
+    article.content = fake.text()
     article.save()
 
 

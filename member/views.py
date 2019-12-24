@@ -4,6 +4,7 @@ from django.contrib.auth.hashers import make_password, check_password
 from member.models import User
 from django.http import JsonResponse
 from django.core.paginator import Paginator
+from faker import Faker
 
 '''
     URL

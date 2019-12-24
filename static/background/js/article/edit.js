@@ -34,7 +34,7 @@ layui.use(['form', 'layer', 'layedit', 'jquery', 'layer'], function () {
             success: function (data) {
                 if (data.code === 0) {
                     $("input[name='title']").val(data.data.title);
-                    $("input[name='classify']").val(data.data.classify);
+                    $("#classify").val(data.data.classify);
                     layedit.setContent(index, data.data.content);
                 } else {
                     layer.msg(data.message)
@@ -53,7 +53,7 @@ layui.use(['form', 'layer', 'layedit', 'jquery', 'layer'], function () {
         console.log(data);
         let dataId = $('input[name="dataId"]').val();
         let title = $("input[name='title']").val();
-        let classify = $("input[name='classify']").val();
+        let classify = $("#classify").val();
         let content = layedit.getContent(index);
         let token = $('input[name=csrfmiddlewaretoken]').val();
         $.ajax({
