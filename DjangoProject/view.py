@@ -2,6 +2,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.views.decorators.clickjacking import xframe_options_sameorigin
+from article.models import Article
 
 
 def login(request):
@@ -32,15 +33,21 @@ def picture(request):
 
 
 def renWu(request):
-    return render(request, 'renWu.html')
+    articles = Article.objects.filter(status=1)
+    data = {'articles': articles}
+    return render(request, 'renWu.html', data)
 
 
 def xiaoYuan(request):
-    return render(request, 'xiaoYuan.html')
+    articles = Article.objects.filter(status=1)
+    data = {'articles': articles}
+    return render(request, 'xiaoYuan.html', data)
 
 
 def xinWen(request):
-    return render(request, 'xinWen.html')
+    articles = Article.objects.filter(status=1)
+    data = {'articles': articles}
+    return render(request, 'xinWen.html', data)
 
 
 def article(request):

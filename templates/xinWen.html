@@ -74,196 +74,33 @@
                 <div id = "subsmenu" class = "subsmenu"><i class = "thunews-bars"></i></div>
 
                 <ul id = "fybq">
-                    <li class = "item9649"><a href = "/publish/thunews/9649/index.html#dqwz">全部</a></li>
-                    <li class = "item9658"><a href = "/publish/thunews/9658/index.html#dqwz">时讯快递</a></li>
-                    <li class = "item9659"><a href = "/publish/thunews/9659/index.html#dqwz">学术科研</a></li>
-                    <li class = "item9660"><a href = "/publish/thunews/9660/index.html#dqwz">教育教学</a></li>
-                    <li class = "item9661"><a href = "/publish/thunews/9661/index.html#dqwz">招生就业</a></li>
-                    <li class = "item9662"><a href = "/publish/thunews/9662/index.html#dqwz">交流合作</a></li>
-                    <li class = "item9664"><a href = "/publish/thunews/9664/index.html#dqwz">社会服务</a></li>
+                    <li class = "item9649"><a href = "#">全部</a></li>
+                    <li class = "item9658"><a href = "#">时讯快递</a></li>
+                    <li class = "item9659"><a href = "#">学术科研</a></li>
+                    <li class = "item9660"><a href = "#">教育教学</a></li>
+                    <li class = "item9661"><a href = "#">招生就业</a></li>
+                    <li class = "item9662"><a href = "#">交流合作</a></li>
+                    <li class = "item9664"><a href = "#">社会服务</a></li>
                 </ul>
             </nav>
             <ul class = "timenewslist">
-
-                <li class = "clearfix">
-                    <div class = "mtime">
-                        <span><font class = "dd" id = "dd-1">22</font></span><font class = "ym" id = "ym-1">12-22</font>
-                    </div>
-                    <div class = "newscontent">
-                        <h3>
-                            <a href = "/publish/thunews/9649/2019/20191222134403695564196/20191222134403695564196_.html" target = "_blank" class = "jiequ">陈旭会见埃及驻华大使穆罕默德·巴德里</a>
-                        </h3>
-                        <p>
-                            <script language = "javascript" type = "text/javascript">cutSummary("12月19日下午，清华大学党委书记、校务委员会主任陈旭在工字厅西厅会见了来访的埃及驻华大使穆罕默德·巴德里（Mohamed Abd El-Sattar Elbadri）一行。双方就进一步推动清华大学同埃及高等教育领域的合作进行了深入交流。", 180);</script>
-                        </p>
-                        <div class = "thumb"><i class = "thunews-eye"></i>
-                            <font id = "font_itemlist_total_20191222134403695564196"><span id = "itemlist_total_20191222134403695564196"></span></font>
+                {% for article in articles %}
+                    <li class = "clearfix">
+                        <div class = "mtime">
+                            <span><font class = "dd" id = "dd-1">{{ article.create_time|date:"d" }}</font></span>
+                            <font class = "ym" id = "ym-1">{{ article.create_time|date:"Y-m" }}</font>
                         </div>
-                    </div>
-                </li>
-
-                <li class = "clearfix">
-                    <div class = "mtime">
-                        <span><font class = "dd" id = "dd-1">22</font></span><font class = "ym" id = "ym-1">12-22</font>
-                    </div>
-                    <div class = "newscontent">
-                        <h3>
-                            <a href = "/publish/thunews/9649/2019/20191220092721106472724/20191220092721106472724_.html" target = "_blank" class = "jiequ">【主题教育】一封来自过去的信：你还记得入党志愿书里的誓言吗？</a>
-                        </h3>
-                        <p>
-                            <script language = "javascript" type = "text/javascript">cutSummary("这个冬天，许多清华教师收到了一封来自过去的信——由清华大学党委组织部复印的个人入党志愿书。在信封中还有另外一封信，上面写着希望党员干部同志结合“不忘初心、牢记使命”主题教育，“重温入党志愿和初心，并对照新时代新要求，进一步查找不足和差距，不断坚定理想信念，锤炼忠诚干净担当的政治品格，为学校深化综合改革、加快‘双一流’建设、实现内涵式发展作出新的更大贡献。”", 180);</script>
-                        </p>
-                        <div class = "thumb"><i class = "thunews-eye"></i>
-                            <font id = "font_itemlist_total_20191220092721106472724"><span id = "itemlist_total_20191220092721106472724"></span></font>
+                        <div class = "newscontent">
+                            <h3>
+                                <a href = "#" target = "_blank" class = "jiequ">{{ article.title }}</a>
+                            </h3>
+                            <p>
+                                {{ article.content | slice:"20" }}
+                            </p>
                         </div>
-                    </div>
-                </li>
-
-                <li class = "clearfix">
-                    <div class = "mtime"><span><font class = "dd" id = "dd-3"><script type = "text/javascript">getDay("2019-12-20", "dd-3")</script></font></span><font class = "ym" id = "ym-3">
-                        <script type = "text/javascript">getYM("2019-12-20", "ym-3")</script>
-                    </font></div>
-                    <div class = "newscontent">
-                        <h3>
-                            <a href = "/publish/thunews/9649/2019/20191220221858829103601/20191220221858829103601_.html" target = "_blank" class = "jiequ">欢欣同庆回归盛事
-                                携手共创美好未来 清华大学举行庆祝澳门回归20周年师生座...</a></h3>
-                        <p>
-                            <script language = "javascript" type = "text/javascript">cutSummary("在举国欢庆澳门回归20周年之际，清华师生热切关注习近平主席访问澳门并发表重要讲话。12月20日下午，清华大学港澳台办公室举办庆祝澳门回归祖国20周年座谈会，邀请曾参与澳门建设的清华教师和部分澳门学生出席。会上，师生们共同学习了习主席在澳门的重要讲话精神，并围绕澳门回归分享交流了心得体会。清华大学港澳台办公室主任郦金梁主持会议。", 180);</script>
-                        </p>
-                        <div class = "thumb"><i class = "thunews-eye"></i>
-                            <font id = "font_itemlist_total_20191220221858829103601"><span id = "itemlist_total_20191220221858829103601"></span></font>
-                        </div>
-                    </div>
-                </li>
-
-                <li class = "clearfix">
-                    <div class = "mtime"><span><font class = "dd" id = "dd-4"><script type = "text/javascript">getDay("2019-12-20", "dd-4")</script></font></span><font class = "ym" id = "ym-4">
-                        <script type = "text/javascript">getYM("2019-12-20", "ym-4")</script>
-                    </font></div>
-                    <div class = "newscontent">
-                        <h3>
-                            <a href = "/publish/thunews/9649/2019/20191220152608583650249/20191220152608583650249_.html" target = "_blank" class = "jiequ">材料学院朱静研究组、于荣研究组和复旦大学王文彬研究组合作在多铁材料研究中取...</a>
-                        </h3>
-                        <p>
-                            <script language = "javascript" type = "text/javascript">cutSummary("清华大学材料学院朱静研究组、复旦大学王文彬研究组和清华大学材料学院于荣研究组合作研究成果“稀土铁氧化物中间隙氧原子序对多类序参量的影响”（Effect of Oxygen Interstitial Ordering on Multiple Order Parameters in Rare Earth Ferrite）近日在《物理评论快报》（Physical Review Letter）在线发表。", 180);</script>
-                        </p>
-                        <div class = "thumb"><i class = "thunews-eye"></i>
-                            <font id = "font_itemlist_total_20191220152608583650249"><span id = "itemlist_total_20191220152608583650249"></span></font>
-                        </div>
-                    </div>
-                </li>
-
-                <li class = "clearfix">
-                    <div class = "mtime"><span><font class = "dd" id = "dd-5"><script type = "text/javascript">getDay("2019-12-20", "dd-5")</script></font></span><font class = "ym" id = "ym-5">
-                        <script type = "text/javascript">getYM("2019-12-20", "ym-5")</script>
-                    </font></div>
-                    <div class = "newscontent">
-                        <h3>
-                            <a href = "/publish/thunews/9649/2019/20191220104218756897661/20191220104218756897661_.html" target = "_blank" class = "jiequ">清华人在澳门｜我的爱始终与你同在</a>
-                        </h3>
-                        <p>
-                            <script language = "javascript" type = "text/javascript">cutSummary("多年来，清华与澳门，一个清华紫一个澳门绿，往来频繁、相互支持，上层互访、人文交流、学术研讨、艺术巡礼，如一束炽热的紫荆花和宁静优雅的荷花，在祖国的上空交相辉映，绽放光芒。", 180);</script>
-                        </p>
-                        <div class = "thumb"><i class = "thunews-eye"></i>
-                            <font id = "font_itemlist_total_20191220104218756897661"><span id = "itemlist_total_20191220104218756897661"></span></font>
-                        </div>
-                    </div>
-                </li>
-
-                <li class = "clearfix">
-                    <div class = "mtime"><span><font class = "dd" id = "dd-6"><script type = "text/javascript">getDay("2019-12-20", "dd-6")</script></font></span><font class = "ym" id = "ym-6">
-                        <script type = "text/javascript">getYM("2019-12-20", "ym-6")</script>
-                    </font></div>
-                    <div class = "newscontent">
-                        <h3>
-                            <a href = "/publish/thunews/9649/2019/20191220103958921916845/20191220103958921916845_.html" target = "_blank" class = "jiequ">“创作新时代
-                                做最好的我们”校园新媒体工作主题讲座开讲</a></h3>
-                        <p>
-                            <script language = "javascript" type = "text/javascript">cutSummary("12月12日，“创作新时代 做最好的我们”校园新媒体工作主题讲座在新水利馆举行。此次讲座由校团委、宣传部网络文化办公室、人民网科技公司联合主办，邀请人民日报官方微博主编徐丹、papitube团队资深制作人王子雄作为主讲嘉宾。全校各单位网络宣传工作人员、新媒体平台编辑、学生新媒体团队骨干等150余人参加活动。", 180);</script>
-                        </p>
-                        <div class = "thumb"><i class = "thunews-eye"></i>
-                            <font id = "font_itemlist_total_20191220103958921916845"><span id = "itemlist_total_20191220103958921916845"></span></font>
-                        </div>
-                    </div>
-                </li>
-
-
+                    </li>
+                {% endfor %}
             </ul>
-            <script type = "text/javascript">
-                var strUrl = window.location.href;
-                var curPage = 1;
-                var pageCount = 672;//total pages count
-                if (strUrl.lastIndexOf('index_') != -1)
-                    curPage = parseInt(strUrl.substring(strUrl.lastIndexOf('_') + 1, strUrl.lastIndexOf('.')));//current page number
-                var pageStr = "<div class=\"pager\">";
-                if (pageCount > 1) {
-                    pageStr += '<a href="javascript:;" class="p" title="前一页" onclick="doGo(' + (curPage - 1) + ');">«</a>';
-                }
-                if (pageCount <= 9) {
-                    for (var i = 0; i < pageCount; i++) {
-                        var currentClass = ((i + 1) == curPage) ? "current" : "";
-                        pageStr += '<a href="javascript:;" class="' + currentClass + '" onclick="doGo(' + (i + 1) + ')">' + (i + 1) + '</a>';
-                    }
-                } else if (pageCount > 9 && (curPage + 4) <= pageCount && (curPage - 4) <= 0) {
-                    for (var i = 0; i < 9; i++) {
-                        var currentClass = ((i + 1) == curPage) ? "current" : "";
-                        pageStr += '<a href="javascript:;" class="' + currentClass + '" onclick="doGo(' + (i + 1) + ')">' + (i + 1) + '</a>';
-                    }
-                } else if (pageCount > 9 && (curPage + 4) <= pageCount && (curPage - 4) > 0) {
-                    for (var i = (curPage - 3); i < (curPage + 4); i++) {
-                        var currentClass = ((i + 1) == curPage) ? "current" : "";
-                        pageStr += '<a href="javascript:;" class="' + currentClass + '" onclick="doGo(' + (i + 1) + ')">' + (i + 1) + '</a>';
-                    }
-                } else {
-                    for (var i = (pageCount - 8); i < (pageCount); i++) {
-                        var currentClass = ((i + 1) == curPage) ? "current" : "";
-                        pageStr += '<a href="javascript:;" class="' + currentClass + '" onclick="doGo(' + (i + 1) + ')">' + (i + 1) + '</a>';
-                    }
-                }
-                if (curPage < pageCount) {
-                    pageStr += '<a href="javascript:;" onclick="doGo(' + (curPage + 1) + ')" class="p" title="后一页">»</a>';
-                }
-                pageStr += "<span>到第<input name=\"\" type=\"text\" id=\"ymz\">页 <a href=\"#\"  onclick=\"goto_ymz()\">确定</a></span>";
-                pageStr += "</div>";
-                var pageStr1 = "<div class=\"mobilemore clearfix\">";
-                if (pageCount > 1) {
-                    pageStr1 += '<a href="javascript:;" class="prev" title="上一页" onclick="doGo(' + (curPage - 1) + ');">上一页</a>';
-                }
-                if (curPage < pageCount) {
-                    pageStr1 += '<a href="javascript:;" onclick="doGo(' + (curPage + 1) + ')" class="next" title="下一页">下一页</a>';
-                }
-                pageStr1 += "</div>";
-                document.write(pageStr);
-                document.write(pageStr1);
-            </script>
-            <script type = "text/javascript">
-                function doGo(jumpvalue) {
-                    if (jumpvalue < 1 || jumpvalue > 672)
-                        return;
-                    var urlstr = window.location.href;
-                    var urlColumnId = urlstr.substr(urlstr.indexOf('#') + 1, 8);
-                    urlColumnId = urlColumnId.replace("/", "");
-                    if (1 == jumpvalue) {
-                        urlstr = urlstr.substr(0, urlstr.lastIndexOf('/') + 1) + 'index.html';
-                    } else {
-                        urlstr = urlstr.substr(0, urlstr.lastIndexOf('/') + 1) + 'index_' + jumpvalue + '.html';
-                    }
-                    window.location.href = urlstr;
-                }
-
-                function goto_ymz() {
-                    jumpvalue0 = $('#ymz').val();
-                    if (jumpvalue0 < 1 || jumpvalue0 > 672)
-                        return;
-                    var urlstr0 = window.location.href;
-                    if (1 == jumpvalue0) {
-                        urlstr0 = urlstr0.substr(0, urlstr0.lastIndexOf('/') + 1) + 'index.html';
-                    } else {
-                        urlstr0 = urlstr0.substr(0, urlstr0.lastIndexOf('/') + 1) + 'index_' + jumpvalue0 + '.html';
-                    }
-                    window.location.href = urlstr0;
-                }
-            </script>
             <p style = "display:none">
 <span style = 'font-size:12px'>
 		共<b>13430</b>条&nbsp;&nbsp;
@@ -271,8 +108,8 @@
 		当前&nbsp;第<b>1</b>页&nbsp;&nbsp;
 		 <font color = '#C0C0C0'>首页</font>
 		 <font color = '#C0C0C0'>上一页</font>
-		 <a href = '/publish/thunews/9649/index_2.html'><font color = '#000000'>下一页</font></a>
-		 <a href = '/publish/thunews/9649/index_672.html'><font color = '#000000'>末页</font></a>
+		 <a href = '#'><font color = '#000000'>下一页</font></a>
+		 <a href = '#'><font color = '#000000'>末页</font></a>
 </span></p>
 
 

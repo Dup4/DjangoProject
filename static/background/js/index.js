@@ -24,7 +24,7 @@ layui.use(['jquery', 'admin', 'menu'], function () {
             },
             success: function (data) {
                 if (data.code === 0) {
-                    // location.href = '/login'
+                    location.href = '/login'
                 } else {
                     layui.use('layer', function () {
                         layer.msg(data.message)
