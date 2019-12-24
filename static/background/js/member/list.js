@@ -45,13 +45,13 @@ layui.use(['table', 'jquery', 'form', 'admin'], function () {
         form.render();
     });
     form.on('submit(sreach)', function (data) {
-        tableIns.reload({
-            where: { //设定异步数据接口的额外参数，任意设
-                usernmae: $("input[name='username']").val()
-            }, page: {
-                curr: 1
-            }
-        });
+        // tableIns.reload({
+        //     where: { //设定异步数据接口的额外参数，任意设
+        //         usernmae: $("input[name='username']").val()
+        //     }, page: {
+        //         curr: 1
+        //     }
+        // });
         return false;
     });
 
