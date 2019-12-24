@@ -2,319 +2,402 @@
 <!doctype html>
 <html>
 <head>
-<meta charset="utf-8">
-<title>杭州师范大学新闻网-校园风光</title>
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link href="{% static '/css/base.css'%}" rel="stylesheet" type="text/css">
+    <meta charset = "utf-8">
+    <title>杭州师范大学新闻网-校园风光</title>
+    <meta name = "viewport" content = "width=device-width, initial-scale=1" />
+    <link href = "{% static '/css/base.css' %}" rel = "stylesheet" type = "text/css">
 
-    <link href="{% static '/css/inner.css'%}" rel="stylesheet" type="text/css">
-    <script src="{% static '/js/jquery-1.8.3.min.js'%}" type="text/javascript"></script>
-    <link rel="stylesheet" href="{% static '/css/slick.css'%}">
-    <script src="{% static '/js/slick.min.js'%}" type="text/javascript"></script>
+    <link href = "{% static '/css/inner.css' %}" rel = "stylesheet" type = "text/css">
+    <script src = "{% static '/js/jquery-1.8.3.min.js' %}" type = "text/javascript"></script>
+    <link rel = "stylesheet" href = "{% static '/css/slick.css' %}">
+    <script src = "{% static '/js/slick.min.js' %}" type = "text/javascript"></script>
 
-    <link rel="stylesheet" href="{% static '/css/owl.carousel.css'%}">
+    <link rel = "stylesheet" href = "{% static '/css/owl.carousel.css' %}">
 
 
 </head>
 <body>
-<header class="clearfix">
- <section class="mainWrap">
-     <div class="topwraper relative clearfix">
-          <div class="ulink">
-                <ul class="clearfix">
-                  <li class="socialnet"><a href="https://weibo.com/u/1743321831?is_hot=1" class="circle"  title="微博" target="_blamk"><img src="/static/images/weibo.png" class="circle"></a>
-                    <li class="socialnet"><a href="javascript:;" class="circle"  title="微信"><img src="/static/images/weixin.png" class="circle"></a>
-                     <div class="socialwraper"><i><em></em></i><img src="/static/images/weixinpg.png" width="150px"></div>
+<header class = "clearfix">
+    <section class = "mainWrap">
+        <div class = "topwraper relative clearfix">
+            <div class = "ulink">
+                <ul class = "clearfix">
+                    <li class = "socialnet">
+                        <a href = "https://weibo.com/u/1743321831?is_hot=1" class = "circle" title = "微博" target = "_blamk"><img src = "/static/images/weibo.png" class = "circle"></a>
+                    <li class = "socialnet">
+                        <a href = "javascript:;" class = "circle" title = "微信"><img src = "/static/images/weixin.png" class = "circle"></a>
+                        <div class = "socialwraper">
+                            <i><em></em></i><img src = "/static/images/weixinpg.png" width = "150px"></div>
                     </li>
-                  </li>
-                    <li class="socialnet"><a href="https://lib.hznu.edu.cn/" class="circle" title="图书馆"><img src="/static/images/book.png" class="circle"></a></li>
-                    <li class="mr"><a href="https://english.hznu.edu.cn/" class="en" target="_blank">ENGLISH</a></li>
-                    <li class="mr"><a href="#" class="en" target="_blank">杭师主页</a></li>
+                    </li>
+                    <li class = "socialnet">
+                        <a href = "https://lib.hznu.edu.cn/" class = "circle" title = "图书馆"><img src = "/static/images/book.png" class = "circle"></a>
+                    </li>
+                    <li class = "mr"><a href = "https://english.hznu.edu.cn/" class = "en" target = "_blank">ENGLISH</a>
+                    </li>
+                    <li class = "mr"><a href = "#" class = "en" target = "_blank">杭师主页</a></li>
                 </ul>
             </div>
-            <a href="#" class="logo"><img src="/static/images/logo.png" alt="logo"></a>
+            <a href = "#" class = "logo"><img src = "/static/images/logo.png" alt = "logo"></a>
 
 
-			<nav class="navwrap yahei">
- 			<section class="mainWrap">
- 			<div id="smenu" class="smenu"><i class="thunews-bars"></i></div>
-             <ul id="nav">
-                        <li><a href="/home" class="item0">首页</a></li>
-                        <li><a href="/xinWen" class="item0">新闻聚焦</a></li>
-                        <li><a href="/xiaoYuan" class="item0">学科建设</a></li>
-                        <li><a href="/renWu" class="item0">杭师人物</a></li>
-                        <li><a href="/picture" class="item0">图说杭师</a></li>
-   			</ul>
-           </section>
-			</nav>
+            <nav class = "navwrap yahei">
+                <section class = "mainWrap">
+                    <div id = "smenu" class = "smenu"><i class = "thunews-bars"></i></div>
+                    <ul id = "nav">
+                        <li><a href = "/home" class = "item0">首页</a></li>
+                        <li><a href = "/xinWen" class = "item0">新闻聚焦</a></li>
+                        <li><a href = "/xiaoYuan" class = "item0">学科建设</a></li>
+                        <li><a href = "/renWu" class = "item0">杭师人物</a></li>
+                        <li><a href = "/picture" class = "item0">图说杭师</a></li>
+                    </ul>
+                </section>
+            </nav>
 
-<!--	 <a href="javascript:;" onclick="searchSub();"><i class="thunes-search"></i></a>-->
+            <!--	 <a href="javascript:;" onclick="searchSub();"><i class="thunes-search"></i></a>-->
 
-   </div>
-   </section>
+        </div>
+    </section>
 </header>
 
 
-
-<div class="content yahei subchannel">
-    <div class="mainWrap clearfix">
-        <section class="colunm1">
-            <h2 class="channeltitle noborder hideonpc">校园风光</h2>
-            <div class="biggallery">
-
+<div class = "content yahei subchannel">
+    <div class = "mainWrap clearfix">
+        <section class = "colunm1">
+            <h2 class = "channeltitle noborder hideonpc">校园风光</h2>
+            <div class = "biggallery">
 
 
             </div>
 
-  <script>
-   $(function(){
-   $("#loadxyxy").load("/publish/thunews/xyxy_tt.html")
-   })
-  </script>
-   <nav class="enav clearfix p_2"  id="dqwz">
-   <div id="subsmenu" class="subsmenu"><i class="thunews-bars"></i></div>
-   <script type="text/javascript">
-    jQuery(function(){
-     jQuery('#xyxy li [class^=item]').removeClass('current');
-     jQuery('#xyxy li.item9654').addClass('current');
-    });
+            <script>
+                $(function () {
+                    $("#loadxyxy").load("/publish/thunews/xyxy_tt.html")
+                })
+            </script>
+            <nav class = "enav clearfix p_2" id = "dqwz">
+                <div id = "subsmenu" class = "subsmenu"><i class = "thunews-bars"></i></div>
+                <script type = "text/javascript">
+                    jQuery(function () {
+                        jQuery('#xyxy li [class^=item]').removeClass('current');
+                        jQuery('#xyxy li.item9654').addClass('current');
+                    });
+                </script>
+                <ul id = "xyxy">
+                    <li class = "item9654"><a href = "/publish/thunews/9654/index.html#dqwz">全部</a></li>
+                    <li class = "item9665"><a href = "/publish/thunews/9665/index.html#dqwz">国服学院</a></li>
+                    <li class = "item9666"><a href = "/publish/thunews/9666/index.html#dqwz">教育学院</a></li>
+                    <li class = "item9667"><a href = "/publish/thunews/9667/index.html#dqwz">理学院</a></li>
+                    <li class = "item9668"><a href = "/publish/thunews/9668/index.html#dqwz">沈钧儒法学院</a></li>
+                </ul>
+            </nav>
+            <ul class = "timenewslist">
+
+
+                <li class = "clearfix">
+                    <div class = "mtime"><span>20</span>2019-12</script></div>
+                    <div class = "newscontent">
+                        <h3>
+                            <a href = "/publish/thunews/9654/2019/20191220110044594340896/20191220110044594340896_.html" target = "_blank" class = "jiequ">中华基本礼仪之《校园礼仪》视频在京发布</a>
+                        </h3>
+                        <p>
+                            <script language = "javascript" type = "text/javascript">cutSummary("12月8日上午，“中华礼乐文化传承学术前沿论坛”在清华大学近春园召开。来自中国礼学、音乐学、考古学等研究领域的专家学者六十余人汇聚一堂，深入探讨中华礼乐文化的人文精神，并与社会人士共同探讨新时期礼乐文化传承发展问题。", 180);</script>
+                        </p>
+                        <div class = "thumb"><i class = "thunews-eye"></i>
+                            <font id = "font_itemlist_total_20191220110044594340896"><span id = "itemlist_total_20191220110044594340896"></span></font>
+                        </div>
+                    </div>
+                </li>
+
+
+                <li class = "clearfix">
+                    <div class = "mtime"><span>20</span>12-12</div>
+                    <div class = "newscontent">
+                        <h3>
+                            <a href = "/publish/thunews/9654/2019/20191219093439767965668/20191219093439767965668_.html" target = "_blank" class = "jiequ">清华大学2019年度献血突破3000人次——“岁末愿望清单”无偿献血专场成...</a>
+                        </h3>
+                        <p>
+                            <script language = "javascript" type = "text/javascript">cutSummary("12月15日，清华大学红十字会学生分会在紫荆学生综合服务楼举办了“岁末愿望清单”无偿献血专场活动。这是清华大学2019年的最后一场无偿献血专场活动，有517名清华学生及教职工参与了本次活动，献血量达608单位，其中453人成功捐献全血511.5单位，64人成功捐献成分血（血小板）96.5单位，此外还有14人加入中华骨髓库。至此，清华大学2019年献血总人次已经突破3000人次，达到3102人次，献血量达3591单位，再次刷新了北京市团体无偿献血的年度总人次和总献血量纪录，位居北京市所有无偿献血团体第一名，为北京市的临床用血做出了重要贡献，也彰显着清华人的奉献精神与公益热情。", 180);</script>
+                        </p>
+                        <div class = "thumb"><i class = "thunews-eye"></i>
+                            <font id = "font_itemlist_total_20191219093439767965668"><span id = "itemlist_total_20191219093439767965668"></span></font>
+                        </div>
+                    </div>
+                </li>
+
+
+                <li class = "clearfix">
+                    <div class = "mtime"><span>22</span>12-12</div>
+                    <div class = "newscontent">
+                        <h3>
+                            <a href = "/publish/thunews/9654/2019/20191216160630714373206/20191216160630714373206_.html" target = "_blank" class = "jiequ">清华大学智能无人机挑战赛决赛成功举办</a>
+                        </h3>
+                        <p>
+                            <script language = "javascript" type = "text/javascript">cutSummary("12月14日晚，清华大学首届智能无人机挑战赛决赛在电子工程馆11层报告厅举行。12支队伍同台竞技、各展风采。经过紧张激烈的角逐，“定位毯丢失队”通过改进的算法控制无人机，在下半场比赛中压轴出场并拔得头筹，以100满分的好成绩取得了本次比赛的特等奖。校党委副书记过勇出席活动。", 180);</script>
+                        </p>
+                        <div class = "thumb"><i class = "thunews-eye"></i>
+                            <font id = "font_itemlist_total_20191216160630714373206"><span id = "itemlist_total_20191216160630714373206"></span></font>
+                        </div>
+                    </div>
+                </li>
+
+
+                <li class = "clearfix">
+                    <div class = "mtime"><span>22</span>12-12</div>
+                    <div class = "newscontent">
+                        <h3>
+                            <a href = "/publish/thunews/9654/2019/20191212101129966385101/20191212101129966385101_.html" target = "_blank" class = "jiequ">2018-2019学年度清华大学本科生先进班集体评选答辩会举行</a>
+                        </h3>
+                        <p>
+                            <script language = "javascript" type = "text/javascript">cutSummary("12月5日下午，2018－2019学年度清华大学本科生先进班集体评选答辩会在六教举行。来自24个院系的26个本科生候选班级展示了过去一年在思想引领、学习科研、文体志愿、社会实践、创新创业及感情建设等方面所取得的成绩。", 180);</script>
+                        </p>
+                        <div class = "thumb"><i class = "thunews-eye"></i>
+                            <font id = "font_itemlist_total_20191212101129966385101"><span id = "itemlist_total_20191212101129966385101"></span></font>
+                        </div>
+                    </div>
+                </li>
+
+                <li class = "clearfix">
+                    <div class = "mtime"><span><script type = "text/javascript">document.write(getDay("2019-12-12"));</script></span>
+                        <script type = "text/javascript">document.write(getYM("2019-12-12"));</script>
+                    </div>
+                    <div class = "newscontent">
+                        <h3>
+                            <a href = "/publish/thunews/9654/2019/20191211103743986427487/20191211103743986427487_.html" target = "_blank" class = "jiequ">中华礼乐文化传承学术前沿论坛在清华举行</a>
+                        </h3>
+                        <p>
+                            <script language = "javascript" type = "text/javascript">cutSummary("12月8日上午，“中华礼乐文化传承学术前沿论坛”在清华大学近春园召开。论坛由清华大学中国经学研究院和北京中华文化促进会联合主办，清华大学中国礼学研究中心承办。来自中国礼学、音乐学、考古学等研究领域的专家学者六十余人汇聚一堂，深入探讨中华礼乐文化的人文精神，并与社会人士共同探讨新时期礼乐文化传承和发展。", 180);</script>
+                        </p>
+                        <div class = "thumb"><i class = "thunews-eye"></i>
+                            <font id = "font_itemlist_total_20191211103743986427487"><span id = "itemlist_total_20191211103743986427487"></span></font>
+                        </div>
+                    </div>
+                </li>
+
+
+                <li class = "clearfix">
+                    <div class = "mtime"><span><script type = "text/javascript">document.write(getDay("2019-12-11"));</script></span>
+                        <script type = "text/javascript">document.write(getYM("2019-12-11"));</script>
+                    </div>
+                    <div class = "newscontent">
+                        <h3>
+                            <a href = "/publish/thunews/9654/2019/20191211112605767271660/20191211112605767271660_.html" target = "_blank" class = "jiequ">俄罗斯著名导演阿列克谢·杰尼索夫携新作走进清华
+                                中外学子共赏新中国成立70...</a></h3>
+                        <p>
+                            <script language = "javascript" type = "text/javascript">
+                                cutSummary("12月5日晚“丝路电影交流计划”第二期——镜头记录中国：俄罗斯的视角”
+                                在清华大学国际交流活动中心举行。俄罗斯国家广播电视台历史频道总编辑、著名纪录片导演、编剧阿列克谢·杰尼索夫先生（Mr. Alexei
+                                Denisov）带来了其新作，中国中央电视台合作特别剪辑版的《中国的重生：苏联摄影师眼中的中国》。",180);
+                            </script>
+                        </p>
+                        <div class = "thumb"><i class = "thunews-eye"></i>
+                            <font id = "font_itemlist_total_20191211112605767271660"><span id = "itemlist_total_20191211112605767271660"></span></font>
+                        </div>
+                    </div>
+                </li>
+                <script type = "text/javascript">
+                    var strUrl = window.location.href;
+                    var curPage=1;
+                    var pageCount = 672;//total pages count
+                    if(strUrl.lastIndexOf('index_')!=-1)
+                    curPage=parseInt(strUrl.substring(strUrl.lastIndexOf('_')+1,strUrl.lastIndexOf('.')));//current page
+                    number
+                    var pageStr = "
+                    <div class = \"pager\">";
+                        if(pageCount>1){
+                        pageStr +=
+                        '<a href = "javascript:;" class = "p" title = "前一页" onclick = "doGo('+(curPage-1)+');">«</a>';
+                        }
+                        if(pageCount <= 9){
+                        for(var i=0;i
+                        <pageCount
+                        ;i++){
+                        var currentClass = ((i+1)==curPage)?"current":"";
+                        pageStr += '<a href = "javascript:;" class = "'+currentClass+'" onclick = "doGo('+(i+1)+')">'+(i+1)+'</a>';
+                        }
+                        }else if(pageCount > 9 && (curPage + 4) <= pageCount && (curPage - 4) <= 0){
+                        for(var i=0;i<9;i++){
+                        var currentClass = ((i+1)==curPage)?"current":"";
+                        pageStr += '<a href = "javascript:;" class = "'+currentClass+'" onclick = "doGo('+(i+1)+')">'+(i+1)+'</a>';
+                        }
+                        }else if(pageCount > 9 && (curPage + 4) <= pageCount && (curPage - 4) > 0){
+                        for(var i=(curPage - 3);i<(curPage + 4);i++){
+                        var currentClass = ((i+1)==curPage)?"current":"";
+                        pageStr += '<a href = "javascript:;" class = "'+currentClass+'" onclick = "doGo('+(i+1)+')">'+(i+1)+'</a>';
+                        }
+                        }else{
+                        for(var i=(pageCount - 8);i<(pageCount);i++){
+                        var currentClass = ((i+1)==curPage)?"current":"";
+                        pageStr += '<a href = "javascript:;" class = "'+currentClass+'" onclick = "doGo('+(i+1)+')">'+(i+1)+'</a>';
+                        }
+                        }
+                        if(curPage < pageCount){
+                        pageStr +=
+                        '<a href = "javascript:;" onclick = "doGo('+(curPage+1)+')" class = "p" title = "后一页">»</a>';
+                        }
+                        pageStr +=
+                        "<span>到第<input name = \"\" type = \"text\" id = \"ymz\">页 <a href = \"#\" onclick = \"goto_ymz()\">确定</a></span>";
+                        pageStr += "
+                    </div>
+                    ";
+                    var pageStr1 = "
+                    <div class = \"mobilemore clearfix\
+                    ">";
+                    if(pageCount>1){
+                    pageStr1 +=
+                    '<a href = "javascript:;" class = "prev" title = "上一页" onclick = "doGo('+(curPage-1)+');">上一页</a>';
+                    }
+                    if(curPage < pageCount){
+                    pageStr1 +=
+                    '<a href = "javascript:;" onclick = "doGo('+(curPage+1)+')" class = "next" title = "下一页">下一页</a>';
+                    }
+                    pageStr1 += "
+    </div>
+    ";
+    document.write(pageStr);
+    document.write(pageStr1);
     </script>
-    <ul id="xyxy">
-    <li class="item9654"><a href="/publish/thunews/9654/index.html#dqwz">全部</a></li>
-    <li class="item9665"><a href="/publish/thunews/9665/index.html#dqwz">国服学院</a></li>
-    <li class="item9666"><a href="/publish/thunews/9666/index.html#dqwz">教育学院</a></li>
-    <li class="item9667"><a href="/publish/thunews/9667/index.html#dqwz">理学院</a></li>
-    <li class="item9668"><a href="/publish/thunews/9668/index.html#dqwz">沈钧儒法学院</a></li>
-   </ul>
-        </nav>
-  <ul class="timenewslist">
-     
-    
+    <
+    script
+    type = "text/javascript" >
+        function doGo(jumpvalue) {
+            if (jumpvalue < 1 || jumpvalue > 672)
+                return;
+            var urlstr = window.location.href;
+            var urlColumnId = urlstr.substr(urlstr.indexOf('#') + 1, 8);
+            urlColumnId = urlColumnId.replace("/", "");
+            if (1 == jumpvalue) {
+                urlstr = urlstr.substr(0, urlstr.lastIndexOf('/') + 1) + 'index.html';
+            } else {
+                urlstr = urlstr.substr(0, urlstr.lastIndexOf('/') + 1) + 'index_' + jumpvalue + '.html';
+            }
+            window.location.href = urlstr;
+        }
 
-     <li class="clearfix"><div class="mtime"><span>20</span>2019-12</script></div>
-      <div class="newscontent">
-       <h3><a href="/publish/thunews/9654/2019/20191220110044594340896/20191220110044594340896_.html" target="_blank" class="jiequ">中华基本礼仪之《校园礼仪》视频在京发布</a></h3>
-          <p><script language="javascript" type="text/javascript">cutSummary("12月8日上午，“中华礼乐文化传承学术前沿论坛”在清华大学近春园召开。来自中国礼学、音乐学、考古学等研究领域的专家学者六十余人汇聚一堂，深入探讨中华礼乐文化的人文精神，并与社会人士共同探讨新时期礼乐文化传承发展问题。",180);</script></p>
-       <div class="thumb"><i class="thunews-eye"></i> <font id="font_itemlist_total_20191220110044594340896"><span id="itemlist_total_20191220110044594340896"></span></font></div>
-      </div>
-      </li>
-   
-
-     <li class="clearfix"><div class="mtime"><span>20</span>12-12</div>
-      <div class="newscontent">
-       <h3><a href="/publish/thunews/9654/2019/20191219093439767965668/20191219093439767965668_.html" target="_blank" class="jiequ">清华大学2019年度献血突破3000人次——“岁末愿望清单”无偿献血专场成...</a></h3>
-          <p><script language="javascript" type="text/javascript">cutSummary("12月15日，清华大学红十字会学生分会在紫荆学生综合服务楼举办了“岁末愿望清单”无偿献血专场活动。这是清华大学2019年的最后一场无偿献血专场活动，有517名清华学生及教职工参与了本次活动，献血量达608单位，其中453人成功捐献全血511.5单位，64人成功捐献成分血（血小板）96.5单位，此外还有14人加入中华骨髓库。至此，清华大学2019年献血总人次已经突破3000人次，达到3102人次，献血量达3591单位，再次刷新了北京市团体无偿献血的年度总人次和总献血量纪录，位居北京市所有无偿献血团体第一名，为北京市的临床用血做出了重要贡献，也彰显着清华人的奉献精神与公益热情。",180);</script></p>
-       <div class="thumb"><i class="thunews-eye"></i> <font id="font_itemlist_total_20191219093439767965668"><span id="itemlist_total_20191219093439767965668"></span></font></div>
-      </div>
-      </li>
-   
-
-     <li class="clearfix"><div class="mtime"><span>22</span>12-12</div>
-      <div class="newscontent">
-       <h3><a href="/publish/thunews/9654/2019/20191216160630714373206/20191216160630714373206_.html" target="_blank" class="jiequ">清华大学智能无人机挑战赛决赛成功举办</a></h3>
-          <p><script language="javascript" type="text/javascript">cutSummary("12月14日晚，清华大学首届智能无人机挑战赛决赛在电子工程馆11层报告厅举行。12支队伍同台竞技、各展风采。经过紧张激烈的角逐，“定位毯丢失队”通过改进的算法控制无人机，在下半场比赛中压轴出场并拔得头筹，以100满分的好成绩取得了本次比赛的特等奖。校党委副书记过勇出席活动。",180);</script></p>
-       <div class="thumb"><i class="thunews-eye"></i> <font id="font_itemlist_total_20191216160630714373206"><span id="itemlist_total_20191216160630714373206"></span></font></div>
-      </div>
-      </li>
-   
-
-     <li class="clearfix"><div class="mtime"><span>22</span>12-12</div>
-      <div class="newscontent">
-       <h3><a href="/publish/thunews/9654/2019/20191212101129966385101/20191212101129966385101_.html" target="_blank" class="jiequ">2018-2019学年度清华大学本科生先进班集体评选答辩会举行</a></h3>
-          <p><script language="javascript" type="text/javascript">cutSummary("12月5日下午，2018－2019学年度清华大学本科生先进班集体评选答辩会在六教举行。来自24个院系的26个本科生候选班级展示了过去一年在思想引领、学习科研、文体志愿、社会实践、创新创业及感情建设等方面所取得的成绩。",180);</script></p>
-       <div class="thumb"><i class="thunews-eye"></i> <font id="font_itemlist_total_20191212101129966385101"><span id="itemlist_total_20191212101129966385101"></span></font></div>
-      </div>
-      </li>
-
-     <li class="clearfix"><div class="mtime"><span><script type="text/javascript">document.write(getDay("2019-12-12"));</script></span><script type="text/javascript">document.write(getYM("2019-12-12"));</script></div>
-      <div class="newscontent">
-       <h3><a href="/publish/thunews/9654/2019/20191211103743986427487/20191211103743986427487_.html" target="_blank" class="jiequ">中华礼乐文化传承学术前沿论坛在清华举行</a></h3>
-          <p><script language="javascript" type="text/javascript">cutSummary("12月8日上午，“中华礼乐文化传承学术前沿论坛”在清华大学近春园召开。论坛由清华大学中国经学研究院和北京中华文化促进会联合主办，清华大学中国礼学研究中心承办。来自中国礼学、音乐学、考古学等研究领域的专家学者六十余人汇聚一堂，深入探讨中华礼乐文化的人文精神，并与社会人士共同探讨新时期礼乐文化传承和发展。",180);</script></p>
-       <div class="thumb"><i class="thunews-eye"></i> <font id="font_itemlist_total_20191211103743986427487"><span id="itemlist_total_20191211103743986427487"></span></font></div>
-      </div>
-      </li>
-   
-
-     <li class="clearfix"><div class="mtime"><span><script type="text/javascript">document.write(getDay("2019-12-11"));</script></span><script type="text/javascript">document.write(getYM("2019-12-11"));</script></div>
-      <div class="newscontent">
-       <h3><a href="/publish/thunews/9654/2019/20191211112605767271660/20191211112605767271660_.html" target="_blank" class="jiequ">俄罗斯著名导演阿列克谢·杰尼索夫携新作走进清华 中外学子共赏新中国成立70...</a></h3>
-          <p><script language="javascript" type="text/javascript">cutSummary("12月5日晚“丝路电影交流计划”第二期——镜头记录中国：俄罗斯的视角” 在清华大学国际交流活动中心举行。俄罗斯国家广播电视台历史频道总编辑、著名纪录片导演、编剧阿列克谢·杰尼索夫先生（Mr. Alexei Denisov）带来了其新作，中国中央电视台合作特别剪辑版的《中国的重生：苏联摄影师眼中的中国》。",180);</script></p>
-       <div class="thumb"><i class="thunews-eye"></i> <font id="font_itemlist_total_20191211112605767271660"><span id="itemlist_total_20191211112605767271660"></span></font></div>
-      </div>
-      </li>
-     <script type="text/javascript">
-var strUrl = window.location.href;
-var curPage=1;
-var pageCount = 672;//total pages count
-if(strUrl.lastIndexOf('index_')!=-1) 
- curPage=parseInt(strUrl.substring(strUrl.lastIndexOf('_')+1,strUrl.lastIndexOf('.')));//current page number
-var pageStr = "<div class=\"pager\">";
-if(pageCount>1){
- pageStr += '<a href="javascript:;" class="p" title="前一页" onclick="doGo('+(curPage-1)+');">«</a>';
-}
-if(pageCount <= 9){
- for(var i=0;i<pageCount;i++){
-  var currentClass = ((i+1)==curPage)?"current":"";
-  pageStr += '<a href="javascript:;" class="'+currentClass+'" onclick="doGo('+(i+1)+')">'+(i+1)+'</a>';
- }
-}else if(pageCount > 9 && (curPage + 4) <= pageCount && (curPage - 4) <= 0){
- for(var i=0;i<9;i++){
-  var currentClass = ((i+1)==curPage)?"current":"";
-  pageStr += '<a href="javascript:;" class="'+currentClass+'" onclick="doGo('+(i+1)+')">'+(i+1)+'</a>';
- }
-}else if(pageCount > 9 && (curPage + 4) <= pageCount && (curPage - 4) > 0){
- for(var i=(curPage - 3);i<(curPage + 4);i++){
-  var currentClass = ((i+1)==curPage)?"current":"";
-  pageStr += '<a href="javascript:;" class="'+currentClass+'" onclick="doGo('+(i+1)+')">'+(i+1)+'</a>';
- }
-}else{
- for(var i=(pageCount - 8);i<(pageCount);i++){
-  var currentClass = ((i+1)==curPage)?"current":"";
-  pageStr += '<a href="javascript:;" class="'+currentClass+'" onclick="doGo('+(i+1)+')">'+(i+1)+'</a>';
- }
-}
-if(curPage < pageCount){
- pageStr += '<a href="javascript:;" onclick="doGo('+(curPage+1)+')" class="p" title="后一页">»</a>';
-}
-pageStr += "<span>到第<input name=\"\" type=\"text\" id=\"ymz\">页 <a href=\"#\"  onclick=\"goto_ymz()\">确定</a></span>";
-pageStr += "</div>";
-var pageStr1 = "<div class=\"mobilemore clearfix\">";
-if(pageCount>1){
- pageStr1 += '<a href="javascript:;" class="prev" title="上一页" onclick="doGo('+(curPage-1)+');">上一页</a>';
-}
-if(curPage < pageCount){
- pageStr1 += '<a href="javascript:;" onclick="doGo('+(curPage+1)+')" class="next" title="下一页">下一页</a>';
-}
-pageStr1 += "</div>";
-document.write(pageStr);
-document.write(pageStr1);
-</script>
-<script type="text/javascript">
-function doGo(jumpvalue){
-  if(jumpvalue<1 || jumpvalue>672)
-   return;
-  var urlstr = window.location.href;  
-  var urlColumnId = urlstr.substr(urlstr.indexOf('#')+1,8);
-  urlColumnId = urlColumnId.replace("/","");
-  if(1==jumpvalue){
-    urlstr = urlstr.substr(0,urlstr.lastIndexOf('/')+1)+'index.html';
- }else{
-  urlstr = urlstr.substr(0,urlstr.lastIndexOf('/')+1)+'index_'+jumpvalue+'.html';
- }
-   window.location.href = urlstr;
-}
-function goto_ymz(){
- jumpvalue0 = $('#ymz').val();
- if(jumpvalue0<1 || jumpvalue0>672)
-   return;
- var urlstr0 = window.location.href;  
- if(1==jumpvalue0){
-  urlstr0 = urlstr0.substr(0,urlstr0.lastIndexOf('/')+1)+'index.html';
- }else{
-  urlstr0 = urlstr0.substr(0,urlstr0.lastIndexOf('/')+1)+'index_'+jumpvalue0+'.html';
- }
-   window.location.href = urlstr0;
-}
-</script>
-<p style="display:none">
-<span style='font-size:12px'>
+    function goto_ymz() {
+        jumpvalue0 = $('#ymz').val();
+        if (jumpvalue0 < 1 || jumpvalue0 > 672)
+            return;
+        var urlstr0 = window.location.href;
+        if (1 == jumpvalue0) {
+            urlstr0 = urlstr0.substr(0, urlstr0.lastIndexOf('/') + 1) + 'index.html';
+        } else {
+            urlstr0 = urlstr0.substr(0, urlstr0.lastIndexOf('/') + 1) + 'index_' + jumpvalue0 + '.html';
+        }
+        window.location.href = urlstr0;
+    }
+    </script>
+    <p style = "display:none">
+<span style = 'font-size:12px'>
 		共<b>13430</b>条&nbsp;&nbsp;
 		分<b>672</b>页&nbsp;&nbsp;
 		当前&nbsp;第<b>1</b>页&nbsp;&nbsp;
-		 <font color='#C0C0C0'>首页</font>
-		 <font color='#C0C0C0'>上一页</font>
-		 <a href='/publish/thunews/9649/index_2.html'><font color='#000000'>下一页</font></a>
-		 <a href='/publish/thunews/9649/index_672.html'><font color='#000000'>末页</font></a>
+		 <font color = '#C0C0C0'>首页</font>
+		 <font color = '#C0C0C0'>上一页</font>
+		 <a href = '/publish/thunews/9649/index_2.html'><font color = '#000000'>下一页</font></a>
+		 <a href = '/publish/thunews/9649/index_672.html'><font color = '#000000'>末页</font></a>
 </span></p>
 
 
-            <!--<a id="mobilemore" class="mobilemore" href="javascript:;">... 加载更多 ...</a>-->    </section>
-        <section class="colunm2">
+    <!--<a id="mobilemore" class="mobilemore" href="javascript:;">... 加载更多 ...</a>-->    </section>
+    <section class = "colunm2">
 
-            <section class="mod">
-                <h2><a href="/publish/thunews/9652/index.html" class="more" target="_blank">更多 &#8250;</a><span class="iconwraper"><img src="/static/images/hang.png" class="new"><i class="thunews-picture-o"></i></span>杭师瞬间</h2>
+        <section class = "mod">
+            <h2><a href = "/publish/thunews/9652/index.html" class = "more" target = "_blank">更多
+                &#8250;</a><span class = "iconwraper"><img src = "/static/images/hang.png" class = "new"><i class = "thunews-picture-o"></i></span>杭师瞬间
+            </h2>
 
-                <div class="slidegallery">
-                    <ul id="thunews_tsqh">
-                        <li class="active"><a><img src="/static/images/tu13.jpg"></a></li>
-                        <li><a><img src="/static/images/tu3.jpg"></a></li>
-                        <li><a><img src="/static/images/tu7.jpg"></a></li>
-                        <li><a><img src="/static/images/tu8.jpg"></a></li>
-                    </ul>
-                </div>
-                <script type="text/javascript">
-
-                    $(function(){
-
-                        $('.mod .slidegallery #thunews_tsqh').slick({
-                            infinite: true,
-                            slidesToShow: 1,
-                            slidesToScroll: 1,
-                            autoplay: true,
-                            centerMode: false,
-                            prevArrow:"<div class=\"sliderbutton prev\"><i class=\"thunews-angle-left\"></i></div>",
-                            nextArrow:"<div class=\"sliderbutton next\"><i class=\"thunews-angle-right\"></i></div>"
-                        });
-                        $('.mod .slidegallery #thunews_tsqh').on('beforeChange', function(event, slick, currentSlide,nextSlide){
-                            $(".slidegallery #thunews_tsqh li").removeClass("active");
-                            $(".slidegallery #thunews_tsqh li").eq(nextSlide).addClass("active");
-                        });
-
-
-
-                    })
-                </script>
-            </section>
-
-
-            <section class="mod withborder">
-                <h2 class="red"><span class="iconwraper"><img src="/static/images/shi.png" class="new"><i class="thunews-line-chart"></i></span>近期热点</h2>
-                <ul class="newslist clearfix"  id="resText">
-                    <li class="showonmobile"><figure>
-                       
-                        <span class="time"><i class="thunews-clock-o"></i>2019.12.11</span>
-                        <figcaption><h3><a href="#" class="jiequ">俄罗斯著名导演阿列克谢·杰尼索夫携新作走进清华</a></h3></figcaption>
-                    </figure>
-                    </li>
-
-                    <li class="showonmobile"><figure>
-                        <span class="time"><i class="thunews-clock-o"></i>2019.12.11</span>
-                        <figcaption><h3><a href="#" class="jiequ">【组图】2019清华大学冬季迷你马拉松赛圆满收官</a></h3></figcaption>
-                    </figure>
-                    </li>
-                    <li class="showonmobile"><figure>
-                        <span class="time"><i class="thunews-clock-o"></i>2019.12.10</span>
-                        <figcaption><h3><a href="#" class="jiequ">2019年清华大学高校思想政治工作创新发展中心论坛举行</a></h3></figcaption>
-                    </figure>
-                    </li>
-                    <li class="showonmobile"><figure>
-                        <span class="time"><i class="thunews-clock-o"></i>2019.12.10</span>
-                        <figcaption><h3><a href="/publish/thunews/10303/2019/20191210162259645480319/20191210162259645480319_.html" class="jiequ">【学风建设年】李路明 杜建镔 张宇飞：传承优秀教学文化</a></h3></figcaption>
-                    </figure>
-                    </li>
-                    <li class="showonmobile"><figure>
-                        <span class="time"><i class="thunews-clock-o"></i>2019.12.10</span>
-                        <figcaption><h3><a href="#" class="jiequ">各院系研究生深入开展特色主题活动 传承发扬“一二·九”精神</a></h3></figcaption>
-                    </figure>
-                    </li>
-
+            <div class = "slidegallery">
+                <ul id = "thunews_tsqh">
+                    <li class = "active"><a><img src = "/static/images/tu13.jpg"></a></li>
+                    <li><a><img src = "/static/images/tu3.jpg"></a></li>
+                    <li><a><img src = "/static/images/tu7.jpg"></a></li>
+                    <li><a><img src = "/static/images/tu8.jpg"></a></li>
                 </ul>
-            </section>
+            </div>
+            <script type = "text/javascript">
+
+                $(function () {
+
+                    $('.mod .slidegallery #thunews_tsqh').slick({
+                        infinite: true,
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                        autoplay: true,
+                        centerMode: false,
+                        prevArrow: "<div class=\"sliderbutton prev\"><i class=\"thunews-angle-left\"></i></div>",
+                        nextArrow: "<div class=\"sliderbutton next\"><i class=\"thunews-angle-right\"></i></div>"
+                    });
+                    $('.mod .slidegallery #thunews_tsqh').on('beforeChange', function (event, slick, currentSlide, nextSlide) {
+                        $(".slidegallery #thunews_tsqh li").removeClass("active");
+                        $(".slidegallery #thunews_tsqh li").eq(nextSlide).addClass("active");
+                    });
+
+
+                })
+            </script>
         </section>
-    </div>
+
+
+        <section class = "mod withborder">
+            <h2 class = "red">
+                <span class = "iconwraper"><img src = "/static/images/shi.png" class = "new"><i class = "thunews-line-chart"></i></span>近期热点
+            </h2>
+            <ul class = "newslist clearfix" id = "resText">
+                <li class = "showonmobile">
+                    <figure>
+
+                        <span class = "time"><i class = "thunews-clock-o"></i>2019.12.11</span>
+                        <figcaption><h3><a href = "#" class = "jiequ">俄罗斯著名导演阿列克谢·杰尼索夫携新作走进清华</a></h3></figcaption>
+                    </figure>
+                </li>
+
+                <li class = "showonmobile">
+                    <figure>
+                        <span class = "time"><i class = "thunews-clock-o"></i>2019.12.11</span>
+                        <figcaption><h3><a href = "#" class = "jiequ">【组图】2019清华大学冬季迷你马拉松赛圆满收官</a></h3></figcaption>
+                    </figure>
+                </li>
+                <li class = "showonmobile">
+                    <figure>
+                        <span class = "time"><i class = "thunews-clock-o"></i>2019.12.10</span>
+                        <figcaption><h3><a href = "#" class = "jiequ">2019年清华大学高校思想政治工作创新发展中心论坛举行</a></h3></figcaption>
+                    </figure>
+                </li>
+                <li class = "showonmobile">
+                    <figure>
+                        <span class = "time"><i class = "thunews-clock-o"></i>2019.12.10</span>
+                        <figcaption><h3>
+                            <a href = "/publish/thunews/10303/2019/20191210162259645480319/20191210162259645480319_.html" class = "jiequ">【学风建设年】李路明
+                                杜建镔 张宇飞：传承优秀教学文化</a></h3></figcaption>
+                    </figure>
+                </li>
+                <li class = "showonmobile">
+                    <figure>
+                        <span class = "time"><i class = "thunews-clock-o"></i>2019.12.10</span>
+                        <figcaption><h3><a href = "#" class = "jiequ">各院系研究生深入开展特色主题活动 传承发扬“一二·九”精神</a></h3>
+                        </figcaption>
+                    </figure>
+                </li>
+
+            </ul>
+        </section>
+    </section>
+</div>
 </div>
 <footer>
- <div class="mainWrap clearfix">
-     <section>
-         <div class="thulogo"><img  src="/static/images/thulogo.png"></div>
-            <div class="copyright"><span><a href="https://www.hznu.edu.cn/xnxsg/">网上校史馆</a>　│　<a href="http://paper.hznu.edu.cn/">校报</a>　│　<a href="http://xiaoyou.hznu.edu.cn/">师大校友</a>　│　<a href="https://it.hznu.edu.cn/hznu/" target="_blank">智慧校园APP</a></span>
-            地址：浙江省杭州市余杭区仓前街道余杭塘路2318号　邮编：311121 联系电话：0571-28865012<br>
-            本科招生热线: 0571-28865193 研究生招生热线：0571-28865143<br>
-			公安备案号 33011002011919  浙ICP备11056902号 版权所有 杭州师范大学 Copyright © 2008 All rights reserved.
+    <div class = "mainWrap clearfix">
+        <section>
+            <div class = "thulogo"><img src = "/static/images/thulogo.png"></div>
+            <div class = "copyright">
+                <span><a href = "https://www.hznu.edu.cn/xnxsg/">网上校史馆</a>　│　<a href = "http://paper.hznu.edu.cn/">校报</a>　│　<a href = "http://xiaoyou.hznu.edu.cn/">师大校友</a>　│　<a href = "https://it.hznu.edu.cn/hznu/" target = "_blank">智慧校园APP</a></span>
+                地址：浙江省杭州市余杭区仓前街道余杭塘路2318号　邮编：311121 联系电话：0571-28865012<br>
+                本科招生热线: 0571-28865193 研究生招生热线：0571-28865143<br>
+                公安备案号 33011002011919 浙ICP备11056902号 版权所有 杭州师范大学 Copyright © 2008 All rights reserved.
             </div>
-		 <div class="weiye"><img src="/static/images/xiaoxun.png" ></div>
+            <div class = "weiye"><img src = "/static/images/xiaoxun.png"></div>
         </section>
     </div>
-    </footer>
+</footer>
 </body>
 </html>
