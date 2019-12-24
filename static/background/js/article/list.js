@@ -8,7 +8,7 @@ layui.use(['table', 'jquery', 'form', 'admin'], function () {
         form = layui.form,
         admin = layui.admin;
 
-    table.render({
+    let tableIns = table.render({
         id: 'table',
         elem: '#articleList',
         cellMinWidth: 80,
@@ -48,7 +48,9 @@ layui.use(['table', 'jquery', 'form', 'admin'], function () {
             "top": "checked"
         }],
         event: true,
-        page: true
+        page: true,
+        toolbar: true,
+        loading: true
     });
     /*
      *数据表格中form表单元素是动态插入,所以需要更新渲染下
@@ -58,49 +60,16 @@ layui.use(['table', 'jquery', 'form', 'admin'], function () {
         form.render();
     });
 
-    let active = {
-        getCheckData: function () { //获取选中数据
-            var checkStatus = table.checkStatus('articleList'),
-                data = checkStatus.data;
-            //console.log(data);
-            //layer.alert(JSON.stringify(data));
-            if (data.length > 0) {
-                layer.confirm('确认要删除吗？' + JSON.stringify(data), function (index) {
-                    layer.msg('删除成功', {
-                        icon: 1
-                    });
-                    //找到所有被选中的，发异步进行删除
-                    $(".layui-table-body .layui-form-checked").parents('tr').remove();
-                });
-            } else {
-                layer.msg("请先选择需要删除的文章！");
+    form.on('submit(sreach)', function (data) {
+        tableIns.reload({
+            where: { //设定异步数据接口的额外参数，任意设
+                keyword: $("input[name='keyword']").val()
+            }, page: {
+                curr: 1
             }
-
-        },
-        Recommend: function () {
-            var checkStatus = table.checkStatus('articleList'),
-                data = checkStatus.data;
-            if (data.length > 0) {
-                layer.msg("您点击了推荐操作");
-                for (var i = 0; i < data.length; i++) {
-                    console.log("a:" + data[i].recommend);
-                    data[i].recommend = "checked";
-                    console.log("aa:" + data[i].recommend);
-                    form.render();
-                }
-
-            } else {
-                console.log("b");
-                layer.msg("请先选择");
-            }
-        },
-        Top: function () {
-            layer.msg("您点击了置顶操作");
-        },
-        Review: function () {
-            layer.msg("您点击了审核操作");
-        }
-    };
+        });
+        return false;
+    });
 
     $('.demoTable .layui-btn').on('click', function () {
         let type = $(this).data('type');

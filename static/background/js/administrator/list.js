@@ -8,7 +8,7 @@ layui.use(['table', 'jquery', 'form', 'admin'], function () {
         form = layui.form,
         admin = layui.admin;
 
-    table.render({
+    let tableIns = table.render({
         id: 'table',
         elem: '#adminList',
         cellMinWidth: 80,
@@ -33,7 +33,9 @@ layui.use(['table', 'jquery', 'form', 'admin'], function () {
             }]
         ],
         event: true,
-        page: true
+        page: true,
+        toolbar: true,
+        loading: true
     });
     /*
      *数据表格中form表单元素是动态插入,所以需要更新渲染下
@@ -44,6 +46,24 @@ layui.use(['table', 'jquery', 'form', 'admin'], function () {
     });
 
 
+    // tableIns.reload({
+    //     where: { //设定异步数据接口的额外参数，任意设
+    //         usernmae: $("input[name='username']").val()
+    //     }
+    //     , page: {
+    //         curr: 1 //重新从第 1 页开始
+    //     }
+    // });
+    form.on('submit(sreach)', function (data) {
+        tableIns.reload({
+            where: { //设定异步数据接口的额外参数，任意设
+                usernmae: $("input[name='username']").val()
+            }, page: {
+                curr: 1
+            }
+        });
+        return false;
+    });
     /*用户-删除*/
     window.member_del = function (obj, id) {
         layer.confirm('确认要删除吗？', function (index) {
@@ -129,4 +149,6 @@ layui.use(['table', 'jquery', 'form', 'admin'], function () {
         open: '<%',
         close: '%>'
     });
+
+
 });

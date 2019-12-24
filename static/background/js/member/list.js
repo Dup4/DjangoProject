@@ -8,7 +8,7 @@ layui.use(['table', 'jquery', 'form', 'admin'], function () {
         form = layui.form,
         admin = layui.admin;
 
-    table.render({
+    let tableIns = table.render({
         id: 'table',
         elem: '#memberList',
         cellMinWidth: 80,
@@ -33,7 +33,9 @@ layui.use(['table', 'jquery', 'form', 'admin'], function () {
             }]
         ],
         event: true,
-        page: true
+        page: true,
+        toolbar: true,
+        loading: true
     });
     /*
      *数据表格中form表单元素是动态插入,所以需要更新渲染下
@@ -42,7 +44,16 @@ layui.use(['table', 'jquery', 'form', 'admin'], function () {
     $(function () {
         form.render();
     });
-
+    form.on('submit(sreach)', function (data) {
+        tableIns.reload({
+            where: { //设定异步数据接口的额外参数，任意设
+                usernmae: $("input[name='username']").val()
+            }, page: {
+                curr: 1
+            }
+        });
+        return false;
+    });
 
     /*用户-删除*/
     window.member_del = function (obj, id) {
