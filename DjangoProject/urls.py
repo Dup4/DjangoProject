@@ -16,7 +16,13 @@ urlpatterns = [
     path('dengLu/', view.dengLu),
     path('picture/', view.picture),
     path('renWu/', view.renWu),
+
     path('xiaoYuan/', view.xiaoYuan),
+    path('xiaoYuanGF/', view.xiaoYuanGF),
+    path('xiaoYuanJY/', view.xiaoYuanJY),
+    path('xiaoYuanLX/', view.xiaoYuanLX),
+    path('xiaoYuanSJR/', view.xiaoYuanSJR),
+
     path('xinWen/', view.xinWen),
     path('article/', view.article),
     path('personalInformation/', view.personal_information),

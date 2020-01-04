@@ -31,7 +31,8 @@ def dengLu(request):
 def picture(request):
     articles = Article.objects.filter(status=1, classify=4)
     hot_spots = Article.objects.filter(status=1).order_by('-id')[:5]
-    data = {'articles': articles, 'hot_spots': hot_spots}
+    sideshow = Article.objects.filter(status=1, classify=4).order_by('-id')[:4]
+    data = {'articles': articles, 'hot_spots': hot_spots, 'sideshow': sideshow}
     return render(request, 'picture.html', data)
 
 
@@ -44,13 +45,43 @@ def renWu(request):
 
 def xiaoYuan(request):
     articles = Article.objects.filter(status=1, classify=2)
-    data = {'articles': articles}
+    hot_spots = Article.objects.filter(status=1).order_by('-id')[:5]
+    data = {'articles': articles, 'hot_spots': hot_spots}
     return render(request, 'xiaoYuan.html', data)
+
+
+def xiaoYuanGF(request):
+    articles = Article.objects.filter(status=1, classify=2, college=1)
+    hot_spots = Article.objects.filter(status=1).order_by('-id')[:5]
+    data = {'articles': articles, 'hot_spots': hot_spots}
+    return render(request, 'xiaoYuanGF.html', data)
+
+
+def xiaoYuanJY(request):
+    articles = Article.objects.filter(status=1, classify=2, college=2)
+    hot_spots = Article.objects.filter(status=1).order_by('-id')[:5]
+    data = {'articles': articles, 'hot_spots': hot_spots}
+    return render(request, 'xiaoYuanJY.html', data)
+
+
+def xiaoYuanLX(request):
+    articles = Article.objects.filter(status=1, classify=2, college=3)
+    hot_spots = Article.objects.filter(status=1).order_by('-id')[:5]
+    data = {'articles': articles, 'hot_spots': hot_spots}
+    return render(request, 'xiaoYuanLX.html', data)
+
+
+def xiaoYuanSJR(request):
+    articles = Article.objects.filter(status=1, classify=2, college=4)
+    hot_spots = Article.objects.filter(status=1).order_by('-id')[:5]
+    data = {'articles': articles, 'hot_spots': hot_spots}
+    return render(request, 'xiaoYuanSJR.html', data)
 
 
 def xinWen(request):
     articles = Article.objects.filter(status=1, classify=1)
-    data = {'articles': articles}
+    hot_spots = Article.objects.filter(status=1).order_by('-id')[:5]
+    data = {'articles': articles, 'hot_spots': hot_spots}
     return render(request, 'xinWen.html', data)
 
 
