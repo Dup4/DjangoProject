@@ -85,7 +85,6 @@
             </nav>
             <ul class = "timenewslist">
                 {% for article in articles %}
-                    {% autoescape off %}
                         <li class = "clearfix">
                             <div class = "mtime">
                                 <span><font class = "dd" id = "dd-1">{{ article.create_time|date:"d" }}</font></span>
@@ -100,7 +99,6 @@
                                 </p>
                             </div>
                         </li>
-                    {% endautoescape %}
                 {% endfor %}
             </ul>
             <p style = "display:none">

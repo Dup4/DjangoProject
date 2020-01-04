@@ -114,20 +114,20 @@
             </div>
             <ul class = "picwhitenewslist clearfix">
                 {% for article in articles %}
-                    {% autoescape off %}
-                        <li>
-                            <figure>
-                                <a href = "/show/{{ article.id }}" target = "_blank"><img src = "" data-src = "{{ article.img_url }}"></a>
-                                <figcaption>
-                                    <a target = "_blank" href = "/show/{{ article.id }}" class = "jiequ">{{ article.title }}</a>
-                                </figcaption>
-                                <div class = "thumb"><i class = "thunews-clock-o"></i>{{ article.create_time }}
-                                    <i class = "thunews-eye"></i>
-                                    <font id = "font_itemlist_total_20191115111315714796419"><span id = "itemlist_total_20191115111315714796419"></span></font>
-                                </div>
-                            </figure>
-                        </li>
-                    {% endautoescape %}
+
+                    <li>
+                        <figure>
+                            <a href = "/show/{{ article.id }}" target = "_blank"><img src = "" data-src = "{{ article.img_url }}"></a>
+                            <figcaption>
+                                <a target = "_blank" href = "/show/{{ article.id }}" class = "jiequ">{{ article.title }} </a>
+                            </figcaption>
+                            <div class = "thumb"><i class = "thunews-clock-o"></i>{{ article.create_time }}
+                                <i class = "thunews-eye"></i>
+                                <font id = "font_itemlist_total_20191115111315714796419"><span id = "itemlist_total_20191115111315714796419"></span></font>
+                            </div>
+                        </figure>
+                    </li>
+
                 {% endfor %}
 
             </ul>
