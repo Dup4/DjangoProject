@@ -95,10 +95,7 @@
                                 <a href = "/show/{{ article.id }}" target = "_blank" class = "jiequ">{{ article.title }}</a>
                             </h3>
                             <p>
-                                {#                                {% autoescape off %}#}
-                                {#                                    {{ article.content }}#}
-                                {#                                {% endautoescape %}#}
-                                {{ article.content|striptags|slice:"10" }}
+                                {{ article.content|striptags|slice:"20" }}
                             </p>
                         </div>
                     </li>

@@ -99,10 +99,7 @@
                                     <a href = "/show/{{ article.id }}" target = "_blank" class = "jiequ">{{ article.title }}</a>
                                 </h3>
                                 <p>
-                                <script language = "javascript" type = "text/javascript">cutSummary(
-                                    {% autoescape off %}
-                                        {{ article.content }}
-                                    {% endautoescape %}, 180);</script>
+                                  {{ article.content|striptags|slice:"20" }}
                                 </p>
                             </div>
                         </li>
