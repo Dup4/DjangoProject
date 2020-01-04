@@ -51,6 +51,7 @@ layui.use(['form', 'layer', 'layedit', 'jquery', 'upload'], function () {
             let title = $("input[name='title']").val();
             let classify = $("#classify").val();
             let content = layedit.getContent(index);
+            let college = $("#college").val();
             let token = $('input[name=csrfmiddlewaretoken]').val();
             $.ajax({
                 type: "POST",
@@ -61,6 +62,7 @@ layui.use(['form', 'layer', 'layedit', 'jquery', 'upload'], function () {
                     classify: classify,
                     content: content,
                     img_url: img_url,
+                    college: college,
                     csrfmiddlewaretoken: token
                 },
                 success: function (data) {

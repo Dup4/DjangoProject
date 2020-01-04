@@ -340,7 +340,8 @@ def add_article(request):
         article.classify = request.POST.get('classify')
         article.cover = request.POST.get('article')
         article.img_url = request.POST.get('img_url')
-        print(request.POST.get('img_url'));
+        article.college = request.POST.get('college')
+        print(request.POST.get('img_url'))
         article.save()
 
         data['code'] = 0
