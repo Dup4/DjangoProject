@@ -206,7 +206,7 @@
 {
 	float: left;
 	background: none;
-	color: #8c7a9c;
+	color:#6897CF;
 	padding:0;
 	width: 60px;
 }
@@ -690,7 +690,7 @@
 
 .subchannel .picnewslist figcaption .tips
 {
-	background: #f4930a;
+	background: #6897CF;
 	display: inline-block;
 	font-size: 12px;
 	line-height: 26px;

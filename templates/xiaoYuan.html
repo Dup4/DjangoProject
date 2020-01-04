@@ -3,7 +3,7 @@
 <html>
 <head>
     <meta charset = "utf-8">
-    <title>杭州师范大学新闻网-校园风光</title>
+    <title>杭州师范大学-校园风光</title>
     <meta name = "viewport" content = "width=device-width, initial-scale=1" />
     <link href = "{% static '/css/base.css' %}" rel = "stylesheet" type = "text/css">
 
@@ -13,7 +13,6 @@
     <script src = "{% static '/js/slick.min.js' %}" type = "text/javascript"></script>
 
     <link rel = "stylesheet" href = "{% static '/css/owl.carousel.css' %}">
-
 
 </head>
 <body>
@@ -34,7 +33,7 @@
                     </li>
                     <li class = "mr"><a href = "https://english.hznu.edu.cn/" class = "en" target = "_blank">ENGLISH</a>
                     </li>
-                    <li class = "mr"><a href = "#" class = "en" target = "_blank">杭师主页</a></li>
+                    <li class = "mr"><a href = "/home" class = "en" target = "_blank">杭师主页</a></li>
                 </ul>
             </div>
             <a href = "#" class = "logo"><img src = "/static/images/logo.png" alt = "logo"></a>
@@ -45,7 +44,7 @@
                     <div id = "smenu" class = "smenu"><i class = "thunews-bars"></i></div>
                     <ul id = "nav">
                         <li><a href = "/home" class = "item0">首页</a></li>
-                        <li><a href = "/xinWen" class = "item0">新闻聚焦</a></li>
+                        <li><a href = "/xinWen" class = "item0">师大新闻</a></li>
                         <li><a href = "/xiaoYuan" class = "item0">学科建设</a></li>
                         <li><a href = "/renWu" class = "item0">杭师人物</a></li>
                         <li><a href = "/picture" class = "item0">图说杭师</a></li>
@@ -74,22 +73,20 @@
                     $("#loadxyxy").load("/publish/thunews/xyxy_tt.html")
                 })
             </script>
-            <nav class = "enav clearfix p_2" id = "dqwz">
+
+            <nav class = "enav clearfix p_1" id = "dqwz">
                 <div id = "subsmenu" class = "subsmenu"><i class = "thunews-bars"></i></div>
-                <script type = "text/javascript">
-                    jQuery(function () {
-                        jQuery('#xyxy li [class^=item]').removeClass('current');
-                        jQuery('#xyxy li.item9654').addClass('current');
-                    });
-                </script>
-                <ul id = "xyxy">
-                    <li class = "item9654"><a href = "#">全部</a></li>
+
+                <ul id = "fybq">
+                   <li class = "item9654"><a href = "#">全部</a></li>
                     <li class = "item9665"><a href = "#">国服学院</a></li>
                     <li class = "item9666"><a href = "#">教育学院</a></li>
                     <li class = "item9667"><a href = "#">理学院</a></li>
                     <li class = "item9668"><a href = "#">沈钧儒法学院</a></li>
                 </ul>
             </nav>
+
+
             <ul class = "timenewslist">
                 {% for article in articles %}
                     <li class = "clearfix">
@@ -108,96 +105,94 @@
                     </li>
                 {% endfor %}
             </ul>
-
+       </section>
 
             <!--<a id="mobilemore" class="mobilemore" href="javascript:;">... 加载更多 ...</a>-->
             <section class = "colunm2">
 
-                <section class = "mod">
-                    <h2><a href = "#" class = "more" target = "_blank">更多
-                        &#8250;</a><span class = "iconwraper"><img src = "/static/images/hang.png" class = "new"><i class = "thunews-picture-o"></i></span>杭师瞬间
-                    </h2>
+            <section class = "mod">
+                <h2><a href = "/publish/thunews/9652/index.html" class = "more" target = "_blank">更多
+                    &#8250;</a><span class = "iconwraper"><img src = "/static/images/hang.png" class = "new"><i class = "thunews-picture-o"></i></span>杭师瞬间
+                </h2>
 
-                    <div class = "slidegallery">
-                        <ul id = "thunews_tsqh">
-                            <li class = "active"><a><img src = "/static/images/tu13.jpg"></a></li>
-                            <li><a><img src = "/static/images/tu3.jpg" alt = ""></a></li>
-                            <li><a><img src = "/static/images/tu7.jpg" alt = ""></a></li>
-                            <li><a><img src = "/static/images/tu8.jpg" alt = ""></a></li>
-                        </ul>
-                    </div>
-                    <script type = "text/javascript">
-
-                        $(function () {
-
-                            $('.mod .slidegallery #thunews_tsqh').slick({
-                                infinite: true,
-                                slidesToShow: 1,
-                                slidesToScroll: 1,
-                                autoplay: true,
-                                centerMode: false,
-                                prevArrow: "<div class=\"sliderbutton prev\"><i class=\"thunews-angle-left\"></i></div>",
-                                nextArrow: "<div class=\"sliderbutton next\"><i class=\"thunews-angle-right\"></i></div>"
-                            });
-                            $('.mod .slidegallery #thunews_tsqh').on('beforeChange', function (event, slick, currentSlide, nextSlide) {
-                                $(".slidegallery #thunews_tsqh li").removeClass("active");
-                                $(".slidegallery #thunews_tsqh li").eq(nextSlide).addClass("active");
-                            });
-
-
-                        })
-                    </script>
-                </section>
-
-
-                <section class = "mod withborder">
-                    <h2 class = "red">
-                        <span class = "iconwraper"><img src = "/static/images/shi.png" class = "new" alt = ""><i class = "thunews-line-chart"></i></span>近期热点
-                    </h2>
-                    <ul class = "newslist clearfix" id = "resText">
-                        <li class = "showonmobile">
-                            <figure>
-
-                                <span class = "time"><i class = "thunews-clock-o"></i>2019.12.11</span>
-                                <figcaption><h3><a href = "#" class = "jiequ">俄罗斯著名导演阿列克谢·杰尼索夫携新作走进清华</a></h3>
-                                </figcaption>
-                            </figure>
-                        </li>
-
-                        <li class = "showonmobile">
-                            <figure>
-                                <span class = "time"><i class = "thunews-clock-o"></i>2019.12.11</span>
-                                <figcaption><h3><a href = "#" class = "jiequ">【组图】2019清华大学冬季迷你马拉松赛圆满收官</a></h3>
-                                </figcaption>
-                            </figure>
-                        </li>
-                        <li class = "showonmobile">
-                            <figure>
-                                <span class = "time"><i class = "thunews-clock-o"></i>2019.12.10</span>
-                                <figcaption><h3><a href = "#" class = "jiequ">2019年清华大学高校思想政治工作创新发展中心论坛举行</a></h3>
-                                </figcaption>
-                            </figure>
-                        </li>
-                        <li class = "showonmobile">
-                            <figure>
-                                <span class = "time"><i class = "thunews-clock-o"></i>2019.12.10</span>
-                                <figcaption><h3>
-                                    <a href = "/publish/thunews/10303/2019/20191210162259645480319/20191210162259645480319_.html" class = "jiequ">【学风建设年】李路明
-                                        杜建镔 张宇飞：传承优秀教学文化</a></h3></figcaption>
-                            </figure>
-                        </li>
-                        <li class = "showonmobile">
-                            <figure>
-                                <span class = "time"><i class = "thunews-clock-o"></i>2019.12.10</span>
-                                <figcaption><h3><a href = "#" class = "jiequ">各院系研究生深入开展特色主题活动 传承发扬“一二·九”精神</a></h3>
-                                </figcaption>
-                            </figure>
-                        </li>
-
+                <div class = "slidegallery">
+                    <ul id = "thunews_tsqh">
+                        <li class = "active"><a><img src = "/static/images/tu13.jpg"></a></li>
+                        <li><a><img src = "/static/images/tu3.jpg"></a></li>
+                        <li><a><img src = "/static/images/tu7.jpg"></a></li>
+                        <li><a><img src = "/static/images/tu8.jpg"></a></li>
                     </ul>
-                </section>
+                </div>
+                <script type = "text/javascript">
+
+                    $(function () {
+
+                        $('.mod .slidegallery #thunews_tsqh').slick({
+                            infinite: true,
+                            slidesToShow: 1,
+                            slidesToScroll: 1,
+                            autoplay: true,
+                            centerMode: false,
+                            prevArrow: "<div class=\"sliderbutton prev\"><i class=\"thunews-angle-left\"></i></div>",
+                            nextArrow: "<div class=\"sliderbutton next\"><i class=\"thunews-angle-right\"></i></div>"
+                        });
+                        $('.mod .slidegallery #thunews_tsqh').on('beforeChange', function (event, slick, currentSlide, nextSlide) {
+                            $(".slidegallery #thunews_tsqh li").removeClass("active");
+                            $(".slidegallery #thunews_tsqh li").eq(nextSlide).addClass("active");
+                        });
+
+
+                    })
+                </script>
+            </section>
+
+
+            <section class = "mod withborder">
+                <h2 class = "red">
+                    <span class = "iconwraper"><img src = "/static/images/shi.png" class = "new"><i class = "thunews-line-chart"></i></span>近期热点
+                </h2>
+                <ul class = "newslist clearfix" id = "resText">
+                    <li class = "showonmobile">
+                        <figure>
+
+                            <span class = "time"><i class = "thunews-clock-o"></i>2019.12.11</span>
+                            <figcaption><h3><a href = "#" class = "jiequ">俄罗斯著名导演阿列克谢·杰尼索夫携新作走进清华</a></h3></figcaption>
+                        </figure>
+                    </li>
+
+                    <li class = "showonmobile">
+                        <figure>
+                            <span class = "time"><i class = "thunews-clock-o"></i>2019.12.11</span>
+                            <figcaption><h3><a href = "#" class = "jiequ">【组图】2019清华大学冬季迷你马拉松赛圆满收官</a></h3></figcaption>
+                        </figure>
+                    </li>
+                    <li class = "showonmobile">
+                        <figure>
+                            <span class = "time"><i class = "thunews-clock-o"></i>2019.12.10</span>
+                            <figcaption><h3><a href = "#" class = "jiequ">2019年清华大学高校思想政治工作创新发展中心论坛举行</a></h3>
+                            </figcaption>
+                        </figure>
+                    </li>
+                    <li class = "showonmobile">
+                        <figure>
+                            <span class = "time"><i class = "thunews-clock-o"></i>2019.12.10</span>
+                            <figcaption><h3>
+                                <a href = "/publish/thunews/10303/2019/20191210162259645480319/20191210162259645480319_.html" class = "jiequ">【学风建设年】李路明
+                                    杜建镔 张宇飞：传承优秀教学文化</a></h3></figcaption>
+                        </figure>
+                    </li>
+                    <li class = "showonmobile">
+                        <figure>
+                            <span class = "time"><i class = "thunews-clock-o"></i>2019.12.10</span>
+                            <figcaption><h3><a href = "#" class = "jiequ">各院系研究生深入开展特色主题活动 传承发扬“一二·九”精神</a></h3>
+                            </figcaption>
+                        </figure>
+                    </li>
+
+                </ul>
             </section>
         </section>
+
     </div>
 </div>
 <footer>
