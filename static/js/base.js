@@ -11,7 +11,7 @@ $(window).on('scroll', function () {
 
 function start() {
     $('img').not('[data-isLoaded]').each(function () {
-        var $node = $(this);
+        let $node = $(this);
         if (isShow($node)) {
             loadImg($node)
         }

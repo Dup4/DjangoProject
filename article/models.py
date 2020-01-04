@@ -11,7 +11,7 @@ class Article(models.Model):
     # 内容 text(5000)
     content = models.TextField(max_length=5000)
     # 学院
-    college = models.CharField(max_length=255)
+    college = models.IntegerField(blank=True)
     # 分类 int
     classify = models.IntegerField()
     # 封面url

@@ -26,7 +26,8 @@
                     <li class = "socialnet">
                         <a href = "javascript:;" class = "circle" title = "微信"><img src = "" data-src = "/static/images/weixin.png" class = "circle"></a>
                         <div class = "socialwraper">
-                            <i><em></em></i><img src = "" data-src = "/static/images/weixinpg.png" width = "150px"></div>
+                            <i><em></em></i><img src = "" data-src = "/static/images/weixinpg.png" width = "150px">
+                        </div>
                     </li>
                     </li>
                     <li class = "socialnet">
@@ -45,7 +46,7 @@
                     <div id = "smenu" class = "smenu"><i class = "thunews-bars"></i></div>
 
                     <ul id = "nav">
-                       <li><a href = "/home" class = "item0">首页</a></li>
+                        <li><a href = "/home" class = "item0">首页</a></li>
                         <li><a href = "/xinWen" class = "item0">师大新闻</a></li>
                         <li><a href = "/xiaoYuan" class = "item0">学科建设</a></li>
                         <li><a href = "/renWu" class = "item0">杭师人物</a></li>
@@ -112,53 +113,20 @@
                 </script>
             </div>
             <ul class = "picwhitenewslist clearfix">
-
-                <li>
-                    <figure>
-                        <a href = "../9652/2019/20191115111315714796419/20191115111315714796419_.html" target = "_blank"><img src = "" data-src = "../images/tu1.jpg"></a>
-                        <figcaption>
-                            <a target = "_blank" href = "../9652/2019/20191115111315714796419/20191115111315714796419_.html" class = "jiequ">【组图】清华美院陈楠教授笔下的甲骨文艺术设计作品</a>
-                        </figcaption>
-                        <div class = "thumb"><i class = "thunews-clock-o"></i>2019.11.18 <i class = "thunews-eye"></i>
-                            <font id = "font_itemlist_total_20191115111315714796419"><span id = "itemlist_total_20191115111315714796419"></span></font>
-                        </div>
-                    </figure>
-                </li>
-                <li>
-                    <figure>
-                        <a href = "../9652/2019/20191106111628773279674/20191106111628773279674_.html" target = "_blank"><img src = "" data-src = "../images/tu1.jpg"></a>
-                        <figcaption>
-                            <a target = "_blank" href = "../9652/2019/20191106111628773279674/20191106111628773279674_.html" class = "jiequ">【组图】漫步清华园
-                                徒爱清华秋</a></figcaption>
-                        <div class = "thumb"><i class = "thunews-clock-o"></i>2019.11.08 <i class = "thunews-eye"></i>
-                            <font id = "font_itemlist_total_20191106111628773279674"><span id = "itemlist_total_20191106111628773279674"></span></font>
-                        </div>
-                    </figure>
-                </li>
-
-                <li>
-                    <figure>
-                        <a href = "../9652/2019/20191029145736856666520/20191029145736856666520_.html" target = "_blank"><img src = "" data-src = "../images/tu1.jpg"></a>
-                        <figcaption>
-                            <a target = "_blank" href = "../9652/2019/20191029145736856666520/20191029145736856666520_.html" class = "jiequ">【组图】欲说少年梦
-                                何不趁秋光</a></figcaption>
-                        <div class = "thumb"><i class = "thunews-clock-o"></i>2019.10.31 <i class = "thunews-eye"></i>
-                            <font id = "font_itemlist_total_20191029145736856666520"><span id = "itemlist_total_20191029145736856666520"></span></font>
-                        </div>
-                    </figure>
-                </li>
-
-                <li>
-                    <figure>
-                        <a href = "../9652/2019/20191023142354224842345/20191023142354224842345_.html" target = "_blank"><img src = "" data-src = "../images/tu1.jpg"></a>
-                        <figcaption>
-                            <a target = "_blank" href = "../9652/2019/20191023142354224842345/20191023142354224842345_.html" class = "jiequ">【组图】北京市第二届大学生3D打印大赛在清华举行</a>
-                        </figcaption>
-                        <div class = "thumb"><i class = "thunews-clock-o"></i>2019.10.25 <i class = "thunews-eye"></i>
-                            <font id = "font_itemlist_total_20191023142354224842345"><span id = "itemlist_total_20191023142354224842345"></span></font>
-                        </div>
-                    </figure>
-                </li>
+                {% for article in articles %}
+                    <li>
+                        <figure>
+                            <a href = "#" target = "_blank"><img src = "" data-src = "{{ article.img_url }}"></a>
+                            <figcaption>
+                                <a target = "_blank" href = "#" class = "jiequ">{{ article.title }}</a>
+                            </figcaption>
+                            <div class = "thumb"><i class = "thunews-clock-o"></i>{{ article.create_time }}
+                                <i class = "thunews-eye"></i>
+                                <font id = "font_itemlist_total_20191115111315714796419"><span id = "itemlist_total_20191115111315714796419"></span></font>
+                            </div>
+                        </figure>
+                    </li>
+                {% endfor %}
 
             </ul>
             <script type = "text/javascript">
@@ -265,42 +233,52 @@
                     <span class = "iconwraper"><img src = "" data-src = "/static/images/shi.png" class = "new"><i class = "thunews-line-chart"></i></span>近期热点
                 </h2>
                 <ul class = "newslist clearfix" id = "resText">
-                    <li class = "showonmobile">
-                        <figure>
-                            <br><br>
-                            <span class = "time"><i class = "thunews-clock-o"></i>2019.12.11</span>
-                            <figcaption><h3><a href = "#" class = "jiequ">俄罗斯著名导演阿列克谢·杰尼索夫携新作走进清华</a></h3></figcaption>
-                        </figure>
-                    </li>
-
-                    <li class = "showonmobile">
-                        <figure>
-                            <span class = "time"><i class = "thunews-clock-o"></i>2019.12.11</span>
-                            <figcaption><h3><a href = "#" class = "jiequ">【组图】2019清华大学冬季迷你马拉松赛圆满收官</a></h3></figcaption>
-                        </figure>
-                    </li>
-                    <li class = "showonmobile">
-                        <figure>
-                            <span class = "time"><i class = "thunews-clock-o"></i>2019.12.10</span>
-                            <figcaption><h3><a href = "#" class = "jiequ">2019年清华大学高校思想政治工作创新发展中心论坛举行</a></h3>
-                            </figcaption>
-                        </figure>
-                    </li>
-                    <li class = "showonmobile">
-                        <figure>
-                            <span class = "time"><i class = "thunews-clock-o"></i>2019.12.10</span>
-                            <figcaption><h3>
-                                <a href = "/publish/thunews/10303/2019/20191210162259645480319/20191210162259645480319_.html" class = "jiequ">【学风建设年】李路明
-                                    杜建镔 张宇飞：传承优秀教学文化</a></h3></figcaption>
-                        </figure>
-                    </li>
-                    <li class = "showonmobile">
-                        <figure>
-                            <span class = "time"><i class = "thunews-clock-o"></i>2019.12.10</span>
-                            <figcaption><h3><a href = "#" class = "jiequ">各院系研究生深入开展特色主题活动 传承发扬“一二·九”精神</a></h3>
-                            </figcaption>
-                        </figure>
-                    </li>
+                                        {% for hot_spot in hot_spots %}
+                        <li class = "showonmobile">
+                            <figure>
+                                <br><br>
+                                <span class = "time"><i class = "thunews-clock-o"></i>{{ hot_spot.create_time }}</span>
+                                <figcaption><h3><a href = "#" class = "jiequ">{{ hot_spot.title }}</a></h3>
+                                </figcaption>
+                            </figure>
+                        </li>
+                    {% endfor %}
+{#                    <li class = "showonmobile">#}
+                    {#                        <figure>#}
+                    {#                            <br><br>#}
+                    {#                            <span class = "time"><i class = "thunews-clock-o"></i>2019.12.11</span>#}
+                    {#                            <figcaption><h3><a href = "#" class = "jiequ">俄罗斯著名导演阿列克谢·杰尼索夫携新作走进清华</a></h3></figcaption>#}
+                    {#                        </figure>#}
+                    {#                    </li>#}
+                    {##}
+                    {#                    <li class = "showonmobile">#}
+                    {#                        <figure>#}
+                    {#                            <span class = "time"><i class = "thunews-clock-o"></i>2019.12.11</span>#}
+                    {#                            <figcaption><h3><a href = "#" class = "jiequ">【组图】2019清华大学冬季迷你马拉松赛圆满收官</a></h3></figcaption>#}
+                    {#                        </figure>#}
+                    {#                    </li>#}
+                    {#                    <li class = "showonmobile">#}
+                    {#                        <figure>#}
+                    {#                            <span class = "time"><i class = "thunews-clock-o"></i>2019.12.10</span>#}
+                    {#                            <figcaption><h3><a href = "#" class = "jiequ">2019年清华大学高校思想政治工作创新发展中心论坛举行</a></h3>#}
+                    {#                            </figcaption>#}
+                    {#                        </figure>#}
+                    {#                    </li>#}
+                    {#                    <li class = "showonmobile">#}
+                    {#                        <figure>#}
+                    {#                            <span class = "time"><i class = "thunews-clock-o"></i>2019.12.10</span>#}
+                    {#                            <figcaption><h3>#}
+                    {#                                <a href = "/publish/thunews/10303/2019/20191210162259645480319/20191210162259645480319_.html" class = "jiequ">【学风建设年】李路明#}
+                    {#                                    杜建镔 张宇飞：传承优秀教学文化</a></h3></figcaption>#}
+                    {#                        </figure>#}
+                    {#                    </li>#}
+                    {#                    <li class = "showonmobile">#}
+                    {#                        <figure>#}
+                    {#                            <span class = "time"><i class = "thunews-clock-o"></i>2019.12.10</span>#}
+                    {#                            <figcaption><h3><a href = "#" class = "jiequ">各院系研究生深入开展特色主题活动 传承发扬“一二·九”精神</a></h3>#}
+                    {#                            </figcaption>#}
+                    {#                        </figure>#}
+                    {#                    </li>#}
 
                 </ul>
             </section>
@@ -324,6 +302,6 @@
     </div>
 </footer>
 
-    <script src = "{% static 'js/base.js' %}"></script>
+<script src = "{% static 'js/base.js' %}"></script>
 </body>
 </html>

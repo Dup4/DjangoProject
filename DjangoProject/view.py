@@ -29,23 +29,27 @@ def dengLu(request):
 
 
 def picture(request):
-    return render(request, 'picture.html')
+    articles = Article.objects.filter(status=1, classify=4)
+    hot_spots = Article.objects.filter(status=1).order_by('-id')[:5]
+    data = {'articles': articles, 'hot_spots': hot_spots}
+    return render(request, 'picture.html', data)
 
 
 def renWu(request):
-    articles = Article.objects.filter(status=1)
-    data = {'articles': articles}
+    articles = Article.objects.filter(status=1, classify=3)
+    hot_spots = Article.objects.filter(status=1).order_by('-id')[:5]
+    data = {'articles': articles, 'hot_spots': hot_spots}
     return render(request, 'renWu.html', data)
 
 
 def xiaoYuan(request):
-    articles = Article.objects.filter(status=1)
+    articles = Article.objects.filter(status=1, classify=2)
     data = {'articles': articles}
     return render(request, 'xiaoYuan.html', data)
 
 
 def xinWen(request):
-    articles = Article.objects.filter(status=1)
+    articles = Article.objects.filter(status=1, classify=1)
     data = {'articles': articles}
     return render(request, 'xinWen.html', data)
 

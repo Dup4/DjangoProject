@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /* Scss Document */
 @import url(base.css);
-@import url(../font/stylesheet.css);
+@import url(stylesheet.css);
 @import url(../font/font.css);
 .header {
   position: relative; }
@@ -150,7 +150,7 @@
       			width: 246px;
       			left: 70px;
       			top:50px;
-      			
+
       			@include screen1400 {
       				width: 200px;
       				left: 25px;
@@ -159,7 +159,7 @@
       			@include screen1280 {
       				width: 150px;
         			}
-      			
+
       			@include screen1000 {
       				width: 100px;
       				top: -48px;
@@ -167,17 +167,17 @@
       				height: 48px;
       				text-align: center;
         			}
-      
+
       			.logo
       			{
       				background: #fff;
       				display: block;
       				padding: 30px 32px 30px 25px;
-      				
+
       				@include screen1280 {
       				padding: 20px 27px 20px 20px;
         				}
-      				
+
       				@include screen1000 {
       					line-height: 48px;
       					padding: 0 12px 0 10px;
@@ -185,9 +185,9 @@
       					{
       						vertical-align: middle;
       					}
-      					
+
         				}
-      
+
       			}
       			img
       			{
