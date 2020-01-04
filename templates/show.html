@@ -66,7 +66,9 @@
         <section class = "colunm1">
             <div class = "usharewraper">
                 <ul class = "ushare">
-                    <li><b><i class = "glyphicon glyphicon-eye-open"></i></b><span id = "item_total"></span></li>
+                    <li>
+                        <b><i class = "glyphicon glyphicon-eye-open"></i></b><span id = "item_total">{{ article.page_view }}</span>
+                    </li>
 
                     <li class = "share bdsharebuttonbox">
                         <b><i class = "glyphicon glyphicon-share-alt"></i></b><a data-cmd = "more" href = "#" onclick = "return false">分享</a>
@@ -80,8 +82,28 @@
 
                     });
                 </script>
-                <nav id = "findjctj"><a>&nbsp;<A href = '/publish/thunews/index.html' class = 'navigation_style'>首页</a>&nbsp;&nbsp
-                    - </a><a><A href = '/publish/thunews/10303/index.html' class = 'navigation_style'>综合新闻</a>&nbsp;&nbsp
+                <nav id = "findjctj"><a>&nbsp;<A href = '/home' class = 'navigation_style'>首页</a>&nbsp;&nbsp
+                    {% ifequal article.classify 1 %}
+                        - </a>
+                        <a><A href = '/xinWen' class = 'navigation_style'>师大新闻</a>&nbsp;&nbsp
+                            {% else %}
+                            {% ifequal article.classify 2 %}
+                                - </a>
+                                <a><A href = '/xiaoYuan' class = 'navigation_style'>学科建设</a>&nbsp;&nbsp
+                                    {% else %}
+                                    {% ifequal article.classify 3 %}
+                                        - </a>
+                                        <a><A href = '/renWu' class = 'navigation_style'>杭师人物</a>&nbsp;&nbsp
+                                            {% else %}
+                                            {% ifequal article.classify 4 %}
+                                                - </a><a>
+                                                <A href = '/picture' class = 'navigation_style'>图说杭师</a>
+                                                &nbsp;&nbsp
+                                            {% endifequal %}
+                                    {% endifequal %}
+                            {% endifequal %}
+
+                    {% endifequal %}
                     - </a><a>内容</a></nav>
             </div>
             <article class = "article">

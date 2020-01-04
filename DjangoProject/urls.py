@@ -4,6 +4,7 @@ from django.views import static
 from django.conf import settings
 from django.conf.urls import url
 from . import view
+from . import home
 from django.contrib import admin
 from django.views.static import serve
 
@@ -12,7 +13,7 @@ urlpatterns = [
     path('login/', view.login),
     path('index/', view.index),
     path('welcome/', view.welcome),
-    path('home/', view.home),
+    path('home/', home.home),
     path('dengLu/', view.dengLu),
     path('picture/', view.picture),
     path('renWu/', view.renWu),

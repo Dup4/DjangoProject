@@ -3,6 +3,8 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.views.decorators.clickjacking import xframe_options_sameorigin
 from article.models import Article
+import echarts
+from django.utils import timezone
 
 
 def login(request):
@@ -20,8 +22,6 @@ def welcome(request):
     return render(request, 'background/welcome.html')
 
 
-def home(request):
-    return render(request, 'home.html')
 
 
 def dengLu(request):
@@ -87,6 +87,8 @@ def xinWen(request):
 
 def show(request, id):
     article = Article.objects.filter(id=id).first()
+    article.page_view += 1
+    article.save()
     hot_spots = Article.objects.filter(status=1).order_by('-id')[:5]
     data = {'article': article, 'hot_spots': hot_spots}
     return render(request, 'show.html', data)

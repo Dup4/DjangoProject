@@ -16,6 +16,8 @@ class Article(models.Model):
     classify = models.IntegerField()
     # 封面url
     img_url = models.CharField(max_length=255, blank=True)
+    # 浏览数量
+    page_view = models.IntegerField(default=0)
     # 是否推荐
     is_recommend = models.BooleanField(default=0)
     # 是否置顶
