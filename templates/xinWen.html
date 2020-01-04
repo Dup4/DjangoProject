@@ -98,7 +98,7 @@
                                 {#                                {% autoescape off %}#}
                                 {#                                    {{ article.content }}#}
                                 {#                                {% endautoescape %}#}
-                                {{ article|striptags|slice:"10" }}
+                                {{ article.content|striptags|slice:"10" }}
                             </p>
                         </div>
                     </li>
