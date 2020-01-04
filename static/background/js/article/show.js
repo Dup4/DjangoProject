@@ -23,7 +23,6 @@ layui.use(['form', 'layer', 'layedit', 'jquery', 'layer'], function () {
 
     function frameVal() {
         let dataId = $('input[name="dataId"]').val();
-        console.log(dataId);
         // let index = parent.layer.getFrameIndex(window.name);
         $.ajax({
             type: "GET",

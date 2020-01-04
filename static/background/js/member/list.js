@@ -99,10 +99,8 @@ layui.use(['table', 'jquery', 'form', 'admin'], function () {
         let data = table.checkStatus('table').data;
         let id_arr = Array();
         for (let index = 0; index < data.length; ++index) {
-            console.log(parseInt(data[index].id));
             id_arr.push(data[index].id)
         }
-        console.log(id_arr);
         layer.confirm('确认要删除吗？' + id_arr, function (index) {
             //捉到所有被选中的，发异步进行删除
             let token = $('input[name=csrfmiddlewaretoken]').val();

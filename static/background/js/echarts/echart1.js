@@ -25,7 +25,6 @@ layui.use(['form', 'jquery', 'admin', 'layer'], function () {
             success: function (data) {
                 if (data.code === 0) {
                     data = data.data;
-                    console.log(data[0]);
                     let date = Array();
                     let number = Array();
                     for (let index = 0; index < data.length; ++index) {

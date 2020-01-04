@@ -14,6 +14,8 @@ class Article(models.Model):
     college = models.CharField(max_length=255)
     # 分类 int
     classify = models.IntegerField()
+    # 封面url
+    img_url = models.CharField(max_length=255, blank=True)
     # 是否推荐
     is_recommend = models.BooleanField(default=0)
     # 是否置顶

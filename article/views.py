@@ -203,7 +203,7 @@ def get_one_article(request):
     try:
         query = Article.objects.get(status=1, id=request.GET.get('id'))
         article = {'id': query.id, 'title': query.title, 'query': query.classify, 'classify': query.classify,
-                   'content': query.content}
+                   'content': query.content, 'img_url': query.img_url}
         data['code'] = 0
         data['message'] = "获取成功"
         data['data'] = article
@@ -240,7 +240,6 @@ Raises:
 def update_article(request):
     data = {}
     try:
-        print(request.POST.get('id'))
         article = Article.objects.get(status=1, id=request.POST.get('id'))
 
         article.title = request.POST.get('title')
@@ -291,19 +290,16 @@ def upload_image(request):
 
         file = request.FILES.get('file')
         file.name = util.generate_file_name() + '.' + file.name.split('.')[-1]
-        print(file.name)
-        print(file)
         import os
         from django.conf import settings
         filepath = os.path.join('static/upload', file.name)
-        print(filepath)
         f = open(filepath, 'wb')
         for i in file.chunks():
             f.write(i)
         f.close()
         data['code'] = 0
         data['message'] = 'success'
-        content = {'src': '/' + filepath, 'title': file.name}
+        content = {'src': '/' + 'static/upload/' + file.name, 'title': file.name}
         data['data'] = content
     except Exception as e:
         print(e.args)
@@ -343,6 +339,8 @@ def add_article(request):
         article.content = request.POST.get('content')
         article.classify = request.POST.get('classify')
         article.cover = request.POST.get('article')
+        article.img_url = request.POST.get('img_url')
+        print(request.POST.get('img_url'));
         article.save()
 
         data['code'] = 0
@@ -421,7 +419,6 @@ def delete_all_article(request):
     try:
         id_arr = request.POST.getlist('id')
         for article_id in id_arr:
-            print(article_id)
             article = Article.objects.get(id=article_id)
             article.status = 0
             article.save()
@@ -511,11 +508,8 @@ def recommend_all_article(request):
     try:
         id_arr = request.POST.getlist('id')
         for article_id in id_arr:
-            print(article_id)
             article = Article.objects.get(status=1, id=article_id)
-            print(article_id)
             article.is_recommend = 1
-            print(article.is_recommend)
             article.save()
         data['code'] = 0
         data['message'] = '删除成功'
@@ -533,7 +527,6 @@ def top_all_article(request):
     try:
         id_arr = request.POST.getlist('id')
         for article_id in id_arr:
-            print(article_id)
             article = Article.objects.get(status=1, id=article_id)
             article.is_top = 1
             article.save()

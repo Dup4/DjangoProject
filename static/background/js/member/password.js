@@ -51,7 +51,6 @@ layui.use(['form', 'jquery', 'admin', 'layer'], function () {
 
     //监听提交
     form.on('submit(save)', function (data) {
-        console.log(data);
         //发异步，把数据提交给php
         let id = $('input[name="dataId"]').val();
         let old_password = $('input[name="oldpass"]').val();

@@ -113,7 +113,6 @@ def user_login(request):
 
         user_name = request.POST.get('username')
         password = request.POST.get('password')
-        print(user_name, password)
 
         # 查询用户是否存在
         user = User.objects.get(username=user_name)
@@ -125,7 +124,6 @@ def user_login(request):
             if check_password(password, user.password):
                 request.session['admin_username'] = user_name
                 request.session['admin_id'] = user.id
-                print("ok")
                 data['code'] = 0
                 data['message'] = "登录成功"
             else:

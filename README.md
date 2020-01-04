@@ -1,10 +1,8 @@
 # DjangoProject
 
 ```shell script
-G26组
-
-pip freeze > plist.txt # 导出本地pip包
-pip install -r plist.txt # 导入pip包
+pip freeze > plist.txt    # 导出本地pip包
+pip install -r plist.txt  # 导入pip包
 
 # 运行Django
 python manage.py runserver 0.0.0.0:80
@@ -12,6 +10,7 @@ python manage.py runserver 0.0.0.0:80
 python manage.py makemigrations
 python manage.py migrate
 # 重新生成表
+Example:
 python manage.py sqlmigrate administrator 0001
 
 ```

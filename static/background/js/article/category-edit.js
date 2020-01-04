@@ -18,7 +18,6 @@ layui.use(['admin', 'jquery', 'element', 'upload', 'form', 'layer', 'layedit'], 
 		size: 500 //限制文件大小，单位 KB
 			,
 		done: function(res) {
-			console.log(res)
 		}
 	});
 	//选择文件，栏目模板
@@ -48,7 +47,6 @@ layui.use(['admin', 'jquery', 'element', 'upload', 'form', 'layer', 'layedit'], 
 
 	//监听提交
 	form.on('submit(add)', function(data) {
-		console.log(data.field);
 		//发异步，把数据提交给php
 		layer.alert("增加成功", {
 			icon: 6

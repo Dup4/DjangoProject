@@ -10,6 +10,27 @@
           content = "width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <link rel = "stylesheet" href = "{% static 'background/css/font.css' %}">
     <link rel = "stylesheet" href = "{% static 'background/css/weadmin.css' %}">
+    <style>
+
+        .thumb {
+            margin-left: 5px;
+            margin-top: 15px;
+            height: 128px
+        }
+
+        #img_prev {
+            max-width: 98%;
+            max-height: 98%;
+            margin: 10px auto
+        }
+
+        #prevModal {
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            display: none;
+        }
+    </style>
 </head>
 
 <body>
@@ -36,7 +57,23 @@
             </div>
         </div>
 
+        <div class = "layui-form-item">
+            <div class = "layui-inline">
+                <label class = "layui-form-label">封面图片</label>
+                <div class = 'layui-container' style = 'margin-top:15px'>
+                    <button type = "button" class = "layui-btn" id = "test1">
+                        <i class = "layui-icon"></i>选择图片
+                    </button>
+                    <div class = 'layui-input-block' id = 'div_prev' title = ''>
+                        <img src = "" class = "thumb">
+                    </div>
+                </div>
 
+                <div id = 'prevModal'>
+                    <img id = 'img_prev' />
+                </div>
+            </div>
+        </div>
         <div class = "layui-form-item">
             <label for = "username" class = "layui-form-label">
                 <span class = "we-red">*</span>正文

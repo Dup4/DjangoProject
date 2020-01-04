@@ -40,7 +40,6 @@ layui.define(['jquery', 'form', 'layer', 'element'], function(exports) {
 				var obj = $(".layui-form-checked").not('.header');
 				var arr = [];
 				obj.each(function(index, el) {
-					console.log(obj)
 					arr.push(obj.eq(index).attr('data-id'));
 				});
 				return arr;
@@ -317,7 +316,6 @@ layui.define(['jquery', 'form', 'layer', 'element'], function(exports) {
 	}
 	/*弹出层+传递ID参数*/
 	window.WeAdminEdit = function(title, url, id, w, h) {
-		console.log(id)
 		if(title == null || title == '') {
 			title = false;
 		};
@@ -342,9 +340,7 @@ layui.define(['jquery', 'form', 'layer', 'element'], function(exports) {
 			success: function(layero, index) {
 				//向iframe页的id=house的元素传值  // 参考 https://yq.aliyun.com/ziliao/133150
 				var body = layer.getChildFrame('body', index);
-				console.log(body.contents)
 				body.contents().find("#dataId").val(id);
-				console.log(id);
 			},
 			error: function(layero, index) {
 				alert("aaa");
@@ -468,8 +464,7 @@ layui.define(['jquery', 'form', 'layer', 'element'], function(exports) {
 			$(which).attr('data-bit',i);  	
 			var frame = $('.weIframe[tab-id='+layId+']');
 			frame.attr('src', frame.attr('src'));
-			console.log("reload:"+$(which).attr('data-bit'));
-		} 
+		}
     }
 	/**
 	 *@todo Frame内部的按钮点击打开其他frame的tab

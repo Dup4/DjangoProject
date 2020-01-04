@@ -73,7 +73,7 @@ layui.use(['table', 'jquery', 'form', 'admin'], function () {
 
     $('.demoTable .layui-btn').on('click', function () {
         let type = $(this).data('type');
-        active[type] ? active[type].call(this) : '';
+        // active[type] ? active[type].call(this) : '';
     });
 
     /*用户-删除*/
