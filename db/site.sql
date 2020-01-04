@@ -11,7 +11,7 @@
  Target Server Version : 50709
  File Encoding         : 65001
 
- Date: 04/01/2020 21:13:47
+ Date: 04/01/2020 21:07:39
 */
 
 SET NAMES utf8mb4;
@@ -33,10 +33,6 @@ CREATE TABLE `administrator_role`  (
   `status` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
-
--- ----------------------------
--- Records of administrator_role
--- ----------------------------
 INSERT INTO `administrator_role` VALUES (1, '超级管理员', 0, 1, 1, '超级管理员', '2019-12-24', '2019-12-24', 1);
 INSERT INTO `administrator_role` VALUES (2, '用户管理员', 0, 1, 0, '用户管理员', '2019-12-24', '2019-12-24', 1);
 INSERT INTO `administrator_role` VALUES (3, '文章管理员', 0, 0, 1, '文章管理员', '2019-12-24', '2019-12-24', 1);
@@ -59,10 +55,6 @@ CREATE TABLE `administrator_user`  (
   `status` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 82 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
-
--- ----------------------------
--- Records of administrator_user
--- ----------------------------
 INSERT INTO `administrator_user` VALUES (1, 'admin', 'pbkdf2_sha256$180000$0tkElfc6LfUK$cEEW+lm+0Ntedfq0COSZfsYMePrm8r1h7eHiR1oxnlM=', '张红霞', '13338861874', 'gang69@62.cn', 1, 1, '2019-12-24', '2019-12-24', 1);
 INSERT INTO `administrator_user` VALUES (2, 'liping', 'pbkdf2_sha256$180000$8A5vjCRYyG2T$TIM0C4wZ+hWrU6LYE3x4ELnUJUAJwDgXzMkvf+RLYKI=', '钟宇', '13956365979', 'wei04@guoqian.cn', 2, 1, '2019-12-24', '2019-12-24', 1);
 INSERT INTO `administrator_user` VALUES (3, 'yong60', 'pbkdf2_sha256$180000$kGwZxa4GRycU$MrE/BOSegu/cQ61zv61f/dLYcBrlLrrVyUjj5jeVzo8=', '粟畅', '14720430842', 'uyan@gmail.com', 2, 1, '2019-12-24', '2019-12-24', 1);
@@ -100,15 +92,15 @@ CREATE TABLE `article_article`  (
   `content` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `college` int(11) NOT NULL,
   `classify` int(11) NOT NULL,
-  `img_url` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `page_view` int(11) NOT NULL,
   `is_recommend` tinyint(1) NOT NULL,
   `is_top` tinyint(1) NOT NULL,
   `create_time` date NOT NULL,
   `update_time` date NOT NULL,
   `status` tinyint(1) NOT NULL,
+  `img_url` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `page_view` int(11) NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 36 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for article_classify
@@ -124,14 +116,10 @@ CREATE TABLE `article_classify`  (
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
--- ----------------------------
--- Records of article_classify
--- ----------------------------
 INSERT INTO `article_classify` VALUES (1, '师大新闻', '师大新闻', '2019-12-24', '2019-12-24', 1);
 INSERT INTO `article_classify` VALUES (2, '学科建设', '学科建设', '2019-12-24', '2019-12-24', 1);
 INSERT INTO `article_classify` VALUES (3, '杭师人物', '杭师人物', '2019-12-24', '2019-12-24', 1);
 INSERT INTO `article_classify` VALUES (4, '图说杭师', '图说杭师', '2019-12-24', '2019-12-24', 1);
-
 -- ----------------------------
 -- Table structure for auth_group
 -- ----------------------------
@@ -171,58 +159,6 @@ CREATE TABLE `auth_permission`  (
   UNIQUE INDEX `auth_permission_content_type_id_codename_01ab375a_uniq`(`content_type_id`, `codename`) USING BTREE,
   CONSTRAINT `auth_permission_content_type_id_2f476e4b_fk_django_co` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
 ) ENGINE = InnoDB AUTO_INCREMENT = 49 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
-
--- ----------------------------
--- Records of auth_permission
--- ----------------------------
-INSERT INTO `auth_permission` VALUES (1, 'Can add log entry', 1, 'add_logentry');
-INSERT INTO `auth_permission` VALUES (2, 'Can change log entry', 1, 'change_logentry');
-INSERT INTO `auth_permission` VALUES (3, 'Can delete log entry', 1, 'delete_logentry');
-INSERT INTO `auth_permission` VALUES (4, 'Can view log entry', 1, 'view_logentry');
-INSERT INTO `auth_permission` VALUES (5, 'Can add permission', 2, 'add_permission');
-INSERT INTO `auth_permission` VALUES (6, 'Can change permission', 2, 'change_permission');
-INSERT INTO `auth_permission` VALUES (7, 'Can delete permission', 2, 'delete_permission');
-INSERT INTO `auth_permission` VALUES (8, 'Can view permission', 2, 'view_permission');
-INSERT INTO `auth_permission` VALUES (9, 'Can add group', 3, 'add_group');
-INSERT INTO `auth_permission` VALUES (10, 'Can change group', 3, 'change_group');
-INSERT INTO `auth_permission` VALUES (11, 'Can delete group', 3, 'delete_group');
-INSERT INTO `auth_permission` VALUES (12, 'Can view group', 3, 'view_group');
-INSERT INTO `auth_permission` VALUES (13, 'Can add user', 4, 'add_user');
-INSERT INTO `auth_permission` VALUES (14, 'Can change user', 4, 'change_user');
-INSERT INTO `auth_permission` VALUES (15, 'Can delete user', 4, 'delete_user');
-INSERT INTO `auth_permission` VALUES (16, 'Can view user', 4, 'view_user');
-INSERT INTO `auth_permission` VALUES (17, 'Can add content type', 5, 'add_contenttype');
-INSERT INTO `auth_permission` VALUES (18, 'Can change content type', 5, 'change_contenttype');
-INSERT INTO `auth_permission` VALUES (19, 'Can delete content type', 5, 'delete_contenttype');
-INSERT INTO `auth_permission` VALUES (20, 'Can view content type', 5, 'view_contenttype');
-INSERT INTO `auth_permission` VALUES (21, 'Can add session', 6, 'add_session');
-INSERT INTO `auth_permission` VALUES (22, 'Can change session', 6, 'change_session');
-INSERT INTO `auth_permission` VALUES (23, 'Can delete session', 6, 'delete_session');
-INSERT INTO `auth_permission` VALUES (24, 'Can view session', 6, 'view_session');
-INSERT INTO `auth_permission` VALUES (25, 'Can add user', 7, 'add_user');
-INSERT INTO `auth_permission` VALUES (26, 'Can change user', 7, 'change_user');
-INSERT INTO `auth_permission` VALUES (27, 'Can delete user', 7, 'delete_user');
-INSERT INTO `auth_permission` VALUES (28, 'Can view user', 7, 'view_user');
-INSERT INTO `auth_permission` VALUES (29, 'Can add role', 8, 'add_role');
-INSERT INTO `auth_permission` VALUES (30, 'Can change role', 8, 'change_role');
-INSERT INTO `auth_permission` VALUES (31, 'Can delete role', 8, 'delete_role');
-INSERT INTO `auth_permission` VALUES (32, 'Can view role', 8, 'view_role');
-INSERT INTO `auth_permission` VALUES (33, 'Can add user', 9, 'add_user');
-INSERT INTO `auth_permission` VALUES (34, 'Can change user', 9, 'change_user');
-INSERT INTO `auth_permission` VALUES (35, 'Can delete user', 9, 'delete_user');
-INSERT INTO `auth_permission` VALUES (36, 'Can view user', 9, 'view_user');
-INSERT INTO `auth_permission` VALUES (37, 'Can add article', 10, 'add_article');
-INSERT INTO `auth_permission` VALUES (38, 'Can change article', 10, 'change_article');
-INSERT INTO `auth_permission` VALUES (39, 'Can delete article', 10, 'delete_article');
-INSERT INTO `auth_permission` VALUES (40, 'Can view article', 10, 'view_article');
-INSERT INTO `auth_permission` VALUES (41, 'Can add classify', 11, 'add_classify');
-INSERT INTO `auth_permission` VALUES (42, 'Can change classify', 11, 'change_classify');
-INSERT INTO `auth_permission` VALUES (43, 'Can delete classify', 11, 'delete_classify');
-INSERT INTO `auth_permission` VALUES (44, 'Can view classify', 11, 'view_classify');
-INSERT INTO `auth_permission` VALUES (45, 'Can add visitors', 12, 'add_visitors');
-INSERT INTO `auth_permission` VALUES (46, 'Can change visitors', 12, 'change_visitors');
-INSERT INTO `auth_permission` VALUES (47, 'Can delete visitors', 12, 'delete_visitors');
-INSERT INTO `auth_permission` VALUES (48, 'Can view visitors', 12, 'view_visitors');
 
 -- ----------------------------
 -- Table structure for auth_user
@@ -307,22 +243,6 @@ CREATE TABLE `django_content_type`  (
 ) ENGINE = InnoDB AUTO_INCREMENT = 13 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
--- Records of django_content_type
--- ----------------------------
-INSERT INTO `django_content_type` VALUES (1, 'admin', 'logentry');
-INSERT INTO `django_content_type` VALUES (8, 'administrator', 'role');
-INSERT INTO `django_content_type` VALUES (9, 'administrator', 'user');
-INSERT INTO `django_content_type` VALUES (10, 'article', 'article');
-INSERT INTO `django_content_type` VALUES (11, 'article', 'classify');
-INSERT INTO `django_content_type` VALUES (3, 'auth', 'group');
-INSERT INTO `django_content_type` VALUES (2, 'auth', 'permission');
-INSERT INTO `django_content_type` VALUES (4, 'auth', 'user');
-INSERT INTO `django_content_type` VALUES (5, 'contenttypes', 'contenttype');
-INSERT INTO `django_content_type` VALUES (12, 'echarts', 'visitors');
-INSERT INTO `django_content_type` VALUES (7, 'member', 'user');
-INSERT INTO `django_content_type` VALUES (6, 'sessions', 'session');
-
--- ----------------------------
 -- Table structure for django_migrations
 -- ----------------------------
 DROP TABLE IF EXISTS `django_migrations`;
@@ -332,32 +252,7 @@ CREATE TABLE `django_migrations`  (
   `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `applied` datetime(6) NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 22 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
-
--- ----------------------------
--- Records of django_migrations
--- ----------------------------
-INSERT INTO `django_migrations` VALUES (1, 'contenttypes', '0001_initial', '2020-01-04 13:12:28.120136');
-INSERT INTO `django_migrations` VALUES (2, 'auth', '0001_initial', '2020-01-04 13:12:28.408398');
-INSERT INTO `django_migrations` VALUES (3, 'admin', '0001_initial', '2020-01-04 13:12:29.127470');
-INSERT INTO `django_migrations` VALUES (4, 'admin', '0002_logentry_remove_auto_add', '2020-01-04 13:12:29.282056');
-INSERT INTO `django_migrations` VALUES (5, 'admin', '0003_logentry_add_action_flag_choices', '2020-01-04 13:12:29.292035');
-INSERT INTO `django_migrations` VALUES (6, 'administrator', '0001_initial', '2020-01-04 13:12:29.402733');
-INSERT INTO `django_migrations` VALUES (7, 'article', '0001_initial', '2020-01-04 13:12:29.499479');
-INSERT INTO `django_migrations` VALUES (8, 'contenttypes', '0002_remove_content_type_name', '2020-01-04 13:12:29.635114');
-INSERT INTO `django_migrations` VALUES (9, 'auth', '0002_alter_permission_name_max_length', '2020-01-04 13:12:29.718860');
-INSERT INTO `django_migrations` VALUES (10, 'auth', '0003_alter_user_email_max_length', '2020-01-04 13:12:29.798647');
-INSERT INTO `django_migrations` VALUES (11, 'auth', '0004_alter_user_username_opts', '2020-01-04 13:12:29.809617');
-INSERT INTO `django_migrations` VALUES (12, 'auth', '0005_alter_user_last_login_null', '2020-01-04 13:12:29.908353');
-INSERT INTO `django_migrations` VALUES (13, 'auth', '0006_require_contenttypes_0002', '2020-01-04 13:12:29.913339');
-INSERT INTO `django_migrations` VALUES (14, 'auth', '0007_alter_validators_add_error_messages', '2020-01-04 13:12:29.923345');
-INSERT INTO `django_migrations` VALUES (15, 'auth', '0008_alter_user_username_max_length', '2020-01-04 13:12:30.020088');
-INSERT INTO `django_migrations` VALUES (16, 'auth', '0009_alter_user_last_name_max_length', '2020-01-04 13:12:30.098876');
-INSERT INTO `django_migrations` VALUES (17, 'auth', '0010_alter_group_name_max_length', '2020-01-04 13:12:30.180624');
-INSERT INTO `django_migrations` VALUES (18, 'auth', '0011_update_proxy_permissions', '2020-01-04 13:12:30.193617');
-INSERT INTO `django_migrations` VALUES (19, 'echarts', '0001_initial', '2020-01-04 13:12:30.258417');
-INSERT INTO `django_migrations` VALUES (20, 'member', '0001_initial', '2020-01-04 13:12:30.330232');
-INSERT INTO `django_migrations` VALUES (21, 'sessions', '0001_initial', '2020-01-04 13:12:30.390064');
+) ENGINE = InnoDB AUTO_INCREMENT = 25 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for django_session
@@ -384,9 +279,6 @@ CREATE TABLE `echarts_visitors`  (
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
--- ----------------------------
--- Records of echarts_visitors
--- ----------------------------
 INSERT INTO `echarts_visitors` VALUES (1, 354, '2019-12-17', '2019-12-17', 1);
 INSERT INTO `echarts_visitors` VALUES (2, 153, '2019-12-18', '2019-12-18', 1);
 INSERT INTO `echarts_visitors` VALUES (3, 23, '2019-12-19', '2019-12-19', 1);
