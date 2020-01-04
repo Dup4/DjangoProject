@@ -44,7 +44,7 @@
                 <section class = "mainWrap">
                     <div id = "smenu" class = "smenu"><i class = "thunews-bars"></i></div>
                     <ul id = "nav">
-                       <li><a href = "/home" class = "item0">首页</a></li>
+                        <li><a href = "/home" class = "item0">首页</a></li>
                         <li><a href = "/xinWen" class = "item0">师大新闻</a></li>
                         <li><a href = "/xiaoYuan" class = "item0">学科建设</a></li>
                         <li><a href = "/renWu" class = "item0">杭师人物</a></li>
@@ -85,20 +85,22 @@
             </nav>
             <ul class = "timenewslist">
                 {% for article in articles %}
-                    <li class = "clearfix">
-                        <div class = "mtime">
-                            <span><font class = "dd" id = "dd-1">{{ article.create_time|date:"d" }}</font></span>
-                            <font class = "ym" id = "ym-1">{{ article.create_time|date:"Y-m" }}</font>
-                        </div>
-                        <div class = "newscontent">
-                            <h3>
-                                <a href = "#" target = "_blank" class = "jiequ">{{ article.title }}</a>
-                            </h3>
-                            <p>
-                                {{ article.content | slice:"20" }}
-                            </p>
-                        </div>
-                    </li>
+                    {% autoescape off %}
+                        <li class = "clearfix">
+                            <div class = "mtime">
+                                <span><font class = "dd" id = "dd-1">{{ article.create_time|date:"d" }}</font></span>
+                                <font class = "ym" id = "ym-1">{{ article.create_time|date:"Y-m" }}</font>
+                            </div>
+                            <div class = "newscontent">
+                                <h3>
+                                    <a href = "/show/{{ article.id }}" target = "_blank" class = "jiequ">{{ article.title }}</a>
+                                </h3>
+                                <p>
+                                    {{ article.content | slice:"20" }}
+                                </p>
+                            </div>
+                        </li>
+                    {% endautoescape %}
                 {% endfor %}
             </ul>
             <p style = "display:none">
@@ -158,12 +160,13 @@
                     <span class = "iconwraper"><img src = "/static/images/shi.png" class = "new"><i class = "thunews-line-chart"></i></span>近期热点
                 </h2>
                 <ul class = "newslist clearfix" id = "resText">
-                                        {% for hot_spot in hot_spots %}
+                    {% for hot_spot in hot_spots %}
                         <li class = "showonmobile">
                             <figure>
                                 <br><br>
                                 <span class = "time"><i class = "thunews-clock-o"></i>{{ hot_spot.create_time }}</span>
-                                <figcaption><h3><a href = "#" class = "jiequ">{{ hot_spot.title }}</a></h3>
+                                <figcaption><h3>
+                                    <a href = "/show/{{ hot_spot.id }}" class = "jiequ">{{ hot_spot.title }}</a></h3>
                                 </figcaption>
                             </figure>
                         </li>

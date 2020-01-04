@@ -85,62 +85,55 @@
                     - </a><a>内容</a></nav>
             </div>
             <article class = "article">
-                <h1 style = "text-align: justify; -ms-text-justify: inter-ideograph;">清华大学召开&ldquo;不忘初心、牢记使命&rdquo;主题教育指导组工作交流会</h1>
-                <hr />
-                <p style = "text-align: justify; text-indent: 2em; -ms-text-justify: inter-ideograph;"><strong>清华新闻网12月22日电</strong>
-                    （记者 <strong>曲田</strong> 摄影 <strong>李派</strong>）12月19日，清华大学&ldquo;不忘初心、牢记使命&rdquo;主题教育指导组工作交流会在主楼327会议室举行。中央第一指导组组长、原中央党校副校长黄宪起，指导组成员顾晓峰、郑路，校党委书记陈旭等出席会议。校党委常务副书记姜胜耀主持会议。
-                </p>
-                <p style = "text-align: center; -ms-text-justify: inter-ideograph;">
-                    <span style = "font-family: 楷体,楷体_GB2312, SimKai;">会议现场</span></p>
-                <p style = "text-align: justify; text-indent: 2em; -ms-text-justify: inter-ideograph;">
-                    校党委常委、组织部部长、统战部部长许庆红以及指导组成员、联络员等30余人参加会议。</p>
-                <p style = "text-align: right; -ms-text-justify: inter-ideograph;">编辑：曲田 李晨晖</p>
-                <p style = "text-align: right; -ms-text-justify: inter-ideograph;">审核：吕婷</p>
-                <div class = "articletimewrapper">
+                {% autoescape off %}
+                    <h1 style = "text-align: justify; -ms-text-justify: inter-ideograph;">{{ article.title }}</h1>
+                    <hr />
+                    {{ article.content }}
+                    <div class = "articletimewrapper">
 
-                    <div class = "articletime"><i class = "thunews-clock-o"></i>2019年12月22日 19:51:52　　清华新闻网</div>
-                </div>
+                        <div class = "articletime"><i class = "thunews-clock-o"></i>{{ article.create_time }}</div>
+                    </div>
+                {% endautoescape %}
             </article>
-            <aside class = "relativelink">
-                <h2>相关新闻</h2>
-                <ul class = "timenewslist">
-                    <li class = "clearfix">
-                        <div class = "mtime"><span>28</span>2019.10</div>
-                        <div class = "newscontent">
-                            <h3>
-                                <a href = "/publish/thunews/12336/2019/20191024143750751408439/20191024143750751408439_.html" target = "_blank">【主题教育】电子系党委开展“不忘初心、牢...</a>
-                            </h3>
-                            <p>
-                                10月11日，电子系党委“不忘初心、牢记使命”主题教育专题三集中学习研讨会在罗姆楼举行。研讨会以“主动担当作为、矢志教育报国”为主题。校党委主题教育第十指导组组长庄茁、信息学院院长陆建华院士出席会议。电子系党政领导班子、党委委员、教职工党支部书记、各研究所所长、学生组组长和研工组组长共20余人参加会议。</p>
-                        </div>
-                    </li>
-                    <li class = "clearfix">
-                        <div class = "mtime"><span>25</span>2019.10</div>
-                        <div class = "newscontent">
-                            <h3>
-                                <a href = "/publish/thunews/10303/2019/20191025195012888802471/20191025195012888802471_.html" target = "_blank">【主题教育】清华大学举办主题教育第四次专...</a>
-                            </h3>
-                            <p>
-                                10月25日上午，清华大学“不忘初心、牢记使命”主题教育集中学习研讨“专题四：践行为民宗旨、潜心立德树人”辅导报告会在新清华学堂举办，教育研究院常务副院长石中英教授应邀作“习近平总书记关于教育的重要论述”专题辅导报告。校党委常务副书记姜胜耀、常务副校长王希勤等学校领导班子成员，全校副处以上党员干部、部分党外干部，各党支部书记、本科生辅导员和研究生德育助理等1400余人参加报告会。副校长彭刚主持报告会。</p>
-                        </div>
-                    </li>
-                    <li class = "clearfix">
-                        <div class = "mtime"><span>24</span>2019.10</div>
-                        <div class = "newscontent">
-                            <h3>
-                                <a href = "/publish/thunews/12336/2019/20191023161728241756782/20191023161728241756782_.html" target = "_blank">【主题教育】清华大学“不忘初心、牢记使命...</a>
-                            </h3>
-                            <p>
-                                10月22日下午，清华大学“不忘初心、牢记使命”主题教育指导组第三次会议在工字厅东厅会议室召开。校党委常务副书记、主题教育领导小组副组长、办公室主任姜胜耀出席会议并讲话，校党委常委、组织部长、统战部长、主题教育办公室副主任许庆红以及指导组成员、联络员等20余人出席会议。</p>
-                        </div>
-                    </li>
-
-                </ul>
-            </aside>
-
-        </section>
+            {#            <aside class = "relativelink">#}
+            {#                <h2>相关新闻</h2>#}
+            {#                <ul class = "timenewslist">#}
+            {#                    <li class = "clearfix">#}
+            {#                        <div class = "mtime"><span>28</span>2019.10</div>#}
+            {#                        <div class = "newscontent">#}
+            {#                            <h3>#}
+            {#                                <a href = "/publish/thunews/12336/2019/20191024143750751408439/20191024143750751408439_.html" target = "_blank">【主题教育】电子系党委开展“不忘初心、牢...</a>#}
+            {#                            </h3>#}
+            {#                            <p>#}
+            {#                                10月11日，电子系党委“不忘初心、牢记使命”主题教育专题三集中学习研讨会在罗姆楼举行。研讨会以“主动担当作为、矢志教育报国”为主题。校党委主题教育第十指导组组长庄茁、信息学院院长陆建华院士出席会议。电子系党政领导班子、党委委员、教职工党支部书记、各研究所所长、学生组组长和研工组组长共20余人参加会议。</p>#}
+            {#                        </div>#}
+            {#                    </li>#}
+            {#                    <li class = "clearfix">#}
+            {#                        <div class = "mtime"><span>25</span>2019.10</div>#}
+            {#                        <div class = "newscontent">#}
+            {#                            <h3>#}
+            {#                                <a href = "/publish/thunews/10303/2019/20191025195012888802471/20191025195012888802471_.html" target = "_blank">【主题教育】清华大学举办主题教育第四次专...</a>#}
+            {#                            </h3>#}
+            {#                            <p>#}
+            {#                                10月25日上午，清华大学“不忘初心、牢记使命”主题教育集中学习研讨“专题四：践行为民宗旨、潜心立德树人”辅导报告会在新清华学堂举办，教育研究院常务副院长石中英教授应邀作“习近平总书记关于教育的重要论述”专题辅导报告。校党委常务副书记姜胜耀、常务副校长王希勤等学校领导班子成员，全校副处以上党员干部、部分党外干部，各党支部书记、本科生辅导员和研究生德育助理等1400余人参加报告会。副校长彭刚主持报告会。</p>#}
+            {#                        </div>#}
+            {#                    </li>#}
+            {#                    <li class = "clearfix">#}
+            {#                        <div class = "mtime"><span>24</span>2019.10</div>#}
+            {#                        <div class = "newscontent">#}
+            {#                            <h3>#}
+            {#                                <a href = "/publish/thunews/12336/2019/20191023161728241756782/20191023161728241756782_.html" target = "_blank">【主题教育】清华大学“不忘初心、牢记使命...</a>#}
+            {#                            </h3>#}
+            {#                            <p>#}
+            {#                                10月22日下午，清华大学“不忘初心、牢记使命”主题教育指导组第三次会议在工字厅东厅会议室召开。校党委常务副书记、主题教育领导小组副组长、办公室主任姜胜耀出席会议并讲话，校党委常委、组织部长、统战部长、主题教育办公室副主任许庆红以及指导组成员、联络员等20余人出席会议。</p>#}
+            {#                        </div>#}
+            {#                    </li>#}
+            {##}
+            {#                </ul>#}
+            {#            </aside>#}
 
         </section>
+
         <section class = "colunm2">
 
             <section class = "mod">
@@ -185,43 +178,17 @@
                     <span class = "iconwraper"><img src = "/static/images/shi.png" class = "new"><i class = "thunews-line-chart"></i></span>近期热点
                 </h2>
                 <ul class = "newslist clearfix" id = "resText">
-                    <li class = "showonmobile">
-                        <figure>
-
-                            <span class = "time"><i class = "glyphicon glyphicon-thumbs-up"></i>2019.12.11</span>
-                            <figcaption><h3><a href = "#" class = "jiequ">俄罗斯著名导演阿列克谢·杰尼索夫携新作走进清华</a></h3></figcaption>
-                        </figure>
-                    </li>
-
-                    <li class = "showonmobile">
-                        <figure>
-                            <span class = "time"><i class = "glyphicon glyphicon-thumbs-up"></i>2019.12.11</span>
-                            <figcaption><h3><a href = "#" class = "jiequ">【组图】2019清华大学冬季迷你马拉松赛圆满收官</a></h3></figcaption>
-                        </figure>
-                    </li>
-                    <li class = "showonmobile">
-                        <figure>
-                            <span class = "time"><i class = "glyphicon glyphicon-thumbs-up"></i>2019.12.10</span>
-                            <figcaption><h3><a href = "#" class = "jiequ">2019年清华大学高校思想政治工作创新发展中心论坛举行</a></h3>
-                            </figcaption>
-                        </figure>
-                    </li>
-                    <li class = "showonmobile">
-                        <figure>
-                            <span class = "time"><i class = "glyphicon glyphicon-thumbs-up"></i>2019.12.10</span>
-                            <figcaption><h3>
-                                <a href = "/publish/thunews/10303/2019/20191210162259645480319/20191210162259645480319_.html" class = "jiequ">【学风建设年】李路明
-                                    杜建镔 张宇飞：传承优秀教学文化</a></h3></figcaption>
-                        </figure>
-                    </li>
-                    <li class = "showonmobile">
-                        <figure>
-                            <span class = "time"><i class = "glyphicon glyphicon-thumbs-up"></i>2019.12.10</span>
-                            <figcaption><h3><a href = "#" class = "jiequ">各院系研究生深入开展特色主题活动 传承发扬“一二·九”精神</a></h3>
-                            </figcaption>
-                        </figure>
-                    </li>
-
+                    {% for hot_spot in hot_spots %}
+                        <li class = "showonmobile">
+                            <figure>
+                                <br><br>
+                                <span class = "time"><i class = "thunews-clock-o"></i>{{ hot_spot.create_time }}</span>
+                                <figcaption><h3>
+                                    <a href = "/show/{{ hot_spot.id }}" class = "jiequ">{{ hot_spot.title }}</a></h3>
+                                </figcaption>
+                            </figure>
+                        </li>
+                    {% endfor %}
                 </ul>
             </section>
         </section>

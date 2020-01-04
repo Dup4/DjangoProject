@@ -43,11 +43,11 @@
                 <section class = "mainWrap">
                     <div id = "smenu" class = "smenu"><i class = "thunews-bars"></i></div>
                     <ul id = "nav">
-                        <li class = "item9654"><a href = "/xiaoYuan">全部</a></li>
-                        <li class = "item9665"><a href = "/xiaoYuanGF">国服学院</a></li>
-                        <li class = "item9666"><a href = "/xiaoYuanJY">教育学院</a></li>
-                        <li class = "item9667"><a href = "/xiaoYuanLX">理学院</a></li>
-                        <li class = "item9668"><a href = "">沈钧儒法学院</a></li>
+                        <li><a href = "/home" class = "item0">首页</a></li>
+                        <li><a href = "/xinWen" class = "item0">师大新闻</a></li>
+                        <li><a href = "/xiaoYuan" class = "item0">学科建设</a></li>
+                        <li><a href = "/renWu" class = "item0">杭师人物</a></li>
+                        <li><a href = "/picture" class = "item0">图说杭师</a></li>
                     </ul>
                 </section>
             </nav>
@@ -78,31 +78,33 @@
                 <div id = "subsmenu" class = "subsmenu"><i class = "thunews-bars"></i></div>
 
                 <ul id = "fybq">
-                    <li class = "item9654"><a href = "#">全部</a></li>
-                    <li class = "item9665"><a href = "#">国服学院</a></li>
-                    <li class = "item9666"><a href = "#">教育学院</a></li>
-                    <li class = "item9667"><a href = "#">理学院</a></li>
-                    <li class = "item9668"><a href = "#">沈钧儒法学院</a></li>
+                    <li class = "item9654"><a href = "/xiaoYuan">全部</a></li>
+                    <li class = "item9665"><a href = "/xiaoYuanGF">国服学院</a></li>
+                    <li class = "item9666"><a href = "/xiaoYuanJY">教育学院</a></li>
+                    <li class = "item9667"><a href = "/xiaoYuanLX">理学院</a></li>
+                    <li class = "item9668 current"><a href = "">沈钧儒法学院</a></li>
                 </ul>
             </nav>
 
 
             <ul class = "timenewslist">
                 {% for article in articles %}
-                    <li class = "clearfix">
-                        <div class = "mtime">
-                            <span><font class = "dd" id = "dd-1">{{ article.create_time|date:"d" }}</font></span>
-                            <font class = "ym" id = "ym-1">{{ article.create_time|date:"Y-m" }}</font>
-                        </div>
-                        <div class = "newscontent">
-                            <h3>
-                                <a href = "#" target = "_blank" class = "jiequ">{{ article.title }}</a>
-                            </h3>
-                            <p>
-                                {{ article.content | slice:"20" }}
-                            </p>
-                        </div>
-                    </li>
+                    {% autoescape off %}
+                        <li class = "clearfix">
+                            <div class = "mtime">
+                                <span><font class = "dd" id = "dd-1">{{ article.create_time|date:"d" }}</font></span>
+                                <font class = "ym" id = "ym-1">{{ article.create_time|date:"Y-m" }}</font>
+                            </div>
+                            <div class = "newscontent">
+                                <h3>
+                                    <a href = "/show/{{ article.id }}" target = "_blank" class = "jiequ">{{ article.title }}</a>
+                                </h3>
+                                <p>
+                                    {{ article.content | slice:"20" }}
+                                </p>
+                            </div>
+                        </li>
+                    {% endautoescape %}
                 {% endfor %}
             </ul>
         </section>
@@ -157,7 +159,8 @@
                             <figure>
                                 <br><br>
                                 <span class = "time"><i class = "thunews-clock-o"></i>{{ hot_spot.create_time }}</span>
-                                <figcaption><h3><a href = "#" class = "jiequ">{{ hot_spot.title }}</a></h3>
+                                <figcaption><h3>
+                                    <a href = "/show/{{ hot_spot.id }}" class = "jiequ">{{ hot_spot.title }}</a></h3>
                                 </figcaption>
                             </figure>
                         </li>

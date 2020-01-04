@@ -85,8 +85,11 @@ def xinWen(request):
     return render(request, 'xinWen.html', data)
 
 
-def article(request):
-    return render(request, 'article.html')
+def show(request, id):
+    article = Article.objects.filter(id=id).first()
+    hot_spots = Article.objects.filter(status=1).order_by('-id')[:5]
+    data = {'article': article, 'hot_spots': hot_spots}
+    return render(request, 'show.html', data)
 
 
 # member urls

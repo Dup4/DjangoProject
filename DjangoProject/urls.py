@@ -24,7 +24,7 @@ urlpatterns = [
     path('xiaoYuanSJR/', view.xiaoYuanSJR),
 
     path('xinWen/', view.xinWen),
-    path('article/', view.article),
+    path('show/<int:id>/', view.show),
     path('personalInformation/', view.personal_information),
     # member url
     path('member/', include('member.urls')),
