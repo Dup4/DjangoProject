@@ -18,7 +18,7 @@ python manage.py sqlmigrate administrator 0001
 ## 服务器环境
 ```shell script
 系统 CentOS7.4
-软件版本 Django2.0.2
+软件版本 Django3.0.1
 环境软件 Python3.6.4,Mysql5.6,PyMySQL(0.8.0),uwsgi 2.0.15,nginx/1.12.2
 systemctl restart uwsgi # 重启uwsgi
 systemctl restart nginx # 重启nginx
