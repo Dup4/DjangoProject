@@ -22,8 +22,6 @@ def welcome(request):
     return render(request, 'background/welcome.html')
 
 
-
-
 def dengLu(request):
     return render(request, 'dengLu.html')
 
@@ -83,6 +81,48 @@ def xinWen(request):
     hot_spots = Article.objects.filter(status=1).order_by('-id')[:5]
     data = {'articles': articles, 'hot_spots': hot_spots}
     return render(request, 'xinWen.html', data)
+
+
+def xinWenSXKD(request):
+    articles = Article.objects.filter(status=1, classify=1)
+    hot_spots = Article.objects.filter(status=1).order_by('-id')[:5]
+    data = {'articles': articles, 'hot_spots': hot_spots}
+    return render(request, 'xinWenSXKD.html', data)
+
+
+def xinWenXSKY(request):
+    articles = Article.objects.filter(status=1, classify=1)
+    hot_spots = Article.objects.filter(status=1).order_by('-id')[:5]
+    data = {'articles': articles, 'hot_spots': hot_spots}
+    return render(request, 'xinWenXSKY.html', data)
+
+
+def xinWenJYJS(request):
+    articles = Article.objects.filter(status=1, classify=1)
+    hot_spots = Article.objects.filter(status=1).order_by('-id')[:5]
+    data = {'articles': articles, 'hot_spots': hot_spots}
+    return render(request, 'xinWenJYJS.html', data)
+
+
+def xinWenZSJY(request):
+    articles = Article.objects.filter(status=1, classify=1)
+    hot_spots = Article.objects.filter(status=1).order_by('-id')[:5]
+    data = {'articles': articles, 'hot_spots': hot_spots}
+    return render(request, 'xinWenZSJY.html', data)
+
+
+def xinWenJLHZ(request):
+    articles = Article.objects.filter(status=1, classify=1)
+    hot_spots = Article.objects.filter(status=1).order_by('-id')[:5]
+    data = {'articles': articles, 'hot_spots': hot_spots}
+    return render(request, 'xinWenJLHZ.html', data)
+
+
+def xinWenSHFW(request):
+    articles = Article.objects.filter(status=1, classify=1)
+    hot_spots = Article.objects.filter(status=1).order_by('-id')[:5]
+    data = {'articles': articles, 'hot_spots': hot_spots}
+    return render(request, 'xinWenSHFW.html', data)
 
 
 def show(request, id):

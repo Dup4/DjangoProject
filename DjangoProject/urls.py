@@ -25,6 +25,14 @@ urlpatterns = [
     path('xiaoYuanSJR/', view.xiaoYuanSJR),
 
     path('xinWen/', view.xinWen),
+    path('xinWenSXKD/', view.xinWenSXKD),
+    path('xinWenXSKY/', view.xinWenXSKY),
+    path('xinWenJYJS/', view.xinWenJYJS),
+    path('xinWenZSJY/', view.xinWenZSJY),
+    path('xinWenJLHZ/', view.xinWenJLHZ),
+    path('xinWenSHFW/', view.xinWenSHFW),
+
+
     path('show/<int:id>/', view.show),
     path('personalInformation/', view.personal_information),
     # member url
