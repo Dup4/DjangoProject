@@ -42,12 +42,14 @@
     </div>
     <table class = "layui-hide" id = "adminList"></table>
     <script type = "text/html" id = "operateTpl">
-        <a title = "编辑" onclick = "WeAdminEdit('编辑','/admin/edit', <% d.id %>, 600, 400)">
-            <i class = "layui-icon layui-icon-edit"></i>
-        </a>
-        <a title = "删除" onclick = "member_del(this,'<% d.id %>')">
-            <i class = "layui-icon layui-icon-delete"></i>
-        </a>
+        {% if request.session.role %}
+            <a title = "编辑" onclick = "WeAdminEdit('编辑','/admin/edit', <% d.id %>, 600, 400)">
+                <i class = "layui-icon layui-icon-edit"></i>
+            </a>
+            <a title = "删除" onclick = "member_del(this,'<% d.id %>')">
+                <i class = "layui-icon layui-icon-delete"></i>
+            </a>
+        {% endif %}
     </script>
     {% csrf_token %}
 </div>

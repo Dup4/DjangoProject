@@ -8,6 +8,8 @@ from django.utils import timezone
 
 
 def login(request):
+    if request.session.get('admin_username') is not None:
+        return HttpResponseRedirect('/index/')
     return render(request, 'background/login.html')
 
 

@@ -124,6 +124,8 @@ def user_login(request):
             if check_password(password, user.password):
                 request.session['admin_username'] = user_name
                 request.session['admin_id'] = user.id
+                if user.role == 1:
+                    request.session['role'] = 1
                 data['code'] = 0
                 data['message'] = "登录成功"
             else:
